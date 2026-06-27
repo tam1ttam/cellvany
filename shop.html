@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Cửa Hàng - CELLVANY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0px;
+            text-align: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            margin-bottom: -5px;
+        }
+
+        .logo-text {
+            font-size: 16px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-icons button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .buy-now-btn {
+            background: #229954;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .breadcrumb h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb-nav {
+            color: #999;
+        }
+
+        .breadcrumb-nav a {
+            color: #27ae60;
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        .cửa-hàng-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .sidebar-section input[type="text"],
+        .sidebar-section input[type="range"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .giá-range {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .giá-range input {
+            width: 50%;
+        }
+
+        .filter-list {
+            list-style: none;
+        }
+
+        .filter-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-list input {
+            margin-right: 8px;
+        }
+
+        .filter-list label {
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .color-filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .color-dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .color-dot:hover {
+            border-color: #333;
+        }
+
+        /* Sản Phẩm Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: #999;
+        }
+
+        .product-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #333;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .product-label.discount {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-name {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .product-đánh giá {
+            color: #ffc107;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .product-giá {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .giá-current {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .giá-old {
+            font-size: 14px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .product-actions button {
+            flex: 1;
+            padding: 8px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .product-actions button:first-child {
+            background: #333;
+            color: white;
+            border-color: #333;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            gap: 0px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .pagination button,
+        .pagination a {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            background: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .pagination button.active {
+            background: #27ae60;
+            color: white;
+            border-color: #27ae60;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .cửa-hàng-container {
+                grid-template-columns: 1fr;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .product-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .header-container { padding: 0 15px; }
+            .section-title { font-size: 28px; }
+            nav ul { flex-direction: column; gap: 15px; }
+            .product-grid, .category-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .footer-container { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            body { font-size: 13px; }
+            .header-container { padding: 0 10px; }
+            .logo { font-size: 16px; }
+            .section-title { font-size: 22px; margin-bottom: 15px; }
+            .product-grid, .category-grid { grid-template-columns: 1fr; gap: 10px; }
+            .product-card { padding: 8px; }
+            .product-name { font-size: 13px; }
+            .product-price { font-size: 15px; }
+        }
+
+        @media (max-width: 360px) {
+            .section-title { font-size: 20px; }
+        }    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo"><img src="asset/logo.png" alt="CELLVANY Logo"><span class="logo-text">CELLVANY</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="about.html">Về Chúng Tôi</a></li>
+                    <li><a href="shop.html">Cửa Hàng</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Liên Hệ</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <button>🔍</button>
+                <button>👤</button>
+                <button>❤️</button>
+                <button>🛒 2</button>
+                <button class="buy-now-btn">Mua Ngay</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <h1>Cửa Hàng</h1>
+        <div class="breadcrumb-nav">
+            <a href="index.html">Trang Chủ</a> > <a href="shop.html">Cửa Hàng</a>
+        </div>
+    </section>
+
+    <!-- Cửa Hàng Content -->
+    <div class="cửa-hàng-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>Tìm Sản Phẩm</h3>
+                <input type="text" placeholder="Tìm kiếm sản phẩm">
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Danh Mục</h3>
+                <ul class="filter-list">
+                    <li><label><input type="checkbox"> Chăm Sóc Mẹ Mang Bầu</label></li>
+                    <li><label><input type="checkbox"> Chăm Sóc Mẹ Bỉm Sữa</label></li>
+                    <li><label><input type="checkbox"> Chăm Sóc Em Bé</label></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Loại Sản Phẩm</h3>
+                <ul class="filter-list">
+                    <li><label><input type="checkbox"> Chăm Sóc Tóc</label></li>
+                    <li><label><input type="checkbox"> Chăm Sóc Da</label></li>
+                    <li><label><input type="checkbox"> Chăm Sóc Body</label></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Sản Phẩm Status</h3>
+                <ul class="filter-list">
+                    <li><label><input type="checkbox"> Còn Hàng</label></li>
+                    <li><label><input type="checkbox"> Đang Khuyến Mãi</label></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Sản Phẩms -->
+        <section>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <p>Hiển Thị 13 Trên 13 Sản Phẩm</p>
+                <button
+                    style="background: #333; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">Lọc
+                    🔽</button>
+            </div>
+
+            <div class="product-grid">
+                <!-- Hair Care 1 -->
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Tóc</div>
+                    <div class="product-info">
+                        <div class="product-name">✨ Dầu Thoa Ngăn Ngừa Rạn Da Hữu Cơ</div>
+                        
+                        <div class="product-giá">
+                            <span class="giá-current">320.000₫</span>
+                        </div>
+                        <div class="product-actions">
+                            <button>Thêm Vào Giỏ</button>
+                            <button>❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hair Care 2 -->
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Tóc</div>
+                    <div class="product-info">
+                        <div class="product-name">✨ Kem Dưỡng Ẩm Ngăn Ngừa Sạm Nám Thai Kỳ</div>
+                        
+                        <div class="product-giá">
+                            <span class="giá-current">380.000₫</span>
+                        </div>
+                        <div class="product-actions">
+                            <button>Thêm Vào Giỏ</button>
+                            <button>❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hair Care 3 -->
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Tóc</div>
+                    <div class="product-info">
+                        <div class="product-name">✨ Kem Chống Nắng Vật Lý Bảo Vệ Dịu Nhẹ SPF 50+</div>
+                        
+                        <div class="product-giá">
+                            <span class="giá-current">280.000₫</span>
+                        </div>
+                        <div class="product-actions">
+                            <button>Thêm Vào Giỏ</button>
+                            <button>❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Face Care 1 -->
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Da</div>
+                    <div class="product-info">
+                        <div class="product-name">✨ 🌟 Sữa Rửa Mặt Tạo Bọt Dịu Nhẹ</div>
+                        
+                        <div class="product-giá">
+                            <span class="giá-current">240.000₫</span>
+                        </div>
+                        <div class="product-actions">
+                            <button>Thêm Vào Giỏ</button>
+                            <button>❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Face Care 2 -->
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Da</div>
+                    <div class="product-info">
+                        <div class="product-name">✨ 🌟 Serum Cấp Ẩm & Dưỡng Sáng</div>
+                        
+                        <div class="product-giá">
+                            <span class="giá-current">450.000₫</span>
+                        </div>
+                        <div class="product-actions">
+                            <button>Thêm Vào Giỏ</button>
+                            <button>❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Face Care 3 -->
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Da</div>
+                    <div class="product-info">
+                        <div class="product-name">✨ 🌟 Kem Dưỡng Khóa Ẩm Dịu Da</div>
+                        
+                        <div class="product-giá">
+                            <span class="giá-current">320.000₫</span>
+                        </div>
+                        <div class="product-actions">
+                            <button>Thêm Vào Giỏ</button>
+                            <button>❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Face Care 4 -->
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Da</div>
+                    <div class="product-info">
+                        <div class="product-name">✨ 🌟 Dầu Tẩy Trang Hoa Trà & Squalane</div>
+                        
+                        <div class="product-giá">
+                            <span class="giá-current">380.000₫</span>
+                        </div>
+                        <div class="product-actions">
+                            <button>Thêm Vào Giỏ</button>
+                            <button>❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Face Care 5 -->
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Da</div>
+                    <div class="product-info">
+                        <div class="product-name">✨ 🌟 Xịt Dưỡng Chất Khóa Ẩm Hoa Hồng</div>
+                        
+                        <div class="product-giá">
+                            <span class="giá-current">260.000₫</span>
+                        </div>
+                        <div class="product-actions">
+                            <button>Thêm Vào Giỏ</button>
+                            <button>❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Face Care 6 -->
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Da</div>
+                    <div class="product-info">
+                        <div class="product-name">✨ 🌟 Kem Chống Nắng Vật Lý SPF 50+</div>
+                        
+                        <div class="product-giá">
+                            <span class="giá-current">350.000₫</span>
+                        </div>
+                        <div class="product-actions">
+                            <button>Thêm Vào Giỏ</button>
+                            <button>❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Body Care 1 -->
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Body</div>
+                    <div class="product-info">
+                        <div class="product-name">✨ 🌟 Sữa Tắm Dịu Nhẹ Cấp Ẩm</div>
+                        
+                        <div class="product-giá">
+                            <span class="giá-current">280.000₫</span>
+                        </div>
+                        <div class="product-actions">
+                            <button>Thêm Vào Giỏ</button>
+                            <button>❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Body Care 2 -->
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Body</div>
+                    <div class="product-info">
+                        <div class="product-name">✨ 🌟 Kem Dưỡng Thể Lành Tính Mẹ & Bé</div>
+                        
+                        <div class="product-giá">
+                            <span class="giá-current">340.000₫</span>
+                        </div>
+                        <div class="product-actions">
+                            <button>Thêm Vào Giỏ</button>
+                            <button>❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Body Care 3 -->
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Body</div>
+                    <div class="product-info">
+                        <div class="product-name">✨ 🌟 Dầu Thoa Ngăn Ngừa Vết Rạn</div>
+                        
+                        <div class="product-giá">
+                            <span class="giá-current">420.000₫</span>
+                        </div>
+                        <div class="product-actions">
+                            <button>Thêm Vào Giỏ</button>
+                            <button>❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Body Care 4 -->
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Body</div>
+                    <div class="product-info">
+                        <div class="product-name">✨ 🌟 Kem Dưỡng Làm Dịu Đầu Ti</div>
+                        
+                        <div class="product-giá">
+                            <span class="giá-current">200.000₫</span>
+                        </div>
+                        <div class="product-actions">
+                            <button>Thêm Vào Giỏ</button>
+                            <button>❤️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button>← Prev</button>
+                <button class="active">1</button>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">...</a>
+                <a href="#">12</a>
+                <button>Next →</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p style="text-align: center; margin-bottom: 20px;">© 2024 CELLVANY. Bảo Lưu Mọi Quyền.</p>
+            <div class="footer-bottom">
+                <p><a href="#" style="color: #27ae60;">Điều Khoản Dịch Vụs</a> | <a href="#"
+                        style="color: #27ae60;">Chính Sách Bảo Mật</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

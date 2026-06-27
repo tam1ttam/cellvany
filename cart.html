@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Cửa Hàngping Giỏ Hàng - CELLVANY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        header {
+            background: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0px;
+            text-align: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            margin-bottom: -5px;
+        }
+
+        .logo-text {
+            font-size: 16px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-icons button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .buy-now-btn {
+            background: #229954;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .breadcrumb {
+            background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .breadcrumb h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb-nav {
+            color: #999;
+        }
+
+        .breadcrumb-nav a {
+            color: #27ae60;
+            text-decoration: none;
+        }
+
+        .giỏ hàng-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .giỏ hàng-table {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+        }
+
+        .giỏ hàng-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .giỏ hàng-table th {
+            background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .giỏ hàng-table td {
+            padding: 20px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product-item {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .product-item img {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+            border-radius: 5px;
+        }
+
+        .chi-tiet-san-pham h4 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .chi-tiet-san-pham p {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .quantity-input {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            width: fit-content;
+        }
+
+        .quantity-input button {
+            background: #f5f5f5;
+            border: none;
+            width: 30px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .quantity-input input {
+            width: 40px;
+            border: none;
+            text-align: center;
+        }
+
+        .giá {
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #27ae60;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .giỏ hàng-actions {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .continue-cửa-hàngping {
+            background: none;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .update-giỏ hàng {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .coupon-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .coupon-section h3 {
+            margin-bottom: 15px;
+        }
+
+        .coupon-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .coupon-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .coupon-input button {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .giỏ hàng-summary {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin-left: auto;
+        }
+
+        .giỏ hàng-summary h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 16px;
+            color: #27ae60;
+        }
+
+        .thanh toán-btn {
+            width: 100%;
+            background: #333;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .giỏ hàng-table {
+                overflow-x: auto;
+            }
+
+            .giỏ hàng-summary {
+                max-width: 100%;
+                margin-left: 0;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 15px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .product-grid,
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 13px;
+            }
+
+            .header-container {
+                padding: 0 10px;
+            }
+
+            .logo {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0px;
+                text-align: center;
+            }
+
+            .logo img {
+                height: 60px;
+                width: auto;
+                object-fit: contain;
+                display: block;
+                margin-bottom: -5px;
+            }
+
+            .logo-text {
+                font-size: 16px;
+                font-weight: bold;
+                color: #27ae60;
+            }
+
+            .product-grid,
+            .category-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .product-card {
+                padding: 8px;
+            }
+
+            .product-name {
+                font-size: 13px;
+            }
+
+            .product-price {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .section-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo"><img src="asset/logo.png" alt="CELLVANY Logo"><span class="logo-text">CELLVANY</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="about.html">Về Chúng Tôi</a></li>
+                    <li><a href="shop.html">Cửa Hàng</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Liên Hệ</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <button>🔍</button>
+                <button>👤</button>
+                <button>❤️</button>
+                <button>🛒 2</button>
+                <button class="buy-now-btn">Mua Ngay</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <h1>My Cửa Hàngping Giỏ Hàng</h1>
+        <div class="breadcrumb-nav">
+            <a href="index.html">Trang Chủ</a> > <a href="shop.html">Danh Mục</a> > My Cửa Hàngping Giỏ Hàng
+        </div>
+    </section>
+
+    <!-- Giỏ Hàng Content -->
+    <div class="giỏ hàng-container">
+        <!-- Giỏ Hàng Table -->
+        <div class="giỏ hàng-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sản Phẩm</th>
+                        <th>Giá</th>
+                        <th>Số Lượng</th>
+                        <th>Subtotal</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="product-item">
+                                <img src="#" alt="Sản Phẩm">
+                                <div class="chi-tiet-san-pham">
+                                    <h4>Bond Shelving - Ceiling Mounted</h4>
+                                    <p>SKU: BS-CM-001</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>116.00$</td>
+                        <td>
+                            <div class="quantity-input">
+                                <button>−</button>
+                                <input type="number" value="1">
+                                <button>+</button>
+                            </div>
+                        </td>
+                        <td class="giá">116.00$</td>
+                        <td><button class="remove-btn">🗑️</button></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="product-item">
+                                <img src="#" alt="Sản Phẩm">
+                                <div class="chi-tiet-san-pham">
+                                    <h4>Kem Làm Sáng Da Tươi Tốt</h4>
+                                    <p>SKU: LGC-002</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>56.00$</td>
+                        <td>
+                            <div class="quantity-input">
+                                <button>−</button>
+                                <input type="number" value="2">
+                                <button>+</button>
+                            </div>
+                        </td>
+                        <td class="giá">112.00$</td>
+                        <td><button class="remove-btn">🗑️</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Giỏ Hàng Actions -->
+        <div class="giỏ hàng-actions">
+            <button class="continue-cửa-hàngping">← Continue Cửa Hàngping</button>
+            <button class="update-giỏ hàng">Update Giỏ Hàng →</button>
+        </div>
+
+        <!-- Coupon & Summary Row -->
+        <div style="display: grid; grid-template-columns: 1fr 400px; gap: 20px;">
+            <!-- Coupon Section -->
+            <div class="coupon-section">
+                <h3>Coupon</h3>
+                <p style="margin-bottom: 15px; color: #666;">Enter your coupon code if you have one.</p>
+                <div class="coupon-input">
+                    <input type="text" placeholder="Enter coupon code">
+                </div>
+                <button
+                    style="background: #333; color: white; padding: 10px 30px; border: none; border-radius: 5px; cursor: pointer; font-weight: 600;">Apply
+                    Coupon →</button>
+            </div>
+
+            <!-- Giỏ Hàng Summary -->
+            <div class="giỏ hàng-summary">
+                <h3>Giỏ Hàng Totals</h3>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>228.00$</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span style="text-align: right;">
+                        <div style="font-size: 14px; color: #666; font-weight: normal;">Flat rate: $8.00</div>
+                        <div style="font-size: 12px; color: #999; font-weight: normal;">Shipping to Bangladesh</div>
+                        <a href="#"
+                            style="color: #27ae60; font-size: 12px; text-decoration: none; font-weight: normal;">Change
+                            address</a>
+                    </span>
+                </div>
+                <div class="summary-row">
+                    <span>Total</span>
+                    <span>228.00$</span>
+                </div>
+                <button class="thanh toán-btn">Proceed To Thanh Toán →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sản Phẩm Featured -->
+    <section style="background: #fafafa; padding: 60px 0; margin-top: 80px;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <h2 style="font-size: 28px; font-weight: bold; color: #27ae60; margin-bottom: 40px; text-align: center;">🌿
+                Sản Phẩm CELLVANY - Mua Theo Giai Đoạn</h2>
+
+            <!-- MUA THEO GIAI ĐOẠN (SHORT) -->
+            <div
+                style="margin: 50px 0 30px; padding: 20px; background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%); border-radius: 10px; text-align: center;">
+                <h3 style="font-size: 20px; font-weight: bold; color: #27ae60; margin-bottom: 15px;">MUA THEO GIAI ĐOẠN
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 15px;">
+                    <div>
+                        <div style="font-size: 28px; margin-bottom: 8px;">🤰</div>
+                        <div style="font-weight: 600; color: #333;">Mẹ Mang Bầu</div>
+                        <div style="font-size: 12px; color: #666;">3 sản phẩm</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 28px; margin-bottom: 8px;">🍼</div>
+                        <div style="font-weight: 600; color: #333;">Mẹ Bỉm Sữa</div>
+                        <div style="font-size: 12px; color: #666;">11 sản phẩm</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 28px; margin-bottom: 8px;">👶</div>
+                        <div style="font-weight: 600; color: #333;">Chăm Sóc Em Bé</div>
+                        <div style="font-size: 12px; color: #666;">3 sản phẩm</div>
+                    </div>
+                </div>
+                <a href="products.html"
+                    style="display: inline-block; background: #27ae60; color: white; padding: 10px 30px; border-radius: 5px; text-decoration: none; font-weight: 600;">Khám
+                    Phá Danh Mục →</a>
+            </div>
+        </div>
+
+        <!-- CHĂM SÓC MẸ BỈM SỮA -->
+        <div style="margin-bottom: 40px; padding-left: 10px; border-left: 4px solid #27ae60;">
+            <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">🍼 CHĂM SÓC MẸ BỈM SỮA</h3>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
+                    <div class="product-info">
+                        <div class="product-name">Dầu Gội Phục Hồi Thảo Mộc Thuần Chay</div>
+                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+                            Tóc</p>
+                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Tinh chất bưởi năm
+                            roi, bồ kết tây, rễ đương quy. Giải quyết tận gốc nỗi lo rụng tóc sau sinh.</p>
+                        <div class="product-giá">320.000₫</div>
+                        <button class="product-button">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
+                    <div class="product-info">
+                        <div class="product-name">Dầu Xả Suôn Mượt Sinh Học</div>
+                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+                            Tóc</p>
+                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Dầu dừa phân đoạn và
+                            bơ hạt mỡ hữu cơ ép lạnh. Giải pháp thay thế Silicon, tóc suôn mượt tự nhiên.</p>
+                        <div class="product-giá">380.000₫</div>
+                        <button class="product-button">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
+                    <div class="product-info">
+                        <div class="product-name">Tinh Chất Tẩy Tế Bào Chết Da Đầu từ Muối Biển & Bạc Hà</div>
+                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+                            Tóc</p>
+                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Muối hồng Himalaya hạt
+                            mịn và tinh dầu bạc hà. Giải pháp cho da đầu bết dầu, ngứa do thay đổi nội tiết tố.</p>
+                        <div class="product-giá">280.000₫</div>
+                        <button class="product-button">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
+                    <div class="product-info">
+                        <div class="product-name">Sữa Rửa Mặt Tạo Bọt Dịu Nhẹ</div>
+                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+                            Da</p>
+                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Chiết xuất hoa cúc xu
+                            và rau má vùng cao. Dành riêng cho làn da nhạy cảm mẹ bỉm, độ pH 5.5 hoàn hảo.</p>
+                        <div class="product-giá">240.000₫</div>
+                        <button class="product-button">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
+                    <div class="product-info">
+                        <div class="product-name">Serum Cấp Ẩm & Dưỡng Sáng Mờ Thâm</div>
+                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+                            Da</p>
+                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Vitamin B3 từ cám gạo
+                            và Hyaluronic Acid đa tầng. Khôi phục làn da rạng rỡ, mờ thâm quầng dưới mắt.</p>
+                        <div class="product-giá">450.000₫</div>
+                        <button class="product-button">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
+                    <div class="product-info">
+                        <div class="product-name">Kem Dưỡng Khóa Ẩm Dịu Da</div>
+                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+                            Da</p>
+                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Ceramide chiết xuất từ
+                            mầm yến mạch hữu cơ. Bước khóa ẩm hoàn hảo để giữ các dưỡng chất bên dưới da.</p>
+                        <div class="product-giá">320.000₫</div>
+                        <button class="product-button">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
+                    <div class="product-info">
+                        <div class="product-name">Sữa Tắm Dịu Nhẹ Cấp Ẩm</div>
+                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+                            Body</p>
+                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Tinh dầu oải hương
+                            Pháp và gel nha đam hữu cơ. Biến phòng tắm thành không gian Spa, xoa dịu hệ thần kinh.</p>
+                        <div class="product-giá">280.000₫</div>
+                        <button class="product-button">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
+                    <div class="product-info">
+                        <div class="product-name">Dầu Tẩy Trang Hoa Trà & Squalane Thực Vật</div>
+                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+                            Da</p>
+                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Dầu hoa trà hữu cơ
+                            (Camellia Nhật Bản) và Squalane chiết xuất từ quả ô-liu. Tự nhũ hóa thành dạng sữa mịn.</p>
+                        <div class="product-giá">380.000₫</div>
+                        <button class="product-button">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
+                    <div class="product-info">
+                        <div class="product-name">Xịt Dưỡng Chất (Toner Mist) Khóa Ẩm Tinh Chất Hoa Hồng</div>
+                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+                            Da</p>
+                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Nước cất hoa hồng hữu
+                            cơ nguyên chất và nước ép lô hội. Thiết kế dạng xịt phun sương tiện lợi cho mẹ bỉm.</p>
+                        <div class="product-giá">260.000₫</div>
+                        <button class="product-button">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
+                    <div class="product-info">
+                        <div class="product-name">Kem Dưỡng Làm Dịu và Bảo Vệ Đầu Ti</div>
+                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+                            Đặc Trị</p>
+                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Bơ cacao hữu cơ, sáp
+                            candelilla thực vật và chiết xuất hoa cúc xu. Food-grade 100%, không cần lau rửa trước khi
+                            cho bé bú.</p>
+                        <div class="product-giá">200.000₫</div>
+                        <button class="product-button">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
+                    <div class="product-info">
+                        <div class="product-name">Kem Dưỡng Thể Lành Tính cho Mẹ & Bé</div>
+                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+                            Body</p>
+                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Dầu hạnh nhân ngọt và
+                            Vitamin E chiết xuất từ hướng dương. 100% không hương liệu nhân tạo, an toàn massage cho bé.
+                        </p>
+                        <div class="product-giá">340.000₫</div>
+                        <button class="product-button">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHĂM SÓC EM BÉ -->
+        <div style="margin-bottom: 40px; padding-left: 10px; border-left: 4px solid #27ae60;">
+            <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">👶 CHĂM SÓC EM BÉ</h3>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Em Bé</div>
+                    <div class="product-info">
+                        <div class="product-name">Tắm Gội Toàn Thân 2-trong-1 Dịu Nhẹ cho Bé</div>
+                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Tắm Gội Em
+                            Bé</p>
+                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Chiết xuất bơ hữu cơ,
+                            protein lúa mạch và tinh dầu oải hương nhẹ. Dịu nhẹ với da non nớt của bé, không làm khô da.
+                        </p>
+                        <div class="product-giá">300.000₫</div>
+                        <button class="product-button">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Em Bé</div>
+                    <div class="product-info">
+                        <div class="product-name">Kem Dưỡng Ẩm Làm Dịu Chàm Sữa & Hăm Tã</div>
+                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+                            Đặc Trị</p>
+                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Chiết xuất súp lơ hoa
+                            vàng hữu cơ và oxid kẽm tự nhiên. Giải pháp làm dịu chàm sữa, hăm tã hiệu quả, an toàn 100%.
+                        </p>
+                        <div class="product-giá">280.000₫</div>
+                        <button class="product-button">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Chăm Sóc Em Bé</div>
+                    <div class="product-info">
+                        <div class="product-name">Kem Dưỡng Thể Lành Tính cho Mẹ & Bé (Sản phẩm dùng chung)</div>
+                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+                            Chung</p>
+                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Dầu hạnh nhân ngọt và
+                            Vitamin E chiết xuất từ hướng dương. Sản phẩm dùng chung cho Mẹ & Bé, 100% lành tính.</p>
+                        <div class="product-giá">340.000₫</div>
+                        <button class="product-button">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Promo Banner -->
+        <div class="promo">
+            <h2>Mua Theo Giai Đoạn - Tiết Kiệm Hơn</h2>
+            <p>Bộ sản phẩm chuyên biệt cho từng giai đoạn: mang bầu, bỉm sữa, và chăm sóc em bé</p>
+            <a href="products.html" class="promo-btn">Xem Đầy Đủ →</a>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 CELLVANY. Bảo Lưu Mọi Quyền. | <a href="#" style="color: #27ae60;">Điều Khoản Dịch Vụs</a> | <a
+                href="#" style="color: #27ae60;">Chính Sách Bảo Mật</a></p>
+    </footer>
+</body>
+
+</html>

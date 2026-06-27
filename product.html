@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Sản Phẩm Details - CELLVANY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        header {
+            background: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0px;
+            text-align: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            margin-bottom: -5px;
+        }
+
+        .logo-text {
+            font-size: 16px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-icons button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .buy-now-btn {
+            background: #229954;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .breadcrumb {
+            background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb a {
+            color: #27ae60;
+            text-decoration: none;
+        }
+
+        .product-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .main-image {
+            background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+            height: 500px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            position: relative;
+        }
+
+        .stock-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #ffc107;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .thumbnail-images {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .thumbnail {
+            background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+            height: 100px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            border: 2px solid transparent;
+        }
+
+        .thumbnail:hover {
+            border-color: #27ae60;
+        }
+
+        .product-info h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-đánh giá {
+            color: #ffc107;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .giá-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .current-giá {
+            font-size: 24px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .old-giá {
+            font-size: 16px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .discount-badge {
+            background: #27ae60;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .color-selector {
+            margin: 20px 0;
+        }
+
+        .color-selector h4 {
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .color-dot {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #ddd;
+        }
+
+        .color-dot.active {
+            border-color: #27ae60;
+        }
+
+        .quantity-section {
+            margin: 20px 0;
+        }
+
+        .quantity-input {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: fit-content;
+            overflow: hidden;
+        }
+
+        .quantity-input button {
+            background: #f5f5f5;
+            border: none;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .quantity-input input {
+            border: none;
+            width: 50px;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .btn-add-giỏ hàng {
+            flex: 1;
+            background: #333;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .btn-buy-now {
+            flex: 1;
+            background: #27ae60;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .danh sách yêu thích-btn {
+            background: none;
+            border: 1px solid #ddd;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .product-meta {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .product-meta p {
+            margin-bottom: 8px;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .payment-icon {
+            width: 40px;
+            height: 30px;
+            background: #ddd;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .tabs {
+            margin-top: 50px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid #12ae2a;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-button.active {
+            border-bottom-color: #32b41e;
+            color: #17a55c;
+        }
+
+        .tab-content {
+            padding: 30px 0;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .featured-products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .featured-product {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .featured-product-image {
+            background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+
+        .featured-product-info {
+            padding: 15px;
+        }
+
+        .featured-product-name {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .featured-product-giá {
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 15px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .product-grid,
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 13px;
+            }
+
+            .header-container {
+                padding: 0 10px;
+            }
+
+            .logo {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0px;
+                text-align: center;
+            }
+
+            .logo img {
+                height: 60px;
+                width: auto;
+                object-fit: contain;
+                display: block;
+                margin-bottom: -5px;
+            }
+
+            .logo-text {
+                font-size: 16px;
+                font-weight: bold;
+                color: #27ae60;
+            }
+
+            .product-grid,
+            .category-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .product-card {
+                padding: 8px;
+            }
+
+            .product-name {
+                font-size: 13px;
+            }
+
+            .product-price {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .section-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo"><img src="asset/logo.png" alt="CELLVANY Logo"><span class="logo-text">CELLVANY</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="about.html">Về Chúng Tôi</a></li>
+                    <li><a href="shop.html">Cửa Hàng</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Liên Hệ</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <button>🔍</button>
+                <button>👤</button>
+                <button>❤️</button>
+                <button>🛒 0</button>
+                <button class="buy-now-btn">Mua Ngay</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Trang Chủ</a> > <a href="shop.html">Cửa Hàng</a> > Sản Phẩm Details
+    </div>
+
+    <!-- Sản Phẩm Details -->
+    <div class="product-container">
+        <!-- Images -->
+        <div class="product-images">
+            <div class="main-image">
+                <span class="stock-badge">In stock</span>
+                Sản Phẩm Main Image
+            </div>
+            <div class="thumbnail-images">
+                <div class="thumbnail">Thumbnail 1</div>
+                <div class="thumbnail">Thumbnail 2</div>
+                <div class="thumbnail">Thumbnail 3</div>
+                <div class="thumbnail">Thumbnail 4</div>
+            </div>
+        </div>
+
+        <!-- Sản Phẩm Info -->
+        <div class="product-info">
+            <h1>Mixe Matte Lipstick</h1>
+
+            <div class="giá-section">
+                <span class="current-giá">$112</span>
+                <span class="old-giá">$225 USD</span>
+                <span class="discount-badge">48% OFF</span>
+            </div>
+
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+                in some form, by injected humours.</p>
+
+            <!-- Color Selector -->
+            <div class="color-selector">
+                <h4>Chọn Màu: 🔴 RED</h4>
+                <div class="color-options">
+                    <div class="color-dot active" style="background: #ff0000;" title="Red"></div>
+                    <div class="color-dot" style="background: #0000ff;" title="Blue"></div>
+                    <div class="color-dot" style="background: #ffff00;" title="Yellow"></div>
+                    <div class="color-dot" style="background: #ffc0cb;" title="Pink"></div>
+                    <div class="color-dot" style="background: #ff8800;" title="Orange"></div>
+                    <div class="color-dot" style="background: #ff00ff;" title="Magenta"></div>
+                    <div class="color-dot" style="background: #00ffff;" title="Cyan"></div>
+                </div>
+            </div>
+
+            <!-- Số Lượng -->
+            <div class="quantity-section">
+                <h4 style="margin-bottom: 10px;">Số Lượng</h4>
+                <div class="quantity-input">
+                    <button>−</button>
+                    <input type="number" value="01">
+                    <button>+</button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn-add-giỏ hàng">ADD TO CART</button>
+                <button class="btn-buy-now">BUY NOW</button>
+                <a href="danh sách yêu thích.html" class="danh sách yêu thích-btn">❤️</a>
+            </div>
+
+            <!-- Sản Phẩm Meta -->
+            <div class="product-meta">
+                <p><strong>SKU:</strong> N1B7SK0V44</p>
+                <p><strong>Danh Mục:</strong> Sắc Đẹp & Cosmetics</p>
+                <p><strong>Type:</strong> Cream</p>
+            </div>
+
+            <!-- Payment Methods -->
+            <h4 style="margin-top: 20px; margin-bottom: 10px;">Guranteed Safe Thanh Toán</h4>
+            <div class="payment-methods">
+                <div class="payment-icon">PayPal</div>
+                <div class="payment-icon">Visa</div>
+                <div class="payment-icon">MC</div>
+                <div class="payment-icon">Stripe</div>
+                <div class="payment-icon">MC</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="product-container">
+        <div class="tabs" style="grid-column: 1 / -1;">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="showTab('description')">Mô Tả</button>
+                <button class="tab-button" onclick="showTab('info')">Additional information</button>
+                <button class="tab-button" onclick="showTab('reviews')">Đánh Giá (0)</button>
+            </div>
+
+            <div id="description" class="tab-content active">
+                <h3 style="font-size: 20px; margin-bottom: 15px;">Long Mô Tả</h3>
+                <p>This luxurious matte lipstick delivers rich, vibrant color with a smooth, matte finish. Its
+                    high-pigment payoff ensures full coverage instantly, giving you a confident look that lasts from
+                    morning to night without fading or smudging.
+
+                <p style="margin-top: 15px;">Infused with nourishing oils and softening ingredients, this lipstick keeps
+                    your lips feeling moisturized and comfortable—never dry, flaky, or tight. The velvety texture glides
+                    on effortlessly, offering a plush matte look that's ideal for all-day wear.
+
+                <p style="margin-top: 15px;">Designed for all-day wear and all-skin-tone comfort, this lipstick brings
+                    together the looking power, elegant color, and a premium feel—making it a must-have in every makeup
+                    routine.</p>
+            </div>
+
+            <div id="info" class="tab-content">
+                <h3 style="font-size: 20px; margin-bottom: 15px;">Additional Information</h3>
+                <p><strong>Brand:</strong> CELLVANY</p>
+                <p><strong>Type:</strong> Matte Lipstick</p>
+                <p><strong>Ingredients:</strong> Natural waxes, oils, pigments</p>
+                <p><strong>Size:</strong> 3.5g</p>
+                <p><strong>Coverage:</strong> Full Coverage</p>
+            </div>
+
+            <div id="reviews" class="tab-content">
+                <h3 style="font-size: 20px; margin-bottom: 15px;">Customer Đánh Giá</h3>
+                <p>No reviews yet. Be the first to review this product!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MUA THEO GIAI ĐOẠN (SHORT) -->
+    <div
+        style="margin: 50px 20px; padding: 20px; background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%); border-radius: 10px; text-align: center; max-width: 1200px; margin-left: auto; margin-right: auto;">
+        <h3 style="font-size: 20px; font-weight: bold; color: #27ae60; margin-bottom: 15px;">MUA THEO GIAI ĐOẠN</h3>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 15px;">
+            <div>
+                <div style="font-size: 28px; margin-bottom: 8px;">🤰</div>
+                <div style="font-weight: 600; color: #333;">Mẹ Mang Bầu</div>
+                <div style="font-size: 12px; color: #666;">3 sản phẩm</div>
+            </div>
+            <div>
+                <div style="font-size: 28px; margin-bottom: 8px;">🍼</div>
+                <div style="font-weight: 600; color: #333;">Mẹ Bỉm Sữa</div>
+                <div style="font-size: 12px; color: #666;">11 sản phẩm</div>
+            </div>
+            <div>
+                <div style="font-size: 28px; margin-bottom: 8px;">👶</div>
+                <div style="font-weight: 600; color: #333;">Chăm Sóc Em Bé</div>
+                <div style="font-size: 12px; color: #666;">3 sản phẩm</div>
+            </div>
+        </div>
+        <a href="products.html"
+            style="display: inline-block; background: #27ae60; color: white; padding: 10px 30px; border-radius: 5px; text-decoration: none; font-weight: 600;">Khám
+            Phá Danh Mục →</a>
+    </div>
+
+    <!-- Featured Sản Phẩms -->
+    <section style="background: #fafafa; padding: 60px 0; margin-top: 80px;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <h2 style="font-size: 28px; font-weight: bold; color: #27ae60; margin-bottom: 40px; text-align: center;">🌿
+                Sản Phẩm CELLVANY Khác</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div
+                    style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+                    <div style="background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%); height: 200px;"></div>
+                    <div style="padding: 15px;">
+                        <div style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">🌟 Dầu Thoa
+                            Ngăn Ngừa Vết Rạn</div>
+                        <div style="font-size: 11px; color: #27ae60; margin-bottom: 8px; text-transform: uppercase;">
+                            Chăm Sóc Đặc Trị</div>
+                        <div style="font-size: 11px; color: #666; margin-bottom: 10px; line-height: 1.3;">Dầu Argan ép
+                            lạnh, dầu tầm xuân. Từ tháng thứ 3 thai kỳ.</div>
+
+                        <div style="font-size: 16px; font-weight: bold; color: #27ae60; margin-bottom: 10px;">420.000₫
+                        </div>
+                        <button
+                            style="width: 100%; padding: 10px; background: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 600;">Thêm
+                            Vào Giỏ</button>
+                    </div>
+                </div>
+
+                <div
+                    style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+                    <div style="background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%); height: 200px;"></div>
+                    <div style="padding: 15px;">
+                        <div style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">🌟 Kem Dưỡng
+                            Làm Dịu Đầu Ti</div>
+                        <div style="font-size: 11px; color: #27ae60; margin-bottom: 8px; text-transform: uppercase;">
+                            Chăm Sóc Đặc Trị</div>
+                        <div style="font-size: 11px; color: #666; margin-bottom: 10px; line-height: 1.3;">Bơ cacao hữu
+                            cơ, sáp candelilla. Dành cho mẹ bỉm sữa.</div>
+
+                        <div style="font-size: 16px; font-weight: bold; color: #27ae60; margin-bottom: 10px;">200.000₫
+                        </div>
+                        <button
+                            style="width: 100%; padding: 10px; background: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 600;">Thêm
+                            Vào Giỏ</button>
+                    </div>
+                </div>
+
+                <div
+                    style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+                    <div style="background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%); height: 200px;"></div>
+                    <div style="padding: 15px;">
+                        <div style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">🌟 Sữa Tắm
+                            Dịu Nhẹ Cấp Ẩm</div>
+                        <div style="font-size: 11px; color: #27ae60; margin-bottom: 8px; text-transform: uppercase;">
+                            Chăm Sóc Cơ Thể</div>
+                        <div style="font-size: 11px; color: #666; margin-bottom: 10px; line-height: 1.3;">Tinh dầu oải
+                            hương Pháp và gel nha đam hữu cơ. Biến phòng tắm thành Spa.</div>
+
+                        <div style="font-size: 16px; font-weight: bold; color: #27ae60; margin-bottom: 10px;">280.000₫
+                        </div>
+                        <button
+                            style="width: 100%; padding: 10px; background: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 600;">Thêm
+                            Vào Giỏ</button>
+                    </div>
+                </div>
+
+                <div
+                    style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+                    <div style="background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%); height: 200px;"></div>
+                    <div style="padding: 15px;">
+                        <div style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">🌟 Kem Chống
+                            Nắng Vật Lý SPF 50+</div>
+                        <div style="font-size: 11px; color: #27ae60; margin-bottom: 8px; text-transform: uppercase;">
+                            Chăm Sóc Da</div>
+                        <div style="font-size: 11px; color: #666; margin-bottom: 10px; line-height: 1.3;">Kẽm oxit tự
+                            nhiên (Zinc Oxide), chiết xuất trà xanh. An toàn khi mang bầu.</div>
+
+                        <div style="font-size: 16px; font-weight: bold; color: #27ae60; margin-bottom: 10px;">350.000₫
+                        </div>
+                        <button
+                            style="width: 100%; padding: 10px; background: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 600;">Thêm
+                            Vào Giỏ</button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="products.html"
+                    style="display: inline-block; background: #27ae60; color: white; padding: 15px 40px; border-radius: 5px; text-decoration: none; font-weight: 600; font-size: 16px;">Xem
+                    Toàn Bộ Danh Mục →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 CELLVANY. Bảo Lưu Mọi Quyền. | <a href="#" style="color: #27ae60;">Điều Khoản Dịch Vụs</a> | <a
+                href="#" style="color: #27ae60;">Chính Sách Bảo Mật</a></p>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Remove active from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

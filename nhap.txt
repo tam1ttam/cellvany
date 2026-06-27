@@ -1,0 +1,181 @@
+# RULE
+1. Các hình cần thiết để trong thư mục asset với tên tương ứng 
+
+# TODO
+1. Hãy dựa vào danh sách dưới đây để ghi vào data.json tương ứng theo danh mục
+        Các sản phẩm 
+        . DANH MỤC CHĂM SÓC TÓC (HAIR CARE)
+        🌟 Dầu gội phục hồi thảo mộc thuần chay (Herbal Repair Shampoo)
+        Thành phần tự nhiên: Tinh chất bưởi năm roi kết hợp cùng bồ kết tây và rễ đương quy cô đặc.
+        Mô tả sản phẩm: Khởi đầu ngày mới với liệu pháp làm sạch da đầu dịu nhẹ từ cung đình. Sản phẩm giải quyết tận gốc nỗi lo rụng tóc sau sinh nhờ cơ chế kích thích tuần hoàn máu dưới da đầu của rễ đương quy, kết hợp vỏ bưởi kháng khuẩn. Công thức tạo bọt tự nhiên từ quả bồ kết giúp làm sạch mà không làm mất đi lớp dầu tự nhiên, để lại hương thơm thảo mộc mộc mạc, thư giãn, giúp mẹ giải tỏa áp lực chăm con.
+        🌟 Dầu xả suôn mượt sinh học (Nutrient Conditioner)
+        Thành phần tự nhiên: Dầu dừa phân đoạn và bơ hạt mỡ (Shea Butter) hữu cơ ép lạnh.
+        Mô tả sản phẩm: Giải pháp thay thế hoàn toàn cho Silicon công nghiệp gây bít tắc da đầu. Dầu xả CELLVANY ứng dụng các acid béo mạch ngắn từ dầu dừa hữu cơ thấm sâu và bao bọc từng sợi tóc khô xơ, gãy rụng do thay đổi nội tiết tố. Tóc trở nên suôn mượt, bồng bềnh tự nhiên và dễ chải ngay cả khi bận rộn không kịp sấy tóc.
+        2. DANH MỤC CHĂM SÓC DA MẶT (FACE CARE)
+        🌟 Sữa rửa mặt tạo bọt dịu nhẹ (Gentle Cleansing Foam)
+        Thành phần tự nhiên: Chiết xuất hoa cúc xu (Chamomile) và rau má vùng cao.
+        Mô tả sản phẩm: Dành riêng cho làn da nhạy cảm, dễ kích ứng của mẹ bầu và mẹ sau sinh. Với độ pH 5.5 hoàn hảo, lớp bọt bông mịn như mây từ rau má giúp lấy đi bụi mịn mà không gây khô căng. Chiết xuất hoa cúc xu đóng vai trò như một "liều thuốc làm dịu", giảm ngay các vết mẩn đỏ và củng cố độ đàn hồi tự nhiên cho da ngay từ bước làm sạch.
+        🌟 Serum cấp ẩm & dưỡng sáng mờ thâm (Intensive Hydrating Serum)
+        Thành phần tự nhiên: Vitamin B3 tinh khiết chiết xuất từ cám gạo và nấm men thực vật, kết hợp Hyaluronic Acid (HA) đa tầng tự nhiên.
+        Mô tả sản phẩm: Khôi phục làn da rạng rỡ sau những đêm dài thức muộn cùng bé. Sự kết hợp giữa HA đa tầng và Vitamin B3 nguồn gốc từ cám gạo tự nhiên tạo nên một màng nước mỏng nhẹ nuôi dưỡng da. Serum thẩm thấu chỉ sau 30 giây, giúp ức chế hắc tố melanin gây sạm nám sau sinh, làm đều màu da và se khít lỗ chân lông một cách an toàn nhất cho cả dòng sữa mẹ.
+        🌟 Kem dưỡng khóa ẩm dịu da (Lock-in Cream)
+        Thành phần tự nhiên: Ceramide chiết xuất từ mầm yến mạch hữu cơ.
+        Mô tả sản phẩm: Bước khóa ẩm hoàn hảo cho quy trình skincare tối giản. Sử dụng lớp màng lipid thông minh được phân tách từ yến mạch, kem dưỡng giúp "khóa chặt" các dưỡng chất bên dưới da, bảo vệ da khỏi máy lạnh suốt đêm. Làn da mẹ sẽ được phục hồi, căng mọng và tràn đầy sức sống vào sáng hôm sau chỉ với một bước thoa nhanh.
+        3. DANH MỤC CHĂM SÓC CƠ THỂ (BODY CARE)
+        🌟 Sữa tắm dịu nhẹ cấp ẩm (Gentle Body Wash)
+        Thành phần tự nhiên: Tinh dầu oải hương (Lavender) Pháp và gel nha đam hữu cơ.
+        Mô tả sản phẩm: Biến phòng tắm thành không gian Spa "healing" riêng biệt của mẹ. Sữa tắm không chứa xà phòng công nghiệp, nhẹ nhàng nuôi dưỡng làn da cơ thể mịn màng nhờ gel nha đam cấp nước. Hương thơm tự nhiên nguyên bản từ tinh dầu oải hương giúp xoa dịu hệ thần kinh, giảm stress và mang lại giấc ngủ sâu hơn cho mẹ sau một ngày dài.
+        🌟 Kem dưỡng thể lành tính cho Mẹ & Bé (Nurturing Body Lotion)
+        Thành phần tự nhiên: Dầu hạnh nhân ngọt và Vitamin E chiết xuất từ hướng dương.
+        Mô tả sản phẩm: Sự thấu hiểu nhân đôi trong một tuýp kem dưỡng. Công thức 100% không hương liệu nhân tạo, kết hợp dầu hạnh nhân siêu lành tính giúp mẹ xóa mờ các vết rạn da, sần sùi ở vùng bụng, đùi. Đồng thời, chất kem dịu nhẹ này hoàn toàn an toàn để mẹ dùng massage, dưỡng ẩm toàn thân cho bé yêu, giúp gắn kết tình mẫu tử thiêng liêng.
+        1. MỞ RỘNG: DANH MỤC CHĂM SÓC TÓC (HAIR CARE)
+        🌟 Tinh chất tẩy tế bào chết da dầu từ Muối biển & Bạc hà (Scalp Detox Scrub)
+        Thành phần tự nhiên: Muối hồng Himalaya hạt mịn, tinh dầu bạc hà (Peppermint) và chiết xuất cây phỉ.
+        Mô tả sản phẩm: Giải pháp "cứu cánh" cho tình trạng da đầu bết dầu, nhanh ngứa và có mùi do thay đổi nội tiết tố sau sinh. Các hạt muối khoáng tự nhiên nhẹ nhàng lấy đi tế bào chết, thông thoáng nang tóc, kết hợp với tinh dầu bạc hà mang lại cảm giác mát lạnh tức thì, giảm stress và giúp chân tóc bồng bềnh, lâu bết hơn rõ rệt.
+        2. MỞ RỘNG: DANH MỤC CHĂM SÓC DA MẶT (FACE CARE)
+        🌟 Dầu tẩy trang hoa trà & Squalane thực vật (Pure Transforming Cleansing Oil)
+        Thành phần tự nhiên: Dầu hoa trà hữu cơ (Camellia Nhật Bản), Squalane chiết xuất từ quả ô-liu.
+        Mô tả sản phẩm: Làm sạch sâu kem chống nắng và bụi mịn mà không cần bông tẩy trang chà xát làm tổn thương da. Khi tiếp xúc với nước, dầu sẽ tự nhũ hóa thành dạng sữa mịn, cuốn trôi mọi tạp chất một cách nhẹ nhàng. Squalane thực vật giúp giữ lại độ ẩm tự nhiên, nuôi dưỡng làn da mềm mại ngay cả khi vừa tẩy trang xong.
+        🌟 Xịt dưỡng chất (Toner Mist) khóa ẩm tinh chất hoa hồng & Lô hội (Calming Rose Mist)
+        Thành phần tự nhiên: Nước cất hoa hồng hữu cơ nguyên chất, nước ép lô hội (Nha đam).
+        Mô tả sản phẩm: Thiết kế dạng xịt phun sương siêu tiện lợi cho các mẹ bỉm bận rộn. Chỉ cần 3 giây xịt nhẹ, làn da mệt mỏi sẽ ngay lập tức được làm dịu, cấp ẩm và cân bằng lại độ pH. Hương hoa hồng tự nhiên thoang thoảng giúp mẹ tỉnh táo tinh thần trong những ca thức đêm chăm con.
+        🌟 Kem chống nắng vật lý lành tính SPF 50+ / PA++++ (Safe Sunscreen Broad Spectrum)
+        Thành phần tự nhiên: Kẽm oxit tự nhiên (Zinc Oxide), chiết xuất trà xanh và dầu hạt mâm xôi.
+        Mô tả sản phẩm: Lớp khiên bảo vệ da hoàn hảo khỏi tia UV và ánh sáng xanh từ điện thoại (thứ các mẹ bỉm tiếp xúc rất nhiều khi thức đêm). Công thức vật lý 100% không chứa màng lọc hóa học, nâng tone nhẹ nhàng tự nhiên thay thế lớp makeup, hoàn toàn không gây cay mắt và an toàn tuyệt đối cho em bé khi áp má vào mẹ.
+        3. MỞ RỘNG: DANH MỤC CHĂM SÓC CƠ THỂ & ĐẶC TRỊ (BODY & SPECIAL CARE)
+        🌟 Dầu thoa ngăn ngừa và làm mờ vết rạn hữu cơ (Anti-Stretch Mark Treatment Oil)
+        Thành phần tự nhiên: Dầu Argan ép lạnh, dầu tầm xuân (Rosehip Oil) và tinh dầu quả bơ giàu Omega 3-6-9.
+        Mô tả sản phẩm: Người bạn đồng hành không thể thiếu từ tháng thứ 3 của thai kỳ. Các loại dầu hạt cao cấp giàu Vitamin A và E tự nhiên giúp tăng cường độ đàn hồi tối đa cho da vùng bụng, đùi và ngực, ngăn chặn sự đứt gãy sợi collagen gây rạn. Chất dầu lỏng, thấm thấu tốt, không gây dính vào quần áo của mẹ.
+        🌟 Kem dưỡng làm dịu và bảo vệ đầu ti (Organic Nipple Balm)
+        Thành phần tự nhiên: Bơ cacao hữu cơ, sáp candelilla thực vật và chiết xuất hoa cúc xu.
+        Mô tả sản phẩm: Giải pháp làm dịu nhanh chóng tình trạng nứt cổ gà, khô rát đầu ti khi mẹ cho con bú hoặc hút sữa. Công thức đạt chuẩn thực phẩm (Food-grade) 100% thuần chay từ thực vật, không mùi, không vị. Mẹ hoàn toàn không cần lau hay rửa lại trước khi cho bé bú, cực kỳ an toàn cho hệ tiêu hóa non nớt của trẻ sơ sinh.
+2. các file blog.html, contact.html, about.html đang dư cái này ở dưới cùng trang, hãy xóa đi
+🍼 CHĂM SÓC MẸ BỈM SỮA
+Chăm Sóc Mẹ Bỉm Sữa
+Dầu Gội Phục Hồi Thảo Mộc Thuần Chay
+Chăm Sóc Tóc
+
+Tinh chất bưởi năm roi, bồ kết tây, rễ đương quy. Giải quyết tận gốc nỗi lo rụng tóc sau sinh.
+
+320.000₫
+Thêm Vào Giỏ
+Chăm Sóc Mẹ Bỉm Sữa
+Dầu Xả Suôn Mượt Sinh Học
+Chăm Sóc Tóc
+
+Dầu dừa phân đoạn và bơ hạt mỡ hữu cơ ép lạnh. Giải pháp thay thế Silicon, tóc suôn mượt tự nhiên.
+
+380.000₫
+Thêm Vào Giỏ
+Chăm Sóc Mẹ Bỉm Sữa
+Tinh Chất Tẩy Tế Bào Chết Da Đầu từ Muối Biển & Bạc Hà
+Chăm Sóc Tóc
+
+Muối hồng Himalaya hạt mịn và tinh dầu bạc hà. Giải pháp cho da đầu bết dầu, ngứa do thay đổi nội tiết tố.
+
+280.000₫
+Thêm Vào Giỏ
+Chăm Sóc Mẹ Bỉm Sữa
+Sữa Rửa Mặt Tạo Bọt Dịu Nhẹ
+Chăm Sóc Da
+
+Chiết xuất hoa cúc xu và rau má vùng cao. Dành riêng cho làn da nhạy cảm mẹ bỉm, độ pH 5.5 hoàn hảo.
+
+240.000₫
+Thêm Vào Giỏ
+Chăm Sóc Mẹ Bỉm Sữa
+Serum Cấp Ẩm & Dưỡng Sáng Mờ Thâm
+Chăm Sóc Da
+
+Vitamin B3 từ cám gạo và Hyaluronic Acid đa tầng. Khôi phục làn da rạng rỡ, mờ thâm quầng dưới mắt.
+
+450.000₫
+Thêm Vào Giỏ
+Chăm Sóc Mẹ Bỉm Sữa
+Kem Dưỡng Khóa Ẩm Dịu Da
+Chăm Sóc Da
+
+Ceramide chiết xuất từ mầm yến mạch hữu cơ. Bước khóa ẩm hoàn hảo để giữ các dưỡng chất bên dưới da.
+
+320.000₫
+Thêm Vào Giỏ
+Chăm Sóc Mẹ Bỉm Sữa
+Sữa Tắm Dịu Nhẹ Cấp Ẩm
+Chăm Sóc Body
+
+Tinh dầu oải hương Pháp và gel nha đam hữu cơ. Biến phòng tắm thành không gian Spa, xoa dịu hệ thần kinh.
+
+280.000₫
+Thêm Vào Giỏ
+Chăm Sóc Mẹ Bỉm Sữa
+Dầu Tẩy Trang Hoa Trà & Squalane Thực Vật
+Chăm Sóc Da
+
+Dầu hoa trà hữu cơ (Camellia Nhật Bản) và Squalane chiết xuất từ quả ô-liu. Tự nhũ hóa thành dạng sữa mịn.
+
+380.000₫
+Thêm Vào Giỏ
+Chăm Sóc Mẹ Bỉm Sữa
+Xịt Dưỡng Chất (Toner Mist) Khóa Ẩm Tinh Chất Hoa Hồng
+Chăm Sóc Da
+
+Nước cất hoa hồng hữu cơ nguyên chất và nước ép lô hội. Thiết kế dạng xịt phun sương tiện lợi cho mẹ bỉm.
+
+260.000₫
+Thêm Vào Giỏ
+Chăm Sóc Mẹ Bỉm Sữa
+Kem Dưỡng Làm Dịu và Bảo Vệ Đầu Ti
+Chăm Sóc Đặc Trị
+
+Bơ cacao hữu cơ, sáp candelilla thực vật và chiết xuất hoa cúc xu. Food-grade 100%, không cần lau rửa trước khi cho bé bú.
+
+200.000₫
+Thêm Vào Giỏ
+Chăm Sóc Mẹ Bỉm Sữa
+Kem Dưỡng Thể Lành Tính cho Mẹ & Bé
+Chăm Sóc Body
+
+Dầu hạnh nhân ngọt và Vitamin E chiết xuất từ hướng dương. 100% không hương liệu nhân tạo, an toàn massage cho bé.
+
+340.000₫
+Thêm Vào Giỏ
+👶 CHĂM SÓC EM BÉ
+Chăm Sóc Em Bé
+Tắm Gội Toàn Thân 2-trong-1 Dịu Nhẹ cho Bé
+Tắm Gội Em Bé
+
+Chiết xuất bơ hữu cơ, protein lúa mạch và tinh dầu oải hương nhẹ. Dịu nhẹ với da non nớt của bé, không làm khô da.
+
+300.000₫
+Thêm Vào Giỏ
+Chăm Sóc Em Bé
+Kem Dưỡng Ẩm Làm Dịu Chàm Sữa & Hăm Tã
+Chăm Sóc Đặc Trị
+
+Chiết xuất súp lơ hoa vàng hữu cơ và oxid kẽm tự nhiên. Giải pháp làm dịu chàm sữa, hăm tã hiệu quả, an toàn 100%.
+
+280.000₫
+Thêm Vào Giỏ
+Chăm Sóc Em Bé
+Kem Dưỡng Thể Lành Tính cho Mẹ & Bé (Sản phẩm dùng chung)
+Chăm Sóc Chung
+
+Dầu hạnh nhân ngọt và Vitamin E chiết xuất từ hướng dương. Sản phẩm dùng chung cho Mẹ & Bé, 100% lành tính.
+
+340.000₫
+Thêm Vào Giỏ
+Mua Theo Giai Đoạn - Tiết Kiệm Hơn
+Bộ sản phẩm chuyên biệt cho từng giai đoạn: mang bầu, bỉm sữa, và chăm sóc em bé
+
+Xem Đầy Đủ →
+
+3. các thẻ sản phẩm ở trang chủ khi bấm vô thì ko dẫn được tới trang chi tiết sản phẩm. Sử dụng local-storage kết hợp với data trong .json ở bước đầu tiên để làm việc này.
+4. THêm logic giỏ hàng
+5. Thêm chức năng tìm kiếm 
+6. Ở các card sản phẩm hay chi tiết sản phẩm thì thêm cái trái tim (icon) là danh sách ước, thêm logic lưu vào wishlist.json rồi ném vào wishlist.html
+6. Trang shop.html, hãy thêm chức năng filter, tìm kiếm bằng text, lọc theo danh mục/loại, phân trang động dựa trên data trong data.json
+7. Tất cả các text đều căn lề đều 2 bên
+8. Blog.html hãy làm chức năng xem chi tiết, nội dung vlog thì lấy từ file assets/data/vlog.json
+9. Thêm chức năng đăng nhập bằng google/fabecook. Ở góc hiện avatar với tên của người dùng
+10. Nhúng map vào footer, ngay dưới thông tin liên hệ
+11. Làm cho footer và header file nào cũng có
