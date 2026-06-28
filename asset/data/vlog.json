@@ -2,14 +2,18 @@
   "blogs": [
     {
       "id": 1,
-      "title": "Cách Chăm Sóc Da Mẹ Bỉm Sữa Đúng Cách",
+      "title": "Cách Trị Rụng Tóc Sau Sinh Bằng Bưởi & Bồ Kết Hiệu Quả",
       "excerpt": "Làn da mẹ sau sinh thay đổi rõ rệt. Cùng CELLVANY khám phá quy trình skincare an toàn cho mẹ bỉm sữa, giúp da căng mịn và khỏe mạnh trở lại.",
       "content": "<p>Sau khi sinh, cơ thể mẹ trải qua nhiều thay đổi nội tiết tố mạnh mẽ, ảnh hưởng trực tiếp đến làn da. Da có thể trở nên khô, nhạy cảm, hoặc thậm chí bị mụn trứng cá trở lại. Việc xây dựng một quy trình chăm sóc da phù hợp là vô cùng quan trọng.</p><h3>Bước 1: Làm Sạch</h3><p>Sử dụng sữa rửa mặt dịu nhẹ với độ pH 5.5, không chứa sulfate. Sản phẩm của CELLVANY sử dụng chiết xuất hoa cúc xu và rau má vùng cao, giúp làm sạch nhẹ nhàng mà không làm khô da.</p><h3>Bước 2: Dưỡng Ẩm</h3><p>Serum cấp ẩm với Vitamin B3 và HA đa tầng giúp thẩm thấu nhanh, nuôi dưỡng da từ bên trong. Thành phần tự nhiên an toàn cho cả mẹ và bé.</p><h3>Bước 3: Khóa Ẩm</h3><p>Kem dưỡng khóa ẩm với Ceramide từ mầm yến mạch giúp giữ lại các dưỡng chất, bảo vệ da khỏi tác hại từ môi trường.</p>",
       "author": "CELLVANY Team",
       "date": "2024-12-15",
       "image": "Cach_cham_soc_da_me_bim_sua_dung_cach.jpeg",
       "category": "Chăm Sóc Da",
-      "tags": ["skincare", "mẹ bỉm sữa", "da nhạy cảm"]
+      "tags": [
+        "skincare",
+        "mẹ bỉm sữa",
+        "da nhạy cảm"
+      ]
     },
     {
       "id": 2,
@@ -20,7 +24,11 @@
       "date": "2024-12-10",
       "image": "Bi_quyet_chong_ran_da_trong_thai_ki.jpeg",
       "category": "Chăm Sóc Đặc Trị",
-      "tags": ["rạn da", "mẹ bầu", "dầu tự nhiên"]
+      "tags": [
+        "rạn da",
+        "mẹ bầu",
+        "dầu tự nhiên"
+      ]
     },
     {
       "id": 3,
@@ -31,7 +39,11 @@
       "date": "2024-12-05",
       "image": "Cham_soc_toc_rung_sau_sinh_cho_me_bim.jpeg",
       "category": "Chăm Sóc Tóc",
-      "tags": ["tóc rụng", "mẹ bỉm sữa", "dầu gội thảo mộc"]
+      "tags": [
+        "tóc rụng",
+        "mẹ bỉm sữa",
+        "dầu gội thảo mộc"
+      ]
     },
     {
       "id": 4,
@@ -42,7 +54,11 @@
       "date": "2024-11-28",
       "image": "Skincare_cho_be_so_sinh_luu_y_quan_trongjpeg.jpeg",
       "category": "Chăm Sóc Em Bé",
-      "tags": ["bé sơ sinh", "skincare", "kem dưỡng ẩm"]
+      "tags": [
+        "bé sơ sinh",
+        "skincare",
+        "kem dưỡng ẩm"
+      ]
     },
     {
       "id": 5,
@@ -53,7 +69,11 @@
       "date": "2024-11-20",
       "image": "5_Sai_lam_thuong_gap_khi_cham_soc_da_me_bau.jpeg",
       "category": "Chăm Sóc Da",
-      "tags": ["mẹ bầu", "skincare", "sai lầm"]
+      "tags": [
+        "mẹ bầu",
+        "skincare",
+        "sai lầm"
+      ]
     },
     {
       "id": 6,
@@ -64,7 +84,11 @@
       "date": "2024-11-15",
       "image": "cach_massage_dau_ti_cho_be_moi_sinh.jpeg",
       "category": "Chăm Sóc Em Bé",
-      "tags": ["massage", "bé sơ sinh", "đầu ti"]
+      "tags": [
+        "massage",
+        "bé sơ sinh",
+        "đầu ti"
+      ]
     }
   ]
 }

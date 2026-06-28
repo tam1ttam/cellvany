@@ -6,16 +6,7 @@
 
 
 # DONE ✅
-1. ~~Ghi sản phẩm vào data.json theo danh mục (Hair Care, Face Care, Body Care, mở rộng)~~
-2. ~~Xóa block sản phẩm dư thừa ở cuối blog.html, contact.html, about.html~~
-3. ~~Các thẻ sản phẩm ở trang chủ click dẫn đến trang chi tiết sản phẩm (dùng localStorage + data.json)~~
-4. ~~Thêm logic giỏ hàng~~
-5. ~~Thêm chức năng tìm kiếm~~
-6. ~~Thêm icon trái tim (wishlist) ở card & trang chi tiết sản phẩm, lưu vào wishlist và hiển thị ở wishlist.html~~
-7. ~~Trang shop.html: filter theo danh mục/loại, tìm kiếm text, phân trang động từ data.json~~
-8. ~~Tất cả text căn lề đều 2 bên~~
-9. ~~Blog.html: xem chi tiết bài viết, nội dung lấy từ assets/data/vlog.json~~
-10. ~~Thêm đăng nhập Google/Facebook, hiển thị avatar + tên người dùng ở góc màn hình~~
+1. 
 
 
 # TODO
@@ -125,3 +116,8 @@
   - Anchor `kem chống hăm không corticoid Cellvany` → `/products/baby-soothing-balm`
   - Anchor `sữa tắm dịu nhẹ cho bé` → `/products/baby-gentle-wash-shampoo`
 - **Content notes:** ⚠️ YMYL — ghi rõ bài được review bởi bác sĩ nhi khoa (tên + chứng chỉ). Thêm Medical Disclaimer ở đầu trang. Cite Hội Nhi khoa Việt Nam hoặc WHO guideline. Article Schema có `dateModified` cập nhật ≤6 tháng.
+
+
+## NOTE
+1. Them alt text cho các ảnh tương ứng
+2. Thêm EEAT 

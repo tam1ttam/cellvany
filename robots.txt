@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /cart.html
+Disallow: /checkout.html
+Disallow: /wishlist.html
+Disallow: /live-chat-widget/
+
+Sitemap: https://cellvany.vn/sitemap.xml

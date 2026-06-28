@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 1,
-      "name": "Dầu Gội Phục Hồi Thảo Mộc Thuần Chay",
+      "name": "Dầu Gội Bưởi Năm Roi & Bồ Kết Thuần Chay Cellvany",
       "category": "Chăm Sóc Tóc",
       "categoryEn": "hair-care",
       "stage": "Chăm Sóc Mẹ Bỉm Sữa",
@@ -237,18 +237,75 @@
       "inStock": true,
       "badge": null,
       "image": "asset/img/kem_duong_lam_diu_va_bao_ve_dau_ti.jpeg"
+    },
+    {
+      "id": 15,
+      "name": "Dầu Gội Trị Rụng Tóc Sau Sinh – Thảo Mộc Thuần Chay",
+      "category": "Chăm sóc tóc sau sinh",
+      "categoryEn": "hair-care-after",
+      "stage": "Chăm Sóc Mẹ",
+      "stageEn": "baby",
+      "price": 280000,
+      "priceDisplay": "280.000₫",
+      "ingredients": "Chiết xuất súp lơ hoa vàng hữu cơ và oxit kẽm tự nhiên",
+      "description": "Tóc rụng nhiều sau sinh? Cellvany tập hợp sản phẩm thảo mộc thuần chay phục hồi tóc từ gốc, kích thích mọc lại tự nhiên. An toàn khi cho con bú. Xem ngay.",
+      "rating": 5,
+      "reviews": 13,
+      "inStock": true,
+      "badge": null,
+      "image": "asset/img/kem_duong_lam_diu_va_bao_ve_dau_ti.jpeg"
     }
   ],
   "categories": [
-    { "id": "hair-care", "name": "Chăm Sóc Tóc", "nameEn": "Hair Care" },
-    { "id": "face-care", "name": "Chăm Sóc Da", "nameEn": "Face Care" },
-    { "id": "body-care", "name": "Chăm Sóc Body", "nameEn": "Body Care" },
-    { "id": "special-care", "name": "Chăm Sóc Đặc Trị", "nameEn": "Special Care" },
-    { "id": "baby-bath", "name": "Tắm Gội Em Bé", "nameEn": "Baby Bath" }
+    {
+      "id": "hair-care",
+      "name": "Chăm Sóc Tóc",
+      "nameEn": "Hair Care"
+    },
+    {
+      "id": "hair-care-after",
+      "name": "Chăm sóc tóc sau sinh",
+      "nameEn": "Hair Care After"
+    },
+    {
+      "id": "face-care",
+      "name": "Chăm Sóc Da",
+      "nameEn": "Face Care"
+    },
+    {
+      "id": "body-care",
+      "name": "Chăm Sóc Body",
+      "nameEn": "Body Care"
+    },
+    {
+      "id": "special-care",
+      "name": "Chăm Sóc Đặc Trị",
+      "nameEn": "Special Care"
+    },
+    {
+      "id": "baby-bath",
+      "name": "Tắm Gội Em Bé",
+      "nameEn": "Baby Bath"
+    }
   ],
   "stages": [
-    { "id": "pregnant", "name": "Mẹ Mang Bầu", "icon": "🤰", "count": 1 },
-    { "id": "postpartum", "name": "Mẹ Bỉm Sữa", "icon": "🍼", "count": 11 },
-    { "id": "baby", "name": "Chăm Sóc Em Bé", "icon": "👶", "count": 3 }
+    {
+      "id": "pregnant",
+      "name": "Mẹ Mang Bầu",
+      "icon": "🤰",
+      "count": 1
+    },
+    {
+      "id": "postpartum",
+      "name": "Mẹ Bỉm Sữa",
+      "icon": "🍼",
+      "count": 11
+    },
+    {
+      "id": "baby",
+      "name": "Chăm Sóc Em Bé",
+      "icon": "👶",
+      "count": 3
+    }
   ]
 }
