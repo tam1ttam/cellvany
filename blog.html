@@ -1,78 +1,346 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Blog - CELLVANY</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #fff; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    header { background: #fff; padding: 15px 0; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: sticky; top: 0; z-index: 100; }
-    .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-    .logo { display: flex; flex-direction: column; align-items: center; gap: 0px; text-align: center; }
-    .logo img { height: 60px; width: auto; object-fit: contain; display: block; margin-bottom: -5px; }
-    .logo-text { font-size: 16px; font-weight: bold; color: #27ae60; }
-    nav ul { list-style: none; display: flex; gap: 30px; }
-    nav a { text-decoration: none; color: #333; }
-    .header-icons { display: flex; gap: 20px; align-items: center; }
-    .header-icons button { background: none; border: none; cursor: pointer; font-size: 16px; }
-    .buy-now-btn { background: #229954; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: 600; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
 
-    .breadcrumb { background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%); padding: 40px 20px; text-align: center; }
-    .breadcrumb h1 { font-size: 40px; margin-bottom: 15px; }
-    .breadcrumb-nav { color: #999; }
-    .breadcrumb-nav a { color: #27ae60; text-decoration: none; }
+    header {
+      background: #fff;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-    .blog-container { max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: 1fr 300px; gap: 40px; padding: 0 20px; }
-    .blog-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
 
-    .blog-post { display: grid; grid-template-columns: 300px 1fr; gap: 20px; padding: 30px; background: #fafafa; border-radius: 8px; transition: transform 0.3s; cursor: pointer; }
-    .blog-post:hover { transform: translateY(-5px); }
-    .blog-image { background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%); height: 250px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 40px; }
-    .blog-content h3 { font-size: 22px; margin-bottom: 10px; color: #333; text-align: justify; }
-    .blog-meta { font-size: 12px; color: #999; margin-bottom: 15px; display: flex; gap: 15px; }
-    .blog-meta span { display: flex; align-items: center; gap: 5px; }
-    .blog-excerpt { color: #666; margin-bottom: 15px; line-height: 1.8; text-align: justify; }
-    .view-details { display: inline-block; background: #333; color: white; padding: 8px 20px; border-radius: 5px; text-decoration: none; font-weight: 600; font-size: 14px; }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0px;
+      text-align: center;
+    }
 
-    .sidebar { height: fit-content; }
-    .sidebar-widget { background: #fafafa; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
-    .sidebar-widget h3 { font-size: 16px; margin-bottom: 15px; font-weight: 600; color: #333; border-bottom: 2px solid #27ae60; padding-bottom: 10px; }
-    .search-box { display: flex; gap: 10px; margin-bottom: 15px; }
-    .search-box input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
-    .search-box button { background: #27ae60; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: 600; }
-    .category-list { list-style: none; }
-    .category-list li { padding: 10px 0; border-bottom: 1px solid #eee; }
-    .category-list li:last-child { border-bottom: none; }
-    .category-list a { color: #333; text-decoration: none; display: flex; justify-content: space-between; }
-    .category-list a:hover { color: #27ae60; }
-    .recent-post { padding: 15px 0; border-bottom: 1px solid #eee; cursor: pointer; }
-    .recent-post:last-child { border-bottom: none; }
-    .recent-post h4 { font-size: 14px; margin-bottom: 5px; color: #333; }
-    .recent-post p { font-size: 12px; color: #999; }
-    .recent-post:hover h4 { color: #27ae60; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag { background: white; border: 1px solid #27ae60; color: #27ae60; padding: 5px 12px; border-radius: 20px; text-decoration: none; font-size: 12px; cursor: pointer; transition: all 0.3s; }
-    .tag:hover { background: #27ae60; color: white; }
+    .logo img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      margin-bottom: -5px;
+    }
 
-    .no-posts { text-align: center; padding: 60px 20px; color: #999; }
+    .logo-text {
+      font-size: 16px;
+      font-weight: bold;
+      color: #27ae60;
+    }
 
-    footer { background: #1a1a1a; color: white; padding: 40px 20px; margin-top: 60px; text-align: center; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .header-icons button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .buy-now-btn {
+      background: #229954;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+
+
+
+
+
+    .blog-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 40px;
+      padding: 0 20px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .blog-post {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 20px;
+      padding: 30px;
+      background: #fafafa;
+      border-radius: 8px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Ô ảnh blog: gradient nền + img phủ lên */
+    .blog-image {
+      background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+      height: 250px;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .blog-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .blog-image .fallback {
+      font-size: 40px;
+      display: none;
+    }
+
+    .blog-content h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #333;
+      text-align: justify;
+    }
+
+    .blog-meta {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 15px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .blog-excerpt {
+      color: #666;
+      margin-bottom: 15px;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    .view-details {
+      display: inline-block;
+      background: #333;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .sidebar {
+      height: fit-content;
+    }
+
+    .sidebar-widget {
+      background: #fafafa;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .sidebar-widget h3 {
+      font-size: 16px;
+      margin-bottom: 15px;
+      font-weight: 600;
+      color: #333;
+      border-bottom: 2px solid #27ae60;
+      padding-bottom: 10px;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .search-box button {
+      background: #27ae60;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .category-list {
+      list-style: none;
+    }
+
+    .category-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .category-list li:last-child {
+      border-bottom: none;
+    }
+
+    .category-list a {
+      color: #333;
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .category-list a:hover {
+      color: #27ae60;
+    }
+
+    .recent-post {
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    .recent-post:last-child {
+      border-bottom: none;
+    }
+
+    .recent-post h4 {
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .recent-post p {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .recent-post:hover h4 {
+      color: #27ae60;
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: white;
+      border: 1px solid #27ae60;
+      color: #27ae60;
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .tag:hover {
+      background: #27ae60;
+      color: white;
+    }
+
+    .no-posts {
+      text-align: center;
+      padding: 60px 20px;
+      color: #999;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: white;
+      padding: 40px 20px;
+      margin-top: 60px;
+      text-align: center;
+    }
 
     @media (max-width: 768px) {
-      .blog-container { grid-template-columns: 1fr; }
-      .blog-post { grid-template-columns: 1fr; }
+      .blog-container {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-post {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-image {
+        height: 200px;
+      }
     }
+
     @media (max-width: 480px) {
-      .blog-content h3 { font-size: 18px; }
+      .blog-content h3 {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
+
 <body>
   <!-- Header injected by shared.js -->
 
-  <!-- Breadcrumb -->
   <section class="breadcrumb">
     <h1>Blog CELLVANY</h1>
     <div class="breadcrumb-nav">
@@ -80,7 +348,6 @@
     </div>
   </section>
 
-  <!-- Blog Content -->
   <div class="blog-container">
     <section class="blog-grid" id="blog-posts">
       <div class="no-posts">Đang tải bài viết...</div>
@@ -117,6 +384,18 @@
       let allPosts = [];
       let currentCategory = '';
 
+      // Helper render ảnh blog an toàn
+      function blogImg(image, title, height = '250px') {
+        return `
+          <div class="blog-image" style="height:${height}">
+            <img
+              src="asset/img/${image}"
+              alt="${title}"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <span class="fallback" style="font-size:${height === '150px' ? '30px' : '40px'}">📝</span>
+          </div>`;
+      }
+
       function renderPosts(posts) {
         const container = document.getElementById('blog-posts');
         if (!posts.length) {
@@ -124,8 +403,8 @@
           return;
         }
         container.innerHTML = posts.map(post => `
-          <article class="blog-post" onclick="location.href='blog_detail.html?id=${post.id}'">
-            <div class="blog-image"><img src="asset/img/${post.image}" alt="${post.title}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" onerror="this.style.display='none';this.parentElement.innerHTML+='<span style=position:absolute;font-size:40px>📝</span>'"></div>
+          <article class="blog-post cv-reveal" onclick="location.href='blog_detail.html?id=${post.id}'">
+            ${blogImg(post.image, post.title)}
             <div class="blog-content">
               <h3>${post.title}</h3>
               <div class="blog-meta">
@@ -141,22 +420,22 @@
       }
 
       function renderSidebar(posts) {
-        const categories = [...new Set(posts.map(p => p.category))];
+        const categories = [...new Set(allPosts.map(p => p.category))];
         document.getElementById('blog-categories').innerHTML =
-          `<li><a href="#" onclick="BLOG.setCategory('');return false" style="${!currentCategory ? 'color:#27ae60;font-weight:600' : ''}">Tất cả <span>${posts.length}</span></a></li>` +
+          `<li><a href="#" onclick="BLOG.setCategory('');return false" style="${!currentCategory ? 'color:#27ae60;font-weight:600' : ''}">Tất cả <span>${allPosts.length}</span></a></li>` +
           categories.map(c => {
-            const count = posts.filter(p => p.category === c).length;
+            const count = allPosts.filter(p => p.category === c).length;
             return `<li><a href="#" onclick="BLOG.setCategory('${c}');return false" style="${currentCategory === c ? 'color:#27ae60;font-weight:600' : ''}">${c} <span>${count}</span></a></li>`;
           }).join('');
 
-        document.getElementById('recent-posts').innerHTML = posts.slice(0, 4).map(p => `
+        document.getElementById('recent-posts').innerHTML = allPosts.slice(0, 4).map(p => `
           <div class="recent-post" onclick="location.href='blog_detail.html?id=${p.id}'">
             <h4>📅 ${new Date(p.date).toLocaleDateString('vi-VN')}</h4>
             <p>${p.title}</p>
           </div>
         `).join('');
 
-        const allTags = posts.flatMap(p => p.tags || []);
+        const allTags = allPosts.flatMap(p => p.tags || []);
         const uniqueTags = [...new Set(allTags)].slice(0, 10);
         document.getElementById('blog-tags').innerHTML = uniqueTags.map(t =>
           `<span class="tag" onclick="document.getElementById('blog-search').value='${t}';BLOG.filter()">${t}</span>`
@@ -170,7 +449,7 @@
         if (q) filtered = filtered.filter(p =>
           p.title.toLowerCase().includes(q) ||
           p.excerpt.toLowerCase().includes(q) ||
-          p.tags.some(t => t.toLowerCase().includes(q))
+          (p.tags || []).some(t => t.toLowerCase().includes(q))
         );
         renderPosts(filtered);
         renderSidebar(filtered);
@@ -191,4 +470,5 @@
     document.addEventListener('DOMContentLoaded', BLOG.init);
   </script>
 </body>
+
 </html>

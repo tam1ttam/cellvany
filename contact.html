@@ -1,52 +1,258 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Liên Hệ - CELLVANY</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #fff; }
-    header { background: #fff; padding: 15px 0; box-shadow: 0 2px 5px rgba(0,0,0,.1); }
-    .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-    .logo { display: flex; flex-direction: column; align-items: center; gap: 0; text-align: center; }
-    .logo img { height: 60px; width: auto; object-fit: contain; display: block; margin-bottom: -5px; }
-    .logo-text { font-size: 16px; font-weight: bold; color: #27ae60; }
-    nav ul { list-style: none; display: flex; gap: 30px; }
-    nav a { text-decoration: none; color: #333; }
-    .header-icons { display: flex; gap: 20px; align-items: center; }
-    .header-icons button { background: none; border: none; cursor: pointer; font-size: 16px; }
-    .buy-now-btn { background: #229954; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: 600; }
-    .breadcrumb { background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%); padding: 40px 20px; text-align: center; }
-    .breadcrumb h1 { font-size: 40px; margin-bottom: 15px; }
-    .breadcrumb-nav { color: #999; }
-    .breadcrumb-nav a { color: #27ae60; text-decoration: none; }
-    .contact-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-    .contact-intro { text-align: center; margin-bottom: 50px; }
-    .contact-intro h2 { font-size: 32px; margin-bottom: 15px; color: #333; }
-    .contact-intro p { color: #666; max-width: 700px; margin: 0 auto; text-align: justify; }
-    .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-    .contact-form { background: #fafafa; padding: 30px; border-radius: 8px; }
-    .form-group { display: flex; flex-direction: column; margin-bottom: 20px; }
-    .form-group label { font-weight: 600; margin-bottom: 8px; font-size: 14px; }
-    .form-group input, .form-group textarea { padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; font-size: 14px; }
-    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #27ae60; }
-    .form-group textarea { resize: vertical; min-height: 120px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .form-row .form-group { margin-bottom: 0; }
-    .send-btn { background: #27ae60; color: white; padding: 15px 40px; border: none; border-radius: 5px; cursor: pointer; font-weight: 600; font-size: 16px; width: 100%; margin-top: 20px; }
-    .contact-info { display: grid; grid-template-columns: 1fr; gap: 30px; }
-    .info-card { background: #fafafa; padding: 25px; border-radius: 8px; }
-    .info-card h3 { font-size: 16px; margin-bottom: 15px; color: #333; display: flex; align-items: center; gap: 10px; }
-    .info-card p { color: #666; margin-bottom: 10px; }
-    .info-card a { color: #27ae60; text-decoration: none; }
-    footer { background: #1a1a1a; color: white; padding: 40px 20px; margin-top: 60px; text-align: center; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+
+    header {
+      background: #fff;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      text-align: center;
+    }
+
+    .logo img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      margin-bottom: -5px;
+    }
+
+    .logo-text {
+      font-size: 16px;
+      font-weight: bold;
+      color: #27ae60;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .header-icons button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .buy-now-btn {
+      background: #229954;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .breadcrumb {
+      background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .breadcrumb h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .breadcrumb-nav {
+      color: #999;
+    }
+
+    .breadcrumb-nav a {
+      color: #27ae60;
+      text-decoration: none;
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .contact-intro {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .contact-intro h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .contact-intro p {
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: justify;
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .contact-form {
+      background: #fafafa;
+      padding: 30px;
+      border-radius: 8px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #27ae60;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-row .form-group {
+      margin-bottom: 0;
+    }
+
+    .send-btn {
+      background: #27ae60;
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .info-card {
+      background: #fafafa;
+      padding: 25px;
+      border-radius: 8px;
+    }
+
+    .info-card h3 {
+      font-size: 16px;
+      margin-bottom: 15px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card p {
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .info-card a {
+      color: #27ae60;
+      text-decoration: none;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: white;
+      padding: 40px 20px;
+      margin-top: 60px;
+      text-align: center;
+    }
+
     @media (max-width: 768px) {
-      .contact-content { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
   <!-- Header injected by shared.js -->
   <section class="breadcrumb">
@@ -59,10 +265,12 @@
   <div class="contact-container">
     <div class="contact-intro">
       <h2>Liên Hệ Với Chúng Tôi Ngay!</h2>
-      <p>Chúng tôi rất muốn lắng nghe ý kiến của bạn! Liên hệ ngay để được tư vấn về sản phẩm, đặt hàng, hoặc hợp tác cùng CELLVANY. Đội ngũ thân thiện của chúng tôi sẽ phản hồi sớm nhất.</p>
+      <p>Chúng tôi rất muốn lắng nghe ý kiến của bạn! Liên hệ ngay để được tư vấn về sản phẩm, đặt hàng, hoặc hợp tác
+        cùng CELLVANY. Đội ngũ thân thiện của chúng tôi sẽ phản hồi sớm nhất.</p>
     </div>
     <div class="contact-content">
-      <form class="contact-form" onsubmit="event.preventDefault();alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm.');this.reset();">
+      <form class="contact-form"
+        onsubmit="event.preventDefault();alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm.');this.reset();">
         <div class="form-row">
           <div class="form-group">
             <label>Tên Của Bạn</label>
@@ -105,7 +313,7 @@
         </div>
         <div class="info-card">
           <h3>📞 Hotline</h3>
-          <p><a href="tel:+84900000000">+84 90 000 00 00</a></p>
+          <p><a href="tel:+84900000000">+84 772 554 757</a></p>
         </div>
       </div>
     </div>
@@ -114,4 +322,5 @@
   <!-- Footer injected by shared.js -->
   <script src="asset/js/shared.js"></script>
 </body>
+
 </html>

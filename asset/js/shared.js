@@ -10,12 +10,10 @@ const CELLVANY = (() => {
   const LS_USER = 'cellvany_user';
 
   let products = [];
+  let revealObserverInstance;
   let blogs = [];
   let currentUser = null;
 
-  // ─── Shared stylesheet injection ───────────────────────────────────
-  // Nhúng CSS dùng chung TRỰC TIẾP (inline <style>, không qua file .css
-  // riêng) để tuyệt đối không bị lỗi do thiếu/sai đường dẫn file CSS.
   const SHARED_CSS = `
 /* ===== CELLVANY shared product-card styles & micro-animations ===== */
 .cv-card {
@@ -86,7 +84,260 @@ const CELLVANY = (() => {
 .cv-pop        { animation: cvPop .4s ease; }
 .cv-bump       { animation: cvBadgeBump .4s ease; display:inline-block; }
 .cv-removing   { animation: cvFadeOutCard .3s ease forwards; }
+
+/* ===== HEADER RESPONSIVE ===== */
+#cellvany-header {
+  background: #fff;
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+#cellvany-header .header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+#cellvany-header .logo {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; line-height: 1; cursor: pointer;
+}
+#cellvany-header .logo img { height: 50px; width: auto; object-fit: contain; display: block; margin-bottom: -4px; }
+#cellvany-header .logo-text { font-size: 15px; font-weight: bold; color: #27ae60; }
+#cellvany-header nav ul { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; }
+#cellvany-header nav a { text-decoration: none; color: #333; font-size: 15px; transition: color .2s; }
+#cellvany-header nav a:hover { color: #27ae60; }
+#cellvany-header .header-icons { display: flex; gap: 16px; align-items: center; }
+#cellvany-header .header-icons > button { background: none; border: none; cursor: pointer; font-size: 18px; color: #333; }
+#cellvany-header .buy-now-btn {
+  background: #229954; color: white; padding: 9px 18px;
+  border: none; border-radius: 5px; cursor: pointer; font-weight: 600; font-size: 14px;
+}
+#cv-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+#cv-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #333;
+  border-radius: 2px;
+  transition: all .3s;
+}
+#cv-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+#cv-hamburger.open span:nth-child(2) { opacity: 0; }
+#cv-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+#cv-mobile-nav {
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  border-top: 1px solid #eee;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
+}
+#cv-mobile-nav.open { max-height: 520px; }
+#cv-mobile-nav a {
+  display: block;
+  padding: 13px 24px;
+  color: #333;
+  text-decoration: none;
+  font-size: 15px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: color .2s, background .2s;
+}
+#cv-mobile-nav a:hover { color: #27ae60; background: #f9fdf9; }
+#cv-mobile-nav .mobile-icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 24px;
+  flex-wrap: wrap;
+}
+#cv-mobile-nav .mobile-icons button {
+  background: none; border: none; cursor: pointer; font-size: 22px; position: relative; color: #333;
+}
+#cv-mobile-nav .mobile-icons .buy-now-btn {
+  background: #229954; color: white; padding: 8px 16px;
+  border: none; border-radius: 5px; cursor: pointer; font-weight: 600; font-size: 14px; margin-left: auto;
+}
+@media (max-width: 900px) {
+  #cellvany-header nav,
+  #cellvany-header .header-icons { display: none !important; }
+  #cv-hamburger { display: flex !important; }
+  #cv-mobile-nav { display: flex !important; }
+}
+@media (max-width: 480px) {
+  #cellvany-header .header-container { padding: 0 14px; }
+  #cellvany-header .logo img { height: 42px; }
+}
+
+/* ===== BREADCRUMB / PAGE BANNER - dùng chung tất cả trang ===== */
+.breadcrumb {
+  position: relative;
+  padding: 60px 20px;
+  text-align: center;
+  overflow: hidden;
+  /* fallback nếu ảnh chưa load */
+  background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+}
+/* Lớp ảnh nền phủ qua pseudo-element, opacity 0.75 */
+.breadcrumb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('asset/img/header.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.75;
+  z-index: 0;
+}
+/* Nội dung chữ nằm trên lớp ảnh */
+.breadcrumb > * {
+  position: relative;
+  z-index: 1;
+}
+.breadcrumb h1 { font-size: 40px; margin-bottom: 15px; color: #1a1a1a; }
+.breadcrumb-nav { color: #555; font-size: 18px; font-weight: 500; }
+.breadcrumb-nav a { color: #27ae60; text-decoration: none; }
+
+/* ===== WISHLIST / CART BUTTONS - SVG icons + animations ===== */
+.cv-card .wishlist-btn {
+  width: 38px; flex: none !important;
+  padding: 0; background: #fff; border: 1px solid #ddd;
+  border-radius: 5px; cursor: pointer; font-size: 14px;
+  transition: all .25s;
+  display: flex; align-items: center; justify-content: center;
+}
+.cv-card .wishlist-btn svg { width:18px; height:18px; transition: transform .3s, fill .3s; }
+.cv-card .wishlist-btn:not(.active) svg { fill: none; stroke: #555; stroke-width: 2; }
+.cv-card .wishlist-btn.active { background:#e74c3c !important; border-color:#e74c3c !important; }
+.cv-card .wishlist-btn.active svg { fill: #fff; stroke: #fff; }
+
+@keyframes heartPop {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.5); }
+  60%  { transform: scale(.85); }
+  80%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+@keyframes cartBounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-6px); }
+  60%  { transform: translateY(2px); }
+  80%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+@keyframes ripple {
+  0%   { box-shadow: 0 0 0 0 rgba(231,76,60,.4); }
+  100% { box-shadow: 0 0 0 12px rgba(231,76,60,0); }
+}
+@keyframes cartRipple {
+  0%   { box-shadow: 0 0 0 0 rgba(39,174,96,.4); }
+  100% { box-shadow: 0 0 0 12px rgba(39,174,96,0); }
+}
+.cv-heart-pop svg  { animation: heartPop .5s cubic-bezier(.36,.07,.19,.97); }
+.cv-heart-pop      { animation: ripple .5s ease-out; }
+.cv-cart-bounce    { animation: cartBounce .4s ease; cartRipple .5s ease-out; }
+
+/* Header badge pulse */
+@keyframes badgePulse {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.7); }
+  70%  { transform: scale(.8); }
+  100% { transform: scale(1); }
+}
+.cv-badge-pulse { animation: badgePulse .45s cubic-bezier(.36,.07,.19,.97); }
+
+/* ===== CATEGORY CARDS - spotlight hover effect ===== */
+.category-grid:hover .category-card {
+  opacity: 0.35;
+  filter: blur(1px);
+  transform: scale(0.97);
+}
+.category-grid:hover .category-card:hover {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: scale(1.04) !important;
+  box-shadow: 0 12px 40px rgba(39,174,96,.25);
+  z-index: 2;
+}
+.category-card {
+  transition: opacity .35s ease, filter .35s ease, transform .35s ease, box-shadow .35s ease;
+  position: relative;
+  overflow: hidden;
+}
+/* Background image overlay */
+.category-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.category-card:hover::before { opacity: 0.18; }
+.category-card.cat-pregnant::before  { background-image: url('asset/img/san_pham_cho_me_mang_bau.jpeg'); }
+.category-card.cat-postpartum::before { background-image: url('asset/img/San_pham_cho_me_bim_sua.jpeg'); }
+.category-card.cat-skincare::before  { background-image: url('asset/img/serum_cap_am_duong_sang_mo_tham.jpeg'); }
+
+/* ===== ABOUT - ve-chung-toi-section animation ===== */
+@keyframes fadeSlideLeft {
+  from { opacity:0; transform: translateX(-40px); }
+  to   { opacity:1; transform: translateX(0); }
+}
+@keyframes fadeSlideRight {
+  from { opacity:0; transform: translateX(40px); }
+  to   { opacity:1; transform: translateX(0); }
+}
+@keyframes fadeSlideUp {
+  from { opacity:0; transform: translateY(30px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+.cv-anim-left  { animation: fadeSlideLeft  .7s ease both; }
+.cv-anim-right { animation: fadeSlideRight .7s ease both; }
+.cv-anim-up    { animation: fadeSlideUp    .6s ease both; }
+.cv-anim-up-2  { animation: fadeSlideUp    .7s ease both; animation-delay:.15s; }
+.cv-anim-up-3  { animation: fadeSlideUp    .8s ease both; animation-delay:.3s; }
+
+/* ===== SCROLL REVEAL - chung cho mọi file ===== */
+.cv-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.cv-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.cv-reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.cv-reveal-left.visible { opacity:1; transform:translateX(0); }
+.cv-reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.cv-reveal-right.visible { opacity:1; transform:translateX(0); }
 `;
+
   function injectStyles() {
     if (document.getElementById('cellvany-shared-styles')) return;
     const style = document.createElement('style');
@@ -146,7 +397,6 @@ const CELLVANY = (() => {
   function restartAnim(el, className) {
     if (!el) return;
     el.classList.remove(className);
-    // force reflow để animation chạy lại được khi bấm liên tục
     void el.offsetWidth;
     el.classList.add(className);
   }
@@ -155,27 +405,50 @@ const CELLVANY = (() => {
     document.querySelectorAll(sel).forEach(el => restartAnim(el, 'cv-bump'));
   }
 
-  // Gọi khi bấm "Thêm Vào Giỏ" ở bất kỳ đâu (card sản phẩm, trang chi tiết...)
   function handleAddToCart(productId, btnEl, qty = 1) {
     addToCart(productId, qty);
-    restartAnim(btnEl, 'cv-anim-added');
+    // Cart button bounce
+    if (btnEl) {
+      btnEl.classList.remove('cv-cart-bounce');
+      void btnEl.offsetWidth;
+      btnEl.classList.add('cv-cart-bounce');
+      setTimeout(() => btnEl.classList.remove('cv-cart-bounce'), 500);
+    }
+    // Header cart badge pulse
+    document.querySelectorAll('[data-cart-count]').forEach(el => {
+      el.classList.remove('cv-badge-pulse');
+      void el.offsetWidth;
+      el.classList.add('cv-badge-pulse');
+      setTimeout(() => el.classList.remove('cv-badge-pulse'), 500);
+    });
     bumpBadge('cart');
   }
 
-  // Gọi khi bấm tim yêu thích ở bất kỳ đâu (card sản phẩm, trang chi tiết, trang wishlist)
   function handleWishlistClick(productId, btnEl) {
     const list = toggleWishlist(productId);
     const isIn = list.includes(productId);
-
     if (btnEl) {
       btnEl.classList.toggle('active', isIn);
-      // chỉ đổi icon ❤️/🤍, giữ nguyên chữ phía sau nếu có (ví dụ "❤️ Yêu Thích")
-      btnEl.innerHTML = btnEl.innerHTML.replace(/❤️|🤍/, isIn ? '❤️' : '🤍');
-      restartAnim(btnEl, 'cv-pop');
+      // Update SVG fill/stroke
+      const svg = btnEl.querySelector('svg');
+      if (svg) {
+        svg.style.fill = isIn ? '#fff' : 'none';
+        svg.style.stroke = isIn ? '#fff' : '#555';
+      }
+      // Heart pop animation
+      btnEl.classList.remove('cv-heart-pop');
+      void btnEl.offsetWidth;
+      btnEl.classList.add('cv-heart-pop');
+      setTimeout(() => btnEl.classList.remove('cv-heart-pop'), 600);
     }
+    // Header wishlist badge pulse
+    document.querySelectorAll('[data-wishlist-count]').forEach(el => {
+      el.classList.remove('cv-badge-pulse');
+      void el.offsetWidth;
+      el.classList.add('cv-badge-pulse');
+      setTimeout(() => el.classList.remove('cv-badge-pulse'), 500);
+    });
     bumpBadge('wishlist');
-
-    // Nếu đang ở trang wishlist.html và vừa bỏ yêu thích -> mờ dần rồi xoá card
     const grid = document.getElementById('wishlist-grid');
     const card = btnEl ? btnEl.closest('[data-product-id]') : null;
     if (grid && card && grid.contains(card) && !isIn) {
@@ -266,7 +539,7 @@ const CELLVANY = (() => {
     header.id = 'cellvany-header';
     header.innerHTML = `
       <div class="header-container">
-        <div class="logo">
+        <div class="logo" onclick="location.href='index.html'">
           <img src="asset/logo.png" alt="CELLVANY Logo" onerror="this.style.display='none'">
           <span class="logo-text">CELLVANY</span>
         </div>
@@ -291,9 +564,8 @@ const CELLVANY = (() => {
                     onmouseout="this.style.background='#fff';this.style.color='#27ae60'">Đăng Nhập</button>
             <button data-logout-btn onclick="CELLVANY.logout()"
                     style="display:${user ? '' : 'none'};font-size:13px;font-weight:600;color:#e74c3c;background:#fff;border:1px solid #e74c3c;padding:7px 16px;border-radius:20px;cursor:pointer;white-space:nowrap">Đăng Xuất</button>
-            <span data-user-name style="font-size:12px;color:#27ae60;font-weight:600;margin-left:2px"></span>
           </div>
-          <button onclick="location.href='wishlist.html'" title="Danh sách ưa thích" style="position:relative">
+          <button onclick="location.href='wishlist.html'" title="Yêu thích" style="position:relative">
             ❤️ <span data-wishlist-count style="position:absolute;top:-8px;right:-8px;background:#e74c3c;color:#fff;font-size:10px;padding:1px 5px;border-radius:10px">0</span>
           </button>
           <button onclick="location.href='cart.html'" title="Giỏ hàng" style="position:relative">
@@ -301,7 +573,37 @@ const CELLVANY = (() => {
           </button>
           <button class="buy-now-btn" onclick="location.href='shop.html'">Mua Ngay</button>
         </div>
+
+        <!-- Hamburger button (mobile only) -->
+        <button id="cv-hamburger" onclick="CELLVANY.toggleMobileNav()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
+
+      <!-- Mobile drawer -->
+      <div id="cv-mobile-nav">
+        <a href="index.html">Trang Chủ</a>
+        <a href="about.html">Về Chúng Tôi</a>
+        <a href="shop.html">Cửa Hàng</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Liên Hệ</a>
+        <div class="mobile-icons">
+          <button onclick="CELLVANY.toggleSearch()" title="Tìm kiếm">🔍</button>
+          <button onclick="location.href='wishlist.html'" style="position:relative">
+            ❤️ <span data-wishlist-count style="position:absolute;top:-6px;right:-6px;background:#e74c3c;color:#fff;font-size:10px;padding:1px 4px;border-radius:10px">0</span>
+          </button>
+          <button onclick="location.href='cart.html'" style="position:relative">
+            🛒 <span data-cart-count style="position:absolute;top:-6px;right:-6px;background:#e74c3c;color:#fff;font-size:10px;padding:1px 4px;border-radius:10px">0</span>
+          </button>
+          <button data-login-btn onclick="CELLVANY.showAuthModal()"
+                  style="display:${user ? 'none' : ''};font-size:13px;font-weight:600;color:#27ae60;background:#fff;border:1px solid #27ae60;padding:7px 14px;border-radius:20px;cursor:pointer">Đăng Nhập</button>
+          <button data-logout-btn onclick="CELLVANY.logout()"
+                  style="display:${user ? '' : 'none'};font-size:13px;font-weight:600;color:#e74c3c;background:#fff;border:1px solid #e74c3c;padding:7px 14px;border-radius:20px;cursor:pointer">Đăng Xuất</button>
+          <button class="buy-now-btn" onclick="location.href='shop.html'">Mua Ngay</button>
+        </div>
+      </div>
+
+      <!-- Search bar -->
       <div id="cellvany-search-bar" style="display:none;background:#f5f5f5;padding:10px 20px;border-bottom:1px solid #ddd">
         <div style="max-width:1200px;margin:0 auto;display:flex;gap:10px">
           <input type="text" id="global-search" placeholder="Tìm kiếm sản phẩm..." style="flex:1;padding:8px 12px;border:1px solid #ddd;border-radius:5px">
@@ -309,6 +611,8 @@ const CELLVANY = (() => {
           <button onclick="CELLVANY.doGlobalSearch()" style="padding:8px 16px;background:#27ae60;color:#fff;border:none;border-radius:5px;cursor:pointer;font-weight:600">Tìm</button>
         </div>
       </div>
+
+      <!-- Auth modal -->
       <div id="cellvany-auth-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center">
         <div style="background:#fff;border-radius:12px;padding:30px;max-width:360px;width:90%;text-align:center">
           <h3 style="margin-bottom:20px">Đăng Nhập</h3>
@@ -324,6 +628,7 @@ const CELLVANY = (() => {
     `;
     document.body.prepend(header);
   }
+
   function injectFooter() {
     const existing = document.getElementById('cellvany-footer');
     if (existing) return;
@@ -368,6 +673,10 @@ const CELLVANY = (() => {
   }
 
   // ─── Product card HTML ─────────────────────────────────────────────
+  // SVG icons
+  const HEART_SVG = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
+  const CART_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>`;
+
   function productCardHTML(p) {
     const inWish = isWishlisted(p.id);
     const stars = '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating));
@@ -384,8 +693,15 @@ const CELLVANY = (() => {
             <span class="giá-current">${p.priceDisplay}</span>
           </div>
           <div class="product-actions">
-            <button onclick="CELLVANY.handleAddToCart(${p.id}, this)">Thêm Vào Giỏ</button>
-            <button class="wishlist-btn ${inWish ? 'active' : ''}" onclick="CELLVANY.handleWishlistClick(${p.id}, this)">${inWish ? '❤️' : '🤍'}</button>
+            <button
+              onclick="CELLVANY.handleAddToCart(${p.id}, this)"
+              style="flex:1;padding:8px;background:#333;color:#fff;border:none;border-radius:5px;cursor:pointer;font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px;transition:background .25s">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex-shrink:0"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              Thêm Vào Giỏ
+            </button>
+            <button class="wishlist-btn ${inWish ? 'active' : ''}" onclick="CELLVANY.handleWishlistClick(${p.id}, this)">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="${inWish ? 'fill:#fff;stroke:#fff' : 'fill:none;stroke:#555'};stroke-width:2;width:18px;height:18px;transition:all .3s"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -396,8 +712,18 @@ const CELLVANY = (() => {
     const container = document.querySelector(containerSelector);
     if (!container) return;
     const data = items || products;
-    container.innerHTML = data.map(p => productCardHTML(p)).join('');
+    container.innerHTML = data.map(p => {
+      const html = productCardHTML(p);
+      // Wrap mỗi card trong cv-reveal
+      return html.replace('<div class="product-card cv-card"', '<div class="product-card cv-card cv-reveal"');
+    }).join('');
     updateAllBadges();
+    // Trigger scroll reveal cho cards mới render
+    setTimeout(() => {
+      if (typeof revealObserverInstance !== 'undefined') {
+        document.querySelectorAll('.cv-reveal:not(.visible)').forEach(el => revealObserverInstance.observe(el));
+      }
+    }, 50);
   }
 
   // ─── Search toggle & global search ─────────────────────────────────
@@ -413,7 +739,14 @@ const CELLVANY = (() => {
     if (q) location.href = `shop.html?search=${encodeURIComponent(q)}`;
   }
 
-  // ─── Show auth modal ───────────────────────────────────────────────
+  function toggleMobileNav() {
+    const nav = document.getElementById('cv-mobile-nav');
+    const btn = document.getElementById('cv-hamburger');
+    if (!nav) return;
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+
   function showAuthModal() {
     document.getElementById('cellvany-auth-modal').style.display = 'flex';
   }
@@ -427,15 +760,32 @@ const CELLVANY = (() => {
     currentUser = getUser();
     updateAllBadges();
 
-    // Global search on Enter
     document.addEventListener('keydown', e => {
       if (e.key === 'Enter' && document.activeElement?.id === 'global-search') doGlobalSearch();
     });
 
-    // Close auth modal on outside click
     document.getElementById('cellvany-auth-modal')?.addEventListener('click', e => {
       if (e.target.id === 'cellvany-auth-modal') e.target.style.display = 'none';
     });
+
+    // ── Scroll Reveal ──────────────────────────────────────────────
+    revealObserverInstance = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    function initReveal() {
+      document.querySelectorAll('.cv-reveal, .cv-reveal-left, .cv-reveal-right').forEach(el => {
+        revealObserverInstance.observe(el);
+      });
+    }
+    // Chạy ngay + chạy lại sau khi content động được render
+    initReveal();
+    setTimeout(initReveal, 600);
   }
 
   return {
@@ -446,7 +796,7 @@ const CELLVANY = (() => {
     loginWith, logout, getUser, saveUser,
     updateCartBadge, updateWishlistBadge, updateUserUI, updateAllBadges,
     injectStyles, injectHeader, injectFooter, productCardHTML, renderProductGrid,
-    toggleSearch, doGlobalSearch, showAuthModal, init,
+    toggleSearch, doGlobalSearch, showAuthModal, toggleMobileNav, init,
     get products() { return products; }, get blogs() { return blogs; }, get currentUser() { return currentUser; }
   };
 })();
