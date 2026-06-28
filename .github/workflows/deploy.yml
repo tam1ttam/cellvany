@@ -1,0 +1,31 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy via rsync
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            rsync -avz --delete \
+              --exclude='.git' \
+              --exclude='.github' \
+              --exclude='node_modules' \
+              --exclude='__MACOSX' \
+              --exclude='*.py' \
+              --exclude='*.md' \
+              --exclude='.env*' \
+              /home/${{ secrets.SSH_USER }}/cellvany/ /var/www/cellvany/
+            chown -R www-data:www-data /var/www/cellvany
+            nginx -t && systemctl reload nginx
