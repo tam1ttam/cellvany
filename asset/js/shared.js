@@ -87,12 +87,15 @@ const CELLVANY = (() => {
 
 /* ===== HEADER RESPONSIVE ===== */
 #cellvany-header {
-  background: #fff;
-  padding: 15px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,.1);
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 12px 0;
+  box-shadow: 0 1px 0 rgba(0,0,0,.07), 0 4px 20px rgba(0,0,0,.06);
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: box-shadow .3s;
 }
 #cellvany-header .header-container {
   max-width: 1200px;
@@ -100,77 +103,147 @@ const CELLVANY = (() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 #cellvany-header .logo {
   display: flex; flex-direction: column; align-items: center;
   text-align: center; line-height: 1; cursor: pointer;
+  transition: opacity .2s;
 }
-#cellvany-header .logo img { height: 50px; width: auto; object-fit: contain; display: block; margin-bottom: -4px; }
-#cellvany-header .logo-text { font-size: 15px; font-weight: bold; color: #27ae60; }
-#cellvany-header nav ul { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; }
-#cellvany-header nav a { text-decoration: none; color: #333; font-size: 15px; transition: color .2s; }
-#cellvany-header nav a:hover { color: #27ae60; }
-#cellvany-header .header-icons { display: flex; gap: 16px; align-items: center; }
-#cellvany-header .header-icons > button { background: none; border: none; cursor: pointer; font-size: 18px; color: #333; }
+#cellvany-header .logo:hover { opacity: .8; }
+#cellvany-header .logo img { height: 48px; width: auto; object-fit: contain; display: block; margin-bottom: -3px; }
+#cellvany-header .logo-text { font-size: 13px; font-weight: 700; color: #27ae60; letter-spacing: .5px; }
+
+/* Nav links */
+#cellvany-header nav ul { list-style: none; display: flex; gap: 4px; margin: 0; padding: 0; }
+#cellvany-header nav a {
+  text-decoration: none; color: #444; font-size: 14px; font-weight: 500;
+  padding: 6px 12px; border-radius: 8px;
+  transition: color .2s, background .2s;
+  position: relative;
+}
+#cellvany-header nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 12px; right: 12px;
+  height: 2px; background: #27ae60; border-radius: 1px;
+  transform: scaleX(0); transform-origin: center;
+  transition: transform .25s ease;
+}
+#cellvany-header nav a:hover { color: #27ae60; background: rgba(39,174,96,.06); }
+#cellvany-header nav a:hover::after { transform: scaleX(1); }
+
+/* Icon group */
+#cellvany-header .header-icons { display: flex; gap: 4px; align-items: center; }
+
+/* Icon buttons — clean pill style */
+#cellvany-header .cv-icon-btn {
+  background: none; border: none; cursor: pointer;
+  width: 38px; height: 38px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: #444;
+  transition: background .2s, transform .15s;
+  position: relative;
+}
+#cellvany-header .cv-icon-btn:hover { background: rgba(39,174,96,.08); transform: translateY(-1px); }
+#cellvany-header .cv-icon-btn:active { transform: scale(.92); }
+
+/* Badge trên icon */
+#cellvany-header .cv-icon-btn .cv-badge {
+  position: absolute; top: 3px; right: 3px;
+  background: #e74c3c; color: #fff;
+  font-size: 9px; font-weight: 700;
+  min-width: 16px; height: 16px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 3px; line-height: 1;
+  border: 1.5px solid #fff;
+}
+
+/* Nút Đăng Nhập */
+#cellvany-header .cv-login-btn {
+  font-size: 13px; font-weight: 600; color: #27ae60;
+  background: transparent; border: 1.5px solid #27ae60;
+  padding: 6px 16px; border-radius: 20px; cursor: pointer;
+  white-space: nowrap;
+  transition: background .2s, color .2s, transform .15s, box-shadow .2s;
+}
+#cellvany-header .cv-login-btn:hover {
+  background: #27ae60; color: #fff;
+  box-shadow: 0 4px 12px rgba(39,174,96,.3);
+  transform: translateY(-1px);
+}
+
+/* Nút Mua Ngay — gradient đẹp hơn */
 #cellvany-header .buy-now-btn {
-  background: #229954; color: white; padding: 9px 18px;
-  border: none; border-radius: 5px; cursor: pointer; font-weight: 600; font-size: 14px;
+  background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+  color: white; padding: 8px 20px;
+  border: none; border-radius: 20px; cursor: pointer;
+  font-weight: 600; font-size: 13px; letter-spacing: .3px;
+  box-shadow: 0 2px 8px rgba(39,174,96,.3);
+  transition: transform .2s, box-shadow .2s, filter .2s;
+  white-space: nowrap;
 }
+#cellvany-header .buy-now-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(39,174,96,.4);
+  filter: brightness(1.05);
+}
+#cellvany-header .buy-now-btn:active { transform: scale(.96); }
+
+/* Hamburger */
 #cv-hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
+  display: none; flex-direction: column; justify-content: center;
+  gap: 5px; background: none; border: none; cursor: pointer; padding: 6px;
+  border-radius: 8px; transition: background .2s;
 }
+#cv-hamburger:hover { background: rgba(39,174,96,.08); }
 #cv-hamburger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: #333;
-  border-radius: 2px;
-  transition: all .3s;
+  display: block; width: 22px; height: 2px;
+  background: #333; border-radius: 2px; transition: all .3s;
 }
 #cv-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-#cv-hamburger.open span:nth-child(2) { opacity: 0; }
+#cv-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 #cv-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile drawer */
 #cv-mobile-nav {
-  display: none;
-  flex-direction: column;
-  background: #fff;
-  border-top: 1px solid #eee;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .35s ease;
+  display: none; flex-direction: column;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(0,0,0,.06);
+  max-height: 0; overflow: hidden;
+  transition: max-height .35s cubic-bezier(.4,0,.2,1);
 }
-#cv-mobile-nav.open { max-height: 520px; }
+#cv-mobile-nav.open { max-height: 540px; }
 #cv-mobile-nav a {
-  display: block;
-  padding: 13px 24px;
-  color: #333;
-  text-decoration: none;
-  font-size: 15px;
-  border-bottom: 1px solid #f0f0f0;
-  transition: color .2s, background .2s;
+  display: block; padding: 13px 24px;
+  color: #333; text-decoration: none; font-size: 15px; font-weight: 500;
+  border-bottom: 1px solid rgba(0,0,0,.04);
+  transition: color .2s, background .2s, padding-left .2s;
 }
-#cv-mobile-nav a:hover { color: #27ae60; background: #f9fdf9; }
+#cv-mobile-nav a:hover { color: #27ae60; background: rgba(39,174,96,.04); padding-left: 30px; }
 #cv-mobile-nav .mobile-icons {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 14px 24px;
-  flex-wrap: wrap;
+  display: flex; align-items: center; gap: 8px;
+  padding: 14px 24px 20px; flex-wrap: wrap;
 }
 #cv-mobile-nav .mobile-icons button {
-  background: none; border: none; cursor: pointer; font-size: 22px; position: relative; color: #333;
+  background: none; border: none; cursor: pointer; font-size: 22px;
+  position: relative; color: #333; width: 40px; height: 40px;
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+}
+#cv-mobile-nav .mobile-icons button:hover { background: rgba(39,174,96,.08); }
+#cv-mobile-nav .mobile-icons .cv-login-btn {
+  font-size: 13px; font-weight: 600; color: #27ae60;
+  background: transparent; border: 1.5px solid #27ae60;
+  padding: 6px 14px; border-radius: 20px; cursor: pointer; width: auto; height: auto;
 }
 #cv-mobile-nav .mobile-icons .buy-now-btn {
-  background: #229954; color: white; padding: 8px 16px;
-  border: none; border-radius: 5px; cursor: pointer; font-weight: 600; font-size: 14px; margin-left: auto;
+  background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+  color: white; padding: 8px 16px; border: none; border-radius: 20px;
+  cursor: pointer; font-weight: 600; font-size: 13px; margin-left: auto;
+  width: auto; height: auto;
+  box-shadow: 0 2px 8px rgba(39,174,96,.3);
 }
 @media (max-width: 900px) {
   #cellvany-header nav,
@@ -180,35 +253,70 @@ const CELLVANY = (() => {
 }
 @media (max-width: 480px) {
   #cellvany-header .header-container { padding: 0 14px; }
-  #cellvany-header .logo img { height: 42px; }
+  #cellvany-header .logo img { height: 40px; }
 }
 
-/* ===== BREADCRUMB / PAGE BANNER - dùng chung tất cả trang ===== */
+/* ===== BREADCRUMB / PAGE BANNER - floating elements ===== */
+@keyframes cvFloat1 { 0%,100%{transform:translate(0,0) rotate(0deg)} 33%{transform:translate(6px,-10px) rotate(8deg)} 66%{transform:translate(-4px,6px) rotate(-5deg)} }
+@keyframes cvFloat2 { 0%,100%{transform:translate(0,0) rotate(0deg)} 33%{transform:translate(-8px,8px) rotate(-10deg)} 66%{transform:translate(5px,-5px) rotate(6deg)} }
+@keyframes cvFloat3 { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(4px,-12px) rotate(12deg)} }
+@keyframes cvFloat4 { 0%,100%{transform:translate(0,0) rotate(0deg)} 40%{transform:translate(-6px,8px) rotate(-8deg)} 80%{transform:translate(8px,-4px) rotate(5deg)} }
+@keyframes cvFloat5 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-5px,-8px) scale(1.08)} }
+@keyframes cvBcFadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+
 .breadcrumb {
   position: relative;
-  padding: 60px 20px;
+  padding: 70px 20px 65px;
   text-align: center;
   overflow: hidden;
-  /* fallback nếu ảnh chưa load */
-  background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+  background: linear-gradient(135deg, #d5f4e6 0%, #b8ecd0 50%, #a9dfbf 100%);
 }
-/* Lớp ảnh nền phủ qua pseudo-element, opacity 0.75 */
+
+/* Chữ CELLVANY lớn ở giữa */
 .breadcrumb::before {
-  content: '';
+  content: 'CELLVANY';
   position: absolute;
-  inset: 0;
-  background-image: url('asset/img/header.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.75;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(70px, 14vw, 160px);
+  font-weight: 900;
+  color: rgba(39,174,96, 0.08);
+  letter-spacing: 0.06em;
+  pointer-events: none;
+  white-space: nowrap;
   z-index: 0;
+  line-height: 1;
 }
-/* Nội dung chữ nằm trên lớp ảnh */
-.breadcrumb > * {
+
+/* Các icon bay xung quanh — inject bằng JS */
+.cv-bc-icon {
+  position: absolute;
+  width: clamp(40px, 5vw, 72px);
+  height: clamp(40px, 5vw, 72px);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.cv-bc-icon:nth-child(1)  { animation: cvFloat1 5.5s ease-in-out infinite; }
+.cv-bc-icon:nth-child(2)  { animation: cvFloat2 6.2s ease-in-out infinite; animation-delay:-.8s; }
+.cv-bc-icon:nth-child(3)  { animation: cvFloat3 4.8s ease-in-out infinite; animation-delay:-1.5s; }
+.cv-bc-icon:nth-child(4)  { animation: cvFloat4 7.0s ease-in-out infinite; animation-delay:-.4s; }
+.cv-bc-icon:nth-child(5)  { animation: cvFloat5 5.2s ease-in-out infinite; animation-delay:-2s; }
+.cv-bc-icon:nth-child(6)  { animation: cvFloat1 6.5s ease-in-out infinite; animation-delay:-1s; }
+.cv-bc-icon:nth-child(7)  { animation: cvFloat2 5.8s ease-in-out infinite; animation-delay:-2.5s; }
+.cv-bc-icon:nth-child(8)  { animation: cvFloat3 6.8s ease-in-out infinite; animation-delay:-.6s; }
+.cv-bc-icon:nth-child(9)  { animation: cvFloat4 5.0s ease-in-out infinite; animation-delay:-1.8s; }
+.cv-bc-icon:nth-child(10) { animation: cvFloat5 7.2s ease-in-out infinite; animation-delay:-3s; }
+
+/* Nội dung chữ tiêu đề nằm trên */
+.breadcrumb > *:not(.cv-bc-icon) {
   position: relative;
   z-index: 1;
+  animation: cvBcFadeIn .6s ease both;
 }
+.breadcrumb-nav { animation-delay: .15s !important; }
 .breadcrumb h1 { font-size: 40px; margin-bottom: 15px; color: #1a1a1a; }
 .breadcrumb-nav { color: #555; font-size: 18px; font-weight: 500; }
 .breadcrumb-nav a { color: #27ae60; text-decoration: none; }
@@ -553,28 +661,34 @@ const CELLVANY = (() => {
           </ul>
         </nav>
         <div class="header-icons">
-          <button onclick="CELLVANY.toggleSearch()" title="Tìm kiếm">🔍</button>
-          <div style="position:relative;display:flex;align-items:center;gap:6px">
-            <img data-user-avatar src="${user ? user.avatar : ''}" alt="avatar"
-                 style="width:32px;height:32px;border-radius:50%;cursor:pointer;display:${user ? '' : 'none'}"
-                 onerror="this.style.display='none'">
-            <button data-login-btn onclick="CELLVANY.showAuthModal()"
-                    style="display:${user ? 'none' : ''};font-size:13px;font-weight:600;color:#27ae60;background:#fff;border:1px solid #27ae60;padding:7px 16px;border-radius:20px;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s"
-                    onmouseover="this.style.background='#27ae60';this.style.color='#fff'"
-                    onmouseout="this.style.background='#fff';this.style.color='#27ae60'">Đăng Nhập</button>
-            <button data-logout-btn onclick="CELLVANY.logout()"
-                    style="display:${user ? '' : 'none'};font-size:13px;font-weight:600;color:#e74c3c;background:#fff;border:1px solid #e74c3c;padding:7px 16px;border-radius:20px;cursor:pointer;white-space:nowrap">Đăng Xuất</button>
-          </div>
-          <button onclick="location.href='wishlist.html'" title="Yêu thích" style="position:relative">
-            ❤️ <span data-wishlist-count style="position:absolute;top:-8px;right:-8px;background:#e74c3c;color:#fff;font-size:10px;padding:1px 5px;border-radius:10px">0</span>
+          <!-- Search -->
+          <button class="cv-icon-btn" onclick="CELLVANY.toggleSearch()" title="Tìm kiếm">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </button>
-          <button onclick="location.href='cart.html'" title="Giỏ hàng" style="position:relative">
-            🛒 <span data-cart-count style="position:absolute;top:-8px;right:-8px;background:#e74c3c;color:#fff;font-size:10px;padding:1px 5px;border-radius:10px">0</span>
+          <!-- User / Auth -->
+          <div style="display:flex;align-items:center;gap:6px">
+            <img data-user-avatar src="${user ? user.avatar : ''}" alt="avatar"
+                 style="width:32px;height:32px;border-radius:50%;cursor:pointer;border:2px solid #27ae60;display:${user ? '' : 'none'}"
+                 onerror="this.style.display='none'">
+            <button class="cv-login-btn" data-login-btn onclick="CELLVANY.showAuthModal()"
+                    style="display:${user ? 'none' : ''}">Đăng Nhập</button>
+            <button class="cv-login-btn" data-logout-btn onclick="CELLVANY.logout()"
+                    style="display:${user ? '' : 'none'};color:#e74c3c;border-color:#e74c3c">Đăng Xuất</button>
+          </div>
+          <!-- Wishlist -->
+          <button class="cv-icon-btn" onclick="location.href='wishlist.html'" title="Yêu thích">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span class="cv-badge" data-wishlist-count>0</span>
+          </button>
+          <!-- Cart -->
+          <button class="cv-icon-btn" onclick="location.href='cart.html'" title="Giỏ hàng">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <span class="cv-badge" data-cart-count>0</span>
           </button>
           <button class="buy-now-btn" onclick="location.href='shop.html'">Mua Ngay</button>
         </div>
 
-        <!-- Hamburger button (mobile only) -->
+        <!-- Hamburger (mobile only) -->
         <button id="cv-hamburger" onclick="CELLVANY.toggleMobileNav()" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -588,17 +702,21 @@ const CELLVANY = (() => {
         <a href="blog.html">Blog</a>
         <a href="contact.html">Liên Hệ</a>
         <div class="mobile-icons">
-          <button onclick="CELLVANY.toggleSearch()" title="Tìm kiếm">🔍</button>
+          <button onclick="CELLVANY.toggleSearch()" title="Tìm kiếm" style="position:relative">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
           <button onclick="location.href='wishlist.html'" style="position:relative">
-            ❤️ <span data-wishlist-count style="position:absolute;top:-6px;right:-6px;background:#e74c3c;color:#fff;font-size:10px;padding:1px 4px;border-radius:10px">0</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span data-wishlist-count style="position:absolute;top:-4px;right:-4px;background:#e74c3c;color:#fff;font-size:9px;padding:1px 4px;border-radius:8px;border:1.5px solid #fff">0</span>
           </button>
           <button onclick="location.href='cart.html'" style="position:relative">
-            🛒 <span data-cart-count style="position:absolute;top:-6px;right:-6px;background:#e74c3c;color:#fff;font-size:10px;padding:1px 4px;border-radius:10px">0</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <span data-cart-count style="position:absolute;top:-4px;right:-4px;background:#e74c3c;color:#fff;font-size:9px;padding:1px 4px;border-radius:8px;border:1.5px solid #fff">0</span>
           </button>
-          <button data-login-btn onclick="CELLVANY.showAuthModal()"
-                  style="display:${user ? 'none' : ''};font-size:13px;font-weight:600;color:#27ae60;background:#fff;border:1px solid #27ae60;padding:7px 14px;border-radius:20px;cursor:pointer">Đăng Nhập</button>
-          <button data-logout-btn onclick="CELLVANY.logout()"
-                  style="display:${user ? '' : 'none'};font-size:13px;font-weight:600;color:#e74c3c;background:#fff;border:1px solid #e74c3c;padding:7px 14px;border-radius:20px;cursor:pointer">Đăng Xuất</button>
+          <button class="cv-login-btn" data-login-btn onclick="CELLVANY.showAuthModal()"
+                  style="display:${user ? 'none' : ''}">Đăng Nhập</button>
+          <button class="cv-login-btn" data-logout-btn onclick="CELLVANY.logout()"
+                  style="display:${user ? '' : 'none'};color:#e74c3c;border-color:#e74c3c">Đăng Xuất</button>
           <button class="buy-now-btn" onclick="location.href='shop.html'">Mua Ngay</button>
         </div>
       </div>
@@ -766,6 +884,35 @@ const CELLVANY = (() => {
 
     document.getElementById('cellvany-auth-modal')?.addEventListener('click', e => {
       if (e.target.id === 'cellvany-auth-modal') e.target.style.display = 'none';
+    });
+
+    // ── Breadcrumb floating icons ──────────────────────────────────
+    // fly1.png ~ fly5.png, lặp 2 lần để có đủ 10 vị trí
+    const bcImgs = [
+      'asset/img/fly1.png', 'asset/img/fly2.png', 'asset/img/fly3.png',
+      'asset/img/fly4.png', 'asset/img/fly5.png',
+      'asset/img/fly1.png', 'asset/img/fly2.png', 'asset/img/fly3.png',
+      'asset/img/fly4.png', 'asset/img/fly5.png',
+    ];
+    const bcPositions = [
+      { top: '10%', left: '3%' }, { top: '18%', left: '16%' },
+      { top: '8%', right: '3%' }, { top: '15%', right: '15%' },
+      { top: '58%', left: '2%' }, { top: '68%', left: '14%' },
+      { top: '60%', right: '2%' }, { top: '65%', right: '13%' },
+      { top: '38%', left: '1%' }, { top: '36%', right: '1%' },
+    ];
+    document.querySelectorAll('.breadcrumb').forEach(bc => {
+      if (bc.dataset.iconsAdded) return;
+      bc.dataset.iconsAdded = '1';
+      bcImgs.forEach((src, i) => {
+        const el = document.createElement('img');
+        el.className = 'cv-bc-icon';
+        el.src = src;
+        el.alt = '';
+        const pos = bcPositions[i] || { top: '50%', left: '50%' };
+        Object.assign(el.style, pos);
+        bc.insertBefore(el, bc.firstChild);
+      });
     });
 
     // ── Scroll Reveal ──────────────────────────────────────────────
