@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Chat Widget — Demo CELLVANY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #f3f4f6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px 20px;
+    }
+    .demo-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 560px;
+      width: 100%;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,.05), 0 2px 4px -2px rgba(0,0,0,.05);
+    }
+    .demo-card h2 { font-size: 20px; font-weight: 600; color: #111827; margin-bottom: 12px; }
+    .demo-card p { font-size: 14px; color: #6b7280; line-height: 1.7; }
+    .demo-card code {
+      display: block;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: #374151;
+      overflow-x: auto;
+    }
+    .demo-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-card">
+    <div class="demo-label">Usage</div>
+    <h2>Live Chat Widget</h2>
+    <p>Widget nổi ở góc dưới bên phải. Click nút <strong>Hỗ trợ</strong> để mở popover. Click link Facebook để mở inbox. Widget tự động đóng khi click ra ngoài.</p>
+    <code>&lt;script src="live-chat-widget.js"&gt;&lt;/script&gt;<br>&lt;script&gt;ChatWidget.init({ facebookUrl: '...' })&lt;/script&gt;</code>
+  </div>
+
+  <div class="demo-card">
+    <div class="demo-label">Config</div>
+    <h2>Tùy chỉnh nhanh</h2>
+    <p>Truyền <code>facebookUrl</code> để đổi link Fanpage. Các màu sắc và text chỉnh trực tiếp trong file CSS/JS.</p>
+    <code>ChatWidget.init({<br>&nbsp;&nbsp;facebookUrl: 'https://m.me/your-page'<br>})</code>
+  </div>
+
+  <script src="live-chat-widget.js"></script>
+  <script>
+    ChatWidget.init({
+      facebookUrl: 'https://www.facebook.com/Cellvany'
+    });
+  </script>
+
+</body>
+</html>

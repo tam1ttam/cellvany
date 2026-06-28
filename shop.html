@@ -1,699 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Cửa Hàng - CELLVANY</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Cửa Hàng - CELLVANY</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+    header { background: #fff; padding: 15px 0; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: sticky; top: 0; z-index: 100; }
+    .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+    .logo { display: flex; flex-direction: column; align-items: center; gap: 0px; text-align: center; }
+    .logo img { height: 60px; width: auto; object-fit: contain; display: block; margin-bottom: -5px; }
+    .logo-text { font-size: 16px; font-weight: bold; color: #27ae60; }
+    nav ul { list-style: none; display: flex; gap: 30px; }
+    nav a { text-decoration: none; color: #333; }
+    .header-icons { display: flex; gap: 20px; align-items: center; }
+    .header-icons button { background: none; border: none; cursor: pointer; font-size: 16px; }
+    .buy-now-btn { background: #229954; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: 600; }
 
-        header {
-            background: #fff;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    .breadcrumb { background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%); padding: 40px 20px; text-align: center; }
+    .breadcrumb h1 { font-size: 40px; margin-bottom: 15px; }
+    .breadcrumb-nav { color: #999; }
+    .breadcrumb-nav a { color: #27ae60; text-decoration: none; }
 
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
+    .shop-container { max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: 250px 1fr; gap: 40px; padding: 0 20px; }
 
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0px;
-            text-align: center;
-        }
+    .sidebar { background: #fafafa; padding: 20px; border-radius: 8px; height: fit-content; position: sticky; top: 100px; }
+    .sidebar-section { margin-bottom: 30px; }
+    .sidebar-section h3 { font-size: 16px; margin-bottom: 15px; font-weight: 600; color: #333; }
+    .sidebar-section input[type="text"] { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 10px; font-size: 14px; }
+    .filter-list { list-style: none; }
+    .filter-list li { padding: 8px 0; border-bottom: 1px solid #eee; }
+    .filter-list input { margin-right: 8px; cursor: pointer; }
+    .filter-list label { cursor: pointer; font-size: 14px; }
+    .filter-list label:hover { color: #27ae60; }
+    .active-filter { background: #27ae60; color: white; }
 
-        .logo img {
-            height: 60px;
-            width: auto;
-            object-fit: contain;
-            display: block;
-            margin-bottom: -5px;
-        }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .product-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); transition: transform 0.3s; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); }
+    .product-image { background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%); height: 250px; display: flex; align-items: center; justify-content: center; position: relative; color: #999; }
+    .product-label { position: absolute; top: 10px; left: 10px; background: #333; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+    .product-label.discount { background: #ffc107; color: #333; }
+    .product-info { padding: 15px; }
+    .product-name { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #333; text-align: justify; }
+    .product-đánh giá { color: #ffc107; font-size: 13px; margin-bottom: 8px; }
+    .product-giá { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .giá-current { font-size: 16px; font-weight: bold; color: #333; }
+    .giá-old { font-size: 14px; color: #999; text-decoration: line-through; }
+    .product-actions { display: flex; gap: 8px; }
+    .product-actions button { flex: 1; padding: 8px; background: #fff; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; font-weight: 600; font-size: 13px; }
+    .product-actions button:first-child { background: #333; color: white; border-color: #333; }
+    .wishlist-btn { width: 38px; flex: none !important; padding: 8px; background: #fff; color: #333; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; font-size: 14px; }
+    .wishlist-btn.active { background: #e74c3c; color: #fff; border-color: #e74c3c; }
 
-        .logo-text {
-            font-size: 16px;
-            font-weight: bold;
-            color: #27ae60;
-        }
+    .shop-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 10px; }
+    .shop-controls select { padding: 8px 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; cursor: pointer; }
+    .result-count { font-size: 14px; color: #666; }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
+    .pagination { display: flex; gap: 0px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
+    .pagination button, .pagination a { padding: 8px 14px; border: 1px solid #ddd; background: #fff; border-radius: 5px; cursor: pointer; text-decoration: none; color: #333; margin: 2px; font-size: 14px; }
+    .pagination button.active { background: #27ae60; color: white; border-color: #27ae60; }
+    .pagination button:hover:not(.active) { background: #f5f5f5; }
 
-        nav a {
-            text-decoration: none;
-            color: #333;
-        }
+    .no-results { text-align: center; padding: 60px 20px; color: #999; }
+    .no-results h3 { font-size: 20px; margin-bottom: 10px; color: #666; }
 
-        .header-icons {
-            display: flex;
-            gap: 20px;
-        }
+    footer { background: #1a1a1a; color: white; padding: 40px 20px; margin-top: 60px; }
+    .footer-content { max-width: 1200px; margin: 0 auto; }
+    .footer-bottom { text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #333; color: #999; }
 
-        .header-icons button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .buy-now-btn {
-            background: #229954;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        /* Breadcrumb */
-        .breadcrumb {
-            background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .breadcrumb h1 {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .breadcrumb-nav {
-            color: #999;
-        }
-
-        .breadcrumb-nav a {
-            color: #27ae60;
-            text-decoration: none;
-        }
-
-        /* Main Content */
-        .cửa-hàng-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 40px;
-            padding: 0 20px;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            background: #fafafa;
-            padding: 20px;
-            border-radius: 8px;
-            height: fit-content;
-        }
-
-        .sidebar-section {
-            margin-bottom: 30px;
-        }
-
-        .sidebar-section h3 {
-            font-size: 16px;
-            margin-bottom: 15px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .sidebar-section input[type="text"],
-        .sidebar-section input[type="range"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        .giá-range {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .giá-range input {
-            width: 50%;
-        }
-
-        .filter-list {
-            list-style: none;
-        }
-
-        .filter-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .filter-list input {
-            margin-right: 8px;
-        }
-
-        .filter-list label {
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .color-filters {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .color-dot {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-
-        .color-dot:hover {
-            border-color: #333;
-        }
-
-        /* Sản Phẩm Grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .product-card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-image {
-            background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            color: #999;
-        }
-
-        .product-label {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: #333;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .product-label.discount {
-            background: #ffc107;
-            color: #333;
-        }
-
-        .product-info {
-            padding: 15px;
-        }
-
-        .product-name {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #333;
-        }
-
-        .product-đánh giá {
-            color: #ffc107;
-            font-size: 13px;
-            margin-bottom: 8px;
-        }
-
-        .product-giá {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .giá-current {
-            font-size: 16px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .giá-old {
-            font-size: 14px;
-            color: #999;
-            text-decoration: line-through;
-        }
-
-        .product-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .product-actions button {
-            flex: 1;
-            padding: 8px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .product-actions button:first-child {
-            background: #333;
-            color: white;
-            border-color: #333;
-        }
-
-        /* Pagination */
-        .pagination {
-            display: flex;
-            gap: 0px;
-            justify-content: center;
-            margin-top: 40px;
-        }
-
-        .pagination button,
-        .pagination a {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            background: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .pagination button.active {
-            background: #27ae60;
-            color: white;
-            border-color: #27ae60;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            color: #999;
-        }
-
-        @media (max-width: 768px) {
-            .cửa-hàng-container {
-                grid-template-columns: 1fr;
-            }
-
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .product-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        @media (max-width: 768px) {
-            .header-container { padding: 0 15px; }
-            .section-title { font-size: 28px; }
-            nav ul { flex-direction: column; gap: 15px; }
-            .product-grid, .category-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .footer-container { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 480px) {
-            body { font-size: 13px; }
-            .header-container { padding: 0 10px; }
-            .logo { font-size: 16px; }
-            .section-title { font-size: 22px; margin-bottom: 15px; }
-            .product-grid, .category-grid { grid-template-columns: 1fr; gap: 10px; }
-            .product-card { padding: 8px; }
-            .product-name { font-size: 13px; }
-            .product-price { font-size: 15px; }
-        }
-
-        @media (max-width: 360px) {
-            .section-title { font-size: 20px; }
-        }    </style>
+    @media (max-width: 1024px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .shop-container { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    }
+    @media (max-width: 480px) {
+      .product-grid { grid-template-columns: 1fr; gap: 10px; }
+      .product-name { font-size: 13px; }
+      .breadcrumb h1 { font-size: 28px; }
+    }
+  </style>
 </head>
-
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="logo"><img src="asset/logo.png" alt="CELLVANY Logo"><span class="logo-text">CELLVANY</span></div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Trang Chủ</a></li>
-                    <li><a href="about.html">Về Chúng Tôi</a></li>
-                    <li><a href="shop.html">Cửa Hàng</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Liên Hệ</a></li>
-                </ul>
-            </nav>
-            <div class="header-icons">
-                <button>🔍</button>
-                <button>👤</button>
-                <button>❤️</button>
-                <button>🛒 2</button>
-                <button class="buy-now-btn">Mua Ngay</button>
-            </div>
-        </div>
-    </header>
+  <!-- Header injected by shared.js -->
 
-    <!-- Breadcrumb -->
-    <section class="breadcrumb">
-        <h1>Cửa Hàng</h1>
-        <div class="breadcrumb-nav">
-            <a href="index.html">Trang Chủ</a> > <a href="shop.html">Cửa Hàng</a>
-        </div>
-    </section>
-
-    <!-- Cửa Hàng Content -->
-    <div class="cửa-hàng-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-section">
-                <h3>Tìm Sản Phẩm</h3>
-                <input type="text" placeholder="Tìm kiếm sản phẩm">
-            </div>
-
-            <div class="sidebar-section">
-                <h3>Danh Mục</h3>
-                <ul class="filter-list">
-                    <li><label><input type="checkbox"> Chăm Sóc Mẹ Mang Bầu</label></li>
-                    <li><label><input type="checkbox"> Chăm Sóc Mẹ Bỉm Sữa</label></li>
-                    <li><label><input type="checkbox"> Chăm Sóc Em Bé</label></li>
-                </ul>
-            </div>
-
-            <div class="sidebar-section">
-                <h3>Loại Sản Phẩm</h3>
-                <ul class="filter-list">
-                    <li><label><input type="checkbox"> Chăm Sóc Tóc</label></li>
-                    <li><label><input type="checkbox"> Chăm Sóc Da</label></li>
-                    <li><label><input type="checkbox"> Chăm Sóc Body</label></li>
-                </ul>
-            </div>
-
-            <div class="sidebar-section">
-                <h3>Sản Phẩm Status</h3>
-                <ul class="filter-list">
-                    <li><label><input type="checkbox"> Còn Hàng</label></li>
-                    <li><label><input type="checkbox"> Đang Khuyến Mãi</label></li>
-                </ul>
-            </div>
-        </aside>
-
-        <!-- Sản Phẩms -->
-        <section>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-                <p>Hiển Thị 13 Trên 13 Sản Phẩm</p>
-                <button
-                    style="background: #333; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">Lọc
-                    🔽</button>
-            </div>
-
-            <div class="product-grid">
-                <!-- Hair Care 1 -->
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Tóc</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ Dầu Thoa Ngăn Ngừa Rạn Da Hữu Cơ</div>
-                        
-                        <div class="product-giá">
-                            <span class="giá-current">320.000₫</span>
-                        </div>
-                        <div class="product-actions">
-                            <button>Thêm Vào Giỏ</button>
-                            <button>❤️</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hair Care 2 -->
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Tóc</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ Kem Dưỡng Ẩm Ngăn Ngừa Sạm Nám Thai Kỳ</div>
-                        
-                        <div class="product-giá">
-                            <span class="giá-current">380.000₫</span>
-                        </div>
-                        <div class="product-actions">
-                            <button>Thêm Vào Giỏ</button>
-                            <button>❤️</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hair Care 3 -->
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Tóc</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ Kem Chống Nắng Vật Lý Bảo Vệ Dịu Nhẹ SPF 50+</div>
-                        
-                        <div class="product-giá">
-                            <span class="giá-current">280.000₫</span>
-                        </div>
-                        <div class="product-actions">
-                            <button>Thêm Vào Giỏ</button>
-                            <button>❤️</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Face Care 1 -->
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Da</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ 🌟 Sữa Rửa Mặt Tạo Bọt Dịu Nhẹ</div>
-                        
-                        <div class="product-giá">
-                            <span class="giá-current">240.000₫</span>
-                        </div>
-                        <div class="product-actions">
-                            <button>Thêm Vào Giỏ</button>
-                            <button>❤️</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Face Care 2 -->
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Da</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ 🌟 Serum Cấp Ẩm & Dưỡng Sáng</div>
-                        
-                        <div class="product-giá">
-                            <span class="giá-current">450.000₫</span>
-                        </div>
-                        <div class="product-actions">
-                            <button>Thêm Vào Giỏ</button>
-                            <button>❤️</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Face Care 3 -->
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Da</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ 🌟 Kem Dưỡng Khóa Ẩm Dịu Da</div>
-                        
-                        <div class="product-giá">
-                            <span class="giá-current">320.000₫</span>
-                        </div>
-                        <div class="product-actions">
-                            <button>Thêm Vào Giỏ</button>
-                            <button>❤️</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Face Care 4 -->
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Da</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ 🌟 Dầu Tẩy Trang Hoa Trà & Squalane</div>
-                        
-                        <div class="product-giá">
-                            <span class="giá-current">380.000₫</span>
-                        </div>
-                        <div class="product-actions">
-                            <button>Thêm Vào Giỏ</button>
-                            <button>❤️</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Face Care 5 -->
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Da</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ 🌟 Xịt Dưỡng Chất Khóa Ẩm Hoa Hồng</div>
-                        
-                        <div class="product-giá">
-                            <span class="giá-current">260.000₫</span>
-                        </div>
-                        <div class="product-actions">
-                            <button>Thêm Vào Giỏ</button>
-                            <button>❤️</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Face Care 6 -->
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Da</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ 🌟 Kem Chống Nắng Vật Lý SPF 50+</div>
-                        
-                        <div class="product-giá">
-                            <span class="giá-current">350.000₫</span>
-                        </div>
-                        <div class="product-actions">
-                            <button>Thêm Vào Giỏ</button>
-                            <button>❤️</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Body Care 1 -->
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Body</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ 🌟 Sữa Tắm Dịu Nhẹ Cấp Ẩm</div>
-                        
-                        <div class="product-giá">
-                            <span class="giá-current">280.000₫</span>
-                        </div>
-                        <div class="product-actions">
-                            <button>Thêm Vào Giỏ</button>
-                            <button>❤️</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Body Care 2 -->
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Body</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ 🌟 Kem Dưỡng Thể Lành Tính Mẹ & Bé</div>
-                        
-                        <div class="product-giá">
-                            <span class="giá-current">340.000₫</span>
-                        </div>
-                        <div class="product-actions">
-                            <button>Thêm Vào Giỏ</button>
-                            <button>❤️</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Body Care 3 -->
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Body</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ 🌟 Dầu Thoa Ngăn Ngừa Vết Rạn</div>
-                        
-                        <div class="product-giá">
-                            <span class="giá-current">420.000₫</span>
-                        </div>
-                        <div class="product-actions">
-                            <button>Thêm Vào Giỏ</button>
-                            <button>❤️</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Body Care 4 -->
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Body</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ 🌟 Kem Dưỡng Làm Dịu Đầu Ti</div>
-                        
-                        <div class="product-giá">
-                            <span class="giá-current">200.000₫</span>
-                        </div>
-                        <div class="product-actions">
-                            <button>Thêm Vào Giỏ</button>
-                            <button>❤️</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pagination -->
-            <div class="pagination">
-                <button>← Prev</button>
-                <button class="active">1</button>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">...</a>
-                <a href="#">12</a>
-                <button>Next →</button>
-            </div>
-        </section>
+  <!-- Breadcrumb -->
+  <section class="breadcrumb">
+    <h1>Cửa Hàng</h1>
+    <div class="breadcrumb-nav">
+      <a href="index.html">Trang Chủ</a> &gt; <a href="shop.html">Cửa Hàng</a>
     </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p style="text-align: center; margin-bottom: 20px;">© 2024 CELLVANY. Bảo Lưu Mọi Quyền.</p>
-            <div class="footer-bottom">
-                <p><a href="#" style="color: #27ae60;">Điều Khoản Dịch Vụs</a> | <a href="#"
-                        style="color: #27ae60;">Chính Sách Bảo Mật</a></p>
-            </div>
-        </div>
-    </footer>
+  <!-- Shop Content -->
+  <div class="shop-container">
+    <!-- Sidebar Filters -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <h3>Tìm Sản Phẩm</h3>
+        <input type="text" id="shop-search" placeholder="Tìm kiếm sản phẩm..." oninput="SHOP.render()">
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Danh Mục</h3>
+        <ul class="filter-list" id="category-filters"></ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Loại Sản Phẩm</h3>
+        <ul class="filter-list" id="type-filters"></ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Giai Đoạn</h3>
+        <ul class="filter-list" id="stage-filters"></ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Sắp Xếp</h3>
+        <select id="sort-select" onchange="SHOP.render()" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:5px;font-size:14px">
+          <option value="">Mặc định</option>
+          <option value="price-asc">Giá: Thấp → Cao</option>
+          <option value="price-desc">Giá: Cao → Thấp</option>
+          <option value="rating">Đánh giá cao nhất</option>
+          <option value="name">Tên A → Z</option>
+        </select>
+      </div>
+    </aside>
+
+    <!-- Products -->
+    <section>
+      <div class="shop-controls">
+        <p class="result-count" id="result-count">Đang tải...</p>
+      </div>
+      <div class="product-grid" id="shop-products"></div>
+      <div class="pagination" id="shop-pagination"></div>
+    </section>
+  </div>
+
+  <!-- Footer injected by shared.js -->
+
+  <script src="asset/js/shared.js"></script>
+  <script>
+    const SHOP = (() => {
+      const PER_PAGE = 9;
+      let currentPage = 1;
+      let filters = { query: '', category: '', stage: '', sort: '' };
+
+      function getFiltersFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        filters.query = params.get('search') || '';
+        filters.category = params.get('category') || '';
+        filters.stage = params.get('stage') || '';
+        if (filters.query) document.getElementById('shop-search').value = filters.query;
+      }
+
+      function buildFilterHTML(items, selected, prefix) {
+        return items.map(item => {
+          const id = prefix + '-' + item.id;
+          const checked = (selected === item.id || selected === item.name) ? ' checked' : '';
+          return `<li><label><input type="radio" name="${prefix}" value="${item.id}"${checked} onchange="SHOP.setFilter('${prefix}', this.value)"> ${item.name}</label></li>`;
+        }).join('');
+      }
+
+      function setFilter(type, value) {
+        filters[type] = value;
+        currentPage = 1;
+        render();
+      }
+
+      function render() {
+        filters.query = document.getElementById('shop-search')?.value || '';
+        filters.sort = document.getElementById('sort-select')?.value || '';
+        const filtered = CELLVANY.filterProducts(filters);
+        const { items, page, total } = CELLVANY.paginate(filtered, currentPage, PER_PAGE);
+
+        document.getElementById('result-count').textContent = `Hiển thị ${items.length} / ${filtered.length} sản phẩm`;
+        CELLVANY.renderProductGrid('#shop-products', items);
+        renderPagination(total, page);
+      }
+
+      function renderPagination(totalPages, current) {
+        const container = document.getElementById('shop-pagination');
+        if (totalPages <= 1) { container.innerHTML = ''; return; }
+        let html = '';
+        html += `<button ${current === 1 ? 'disabled' : ''} onclick="SHOP.goPage(${current - 1})">← Prev</button>`;
+        for (let i = 1; i <= totalPages; i++) {
+          if (totalPages > 7 && i > 3 && i < totalPages - 1 && i !== current) {
+            if (i === 4 || i === totalPages - 2) html += `<button disabled>...</button>`;
+            continue;
+          }
+          html += `<button class="${i === current ? 'active' : ''}" onclick="SHOP.goPage(${i})">${i}</button>`;
+        }
+        html += `<button ${current === totalPages ? 'disabled' : ''} onclick="SHOP.goPage(${current + 1})">Next →</button>`;
+        container.innerHTML = html;
+      }
+
+      function goPage(p) { currentPage = p; render(); window.scrollTo({ top: 300, behavior: 'smooth' }); }
+
+      async function init() {
+        await CELLVANY.loadData();
+        getFiltersFromURL();
+        const data = await CELLVANY.loadData();
+        document.getElementById('category-filters').innerHTML =
+          `<li><label><input type="radio" name="category" value="" ${!filters.category ? 'checked' : ''} onchange="SHOP.setFilter('category','')"> Tất cả</label></li>` +
+          data.categories.map(c => `<li><label><input type="radio" name="category" value="${c.id}" ${filters.category === c.id ? 'checked' : ''} onchange="SHOP.setFilter('category','${c.id}')"> ${c.name}</label></li>`).join('');
+        document.getElementById('type-filters').innerHTML =
+          `<li><label><input type="radio" name="type" value="" ${!filters.category ? 'checked' : ''} onchange="SHOP.setFilter('category','')"> Tất cả</label></li>` +
+          data.categories.map(c => `<li><label><input type="radio" name="type" value="${c.id}" ${filters.category === c.id ? 'checked' : ''} onchange="SHOP.setFilter('category','${c.id}')"> ${c.name}</label></li>`).join('');
+        document.getElementById('stage-filters').innerHTML =
+          `<li><label><input type="radio" name="stage" value="" ${!filters.stage ? 'checked' : ''} onchange="SHOP.setFilter('stage','')"> Tất cả</label></li>` +
+          data.stages.map(s => `<li><label><input type="radio" name="stage" value="${s.id}" ${filters.stage === s.id ? 'checked' : ''} onchange="SHOP.setFilter('stage','${s.id}')"> ${s.icon} ${s.name}</label></li>`).join('');
+        render();
+      }
+
+      return { init, setFilter, goPage, render };
+    })();
+
+    document.addEventListener('DOMContentLoaded', SHOP.init);
+  </script>
 </body>
-
 </html>

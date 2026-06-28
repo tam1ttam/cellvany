@@ -1,0 +1,70 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "title": "Cách Chăm Sóc Da Mẹ Bỉm Sữa Đúng Cách",
+      "excerpt": "Làn da mẹ sau sinh thay đổi rõ rệt. Cùng CELLVANY khám phá quy trình skincare an toàn cho mẹ bỉm sữa, giúp da căng mịn và khỏe mạnh trở lại.",
+      "content": "<p>Sau khi sinh, cơ thể mẹ trải qua nhiều thay đổi nội tiết tố mạnh mẽ, ảnh hưởng trực tiếp đến làn da. Da có thể trở nên khô, nhạy cảm, hoặc thậm chí bị mụn trứng cá trở lại. Việc xây dựng một quy trình chăm sóc da phù hợp là vô cùng quan trọng.</p><h3>Bước 1: Làm Sạch</h3><p>Sử dụng sữa rửa mặt dịu nhẹ với độ pH 5.5, không chứa sulfate. Sản phẩm của CELLVANY sử dụng chiết xuất hoa cúc xu và rau má vùng cao, giúp làm sạch nhẹ nhàng mà không làm khô da.</p><h3>Bước 2: Dưỡng Ẩm</h3><p>Serum cấp ẩm với Vitamin B3 và HA đa tầng giúp thẩm thấu nhanh, nuôi dưỡng da từ bên trong. Thành phần tự nhiên an toàn cho cả mẹ và bé.</p><h3>Bước 3: Khóa Ẩm</h3><p>Kem dưỡng khóa ẩm với Ceramide từ mầm yến mạch giúp giữ lại các dưỡng chất, bảo vệ da khỏi tác hại từ môi trường.</p>",
+      "author": "CELLVANY Team",
+      "date": "2024-12-15",
+      "image": "Cach_cham_soc_da_me_bim_sua_dung_cach.jpeg",
+      "category": "Chăm Sóc Da",
+      "tags": ["skincare", "mẹ bỉm sữa", "da nhạy cảm"]
+    },
+    {
+      "id": 2,
+      "title": "Bí Quyết Chống Rạn Da Trong Thai Kỳ",
+      "excerpt": "Rạn da là nỗi lo của nhiều mẹ bầu. Tìm hiểu cách ngăn ngừa và làm mờ vết rạn da tự nhiên với dầu Argan và dầu tầm xuân từ tháng thứ 3.",
+      "content": "<p>Trong thai kỳ, da vùng bụng, đùi và ngực dễ bị kéo căng, gây đứt gãy sợi collagen và hình thành vết rạn da. Việc ngăn ngừa sớm từ tháng thứ 3 là chìa khóa quan trọng.</p><h3>Nguyên Nhân Rạn Da</h3><p>Hormone relaxin làm giảm độ đàn hồi của da, kết hợp với sự kéo căng nhanh của da trong thai kỳ. Các yếu tố di truyền cũng đóng vai trò.</p><h3>Giải Pháp Tự Nhiên</h3><p>Dầu Argan ép lạnh giàu Vitamin E và dầu tầm xuân giàu Vitamin A tự nhiên giúp tăng cường độ đàn hồi, kích thích sản sinh collagen. Massage nhẹ nhàng mỗi ngày từ tháng thứ 3.</p><h3>Mẹo Hiệu Quả</h3><p>Duy trì độ ẩm cho da, uống đủ nước, kết hợp với chế độ ăn giàu Vitamin C và E. Tránh tăng cân đột ngột.</p>",
+      "author": "CELLVANY Team",
+      "date": "2024-12-10",
+      "image": "Bi_quyet_chong_ran_da_trong_thai_ki.jpeg",
+      "category": "Chăm Sóc Đặc Trị",
+      "tags": ["rạn da", "mẹ bầu", "dầu tự nhiên"]
+    },
+    {
+      "id": 3,
+      "title": "Chăm Sóc Tóc Rụng Sau Sinh Cho Mẹ Bỉm",
+      "excerpt": "Rụng tóc sau sinh là hiện tượng phổ biến. Cùng tìm hiểu nguyên nhân và cách khắc phục với sản phẩm dầu gội thảo mộc thuần chay.",
+      "content": "<p>Rụng tóc sau sinh (telogen effluvium) là hiện tượng phổ biến ảnh hưởng đến 40-50% các mẹ sau sinh. Tuy nhiên, với chế độ chăm sóc phù hợp, tóc sẽ nhanh chóng phục hồi.</p><h3>Nguyên Nhân</h3><p>Sau sinh, hormone estrogen giảm đột ngột, khiến nhiều nang tóc chuyển sang giai đoạn nghỉ và rụng. Thay đổi nội tiết tố, căng thẳng và thiếu ngủ cũng là yếu tố thúc đẩy.</p><h3>Giải Pháp Từ CELLVANY</h3><p>Dầu gội phục hồi thảo mộc thuần chay với tinh chất bưởi năm roi, bồ kết tây và rễ đương quy giúp kích thích tuần hoàn máu dưới da đầu, nuôi dưỡng nang tóc khỏe mạnh từ gốc.</p><h3>Lối Sống Hỗ Trợ</h3><p>Ngủ đủ giấc, ăn đủ dinh dưỡng với protein, sắt và kẽm. Massage da đầu nhẹ nhàng mỗi ngày với dầu dừa nóng.</p>",
+      "author": "CELLVANY Team",
+      "date": "2024-12-05",
+      "image": "Cham_soc_toc_rung_sau_sinh_cho_me_bim.jpeg",
+      "category": "Chăm Sóc Tóc",
+      "tags": ["tóc rụng", "mẹ bỉm sữa", "dầu gội thảo mộc"]
+    },
+    {
+      "id": 4,
+      "title": "Skincare Cho Bé Sơ Sinh: Lưu Ý Quan Trọng",
+      "excerpt": "Làn da bé sơ sinh cực kỳ nhạy cảm. Các mẹ cần biết cách chăm sóc da bé đúng cách với sản phẩm an toàn, không hương liệu nhân tạo.",
+      "content": "<p>Làn da bé sơ sinh mỏng manh hơn 30% so với da người lớn, dễ bị kích ứng và tổn thương. Việc lựa chọn sản phẩm chăm sóc da cho bé cần đặc biệt cẩn thận.</p><h3>Nguyên Tắc Vàng</h3><p>Chỉ sử dụng sản phẩm có thành phần tối giản, không hương liệu nhân tạo, không paraben, không sulfate. Ưu tiên các sản phẩm đạt chuẩn thực phẩm (food-grade).</p><h3>Quy Trình Chăm Sóc</h3><p>Sau tắm, thoa ngay lớp kem dưỡng ẩm để khóa ẩm. Sử dụng kem dưỡng làm dịu đầu ti cho các vùng da dễ bị kích ứng. Tránh dùng sản phẩm có hương thơm mạnh.</p><h3>Sản Phẩm CELLVANY Cho Bé</h3><p>Kem dưỡng ẩm làm dịu chàm sữa & hăm tã với chiết xuất súp lơ hoa vàng và oxit kẽm tự nhiên. Kem dưỡng thể lành tính cho mẹ & bé, 100% không hương liệu nhân tạo.</p>",
+      "author": "CELLVANY Team",
+      "date": "2024-11-28",
+      "image": "Skincare_cho_be_so_sinh_luu_y_quan_trongjpeg.jpeg",
+      "category": "Chăm Sóc Em Bé",
+      "tags": ["bé sơ sinh", "skincare", "kem dưỡng ẩm"]
+    },
+    {
+      "id": 5,
+      "title": "5 Sai Lầm Thường Gặp Khi Chăm Sóc Da Mẹ Bầu",
+      "excerpt": "Thai kỳ là thời điểm làn da cần được chăm sóc đặc biệt. Tránh những sai lầm phổ biến này để giữ làn da khỏe mạnh.",
+      "content": "<p>Trong thai kỳ, cơ thể mẹ trải qua nhiều thay đổi, và da cũng không ngoại lệ. Nhiều mẹ mắc phải những sai lầm khiến tình trạng da thêm tồi tệ.</p><h3>Sai Lầm #1: Bỏ Qua Kem Chống Nắng</h3><p>Nhiều mẹ nghĩ kem chống nắng không an toàn khi mang bầu. Thực tế, kem chống nắng vật lý với kẽm oxit tự nhiên là hoàn toàn an toàn và cần thiết.</p><h3>Sai Lầm #2: Sử Dụng Sản Phẩm Có Retinol</h3><p>Retinol và các dẫn xuất vitamin A có thể gây hại cho thai nhi. Thay thế bằng Vitamin B3 (Niacinamide) và HA tự nhiên.</p><h3>Sai Lầm #3: Không Thay Đổi Routine</h3><p>Da thay đổi theo từng giai đoạn thai kỳ. Cần điều chỉnh routine phù hợp với tình trạng da thực tế.</p><h3>Sai Lầm #4: Uống Không Đủ Nước</h3><p>Da khô là vấn đề phổ biến. Uống đủ 2-2.5 lít nước mỗi ngày giúp cải thiện độ ẩm da từ bên trong.</p><h3>Sai Lầm #5: Sử Dụng Mỹ Phẩm Không Rõ Nguồn Gốc</h3><p>Chỉ sử dụng sản phẩm có nguồn gốc rõ ràng, thành phần tự nhiên, đã được kiểm nghiệm an toàn cho mẹ bầu.</p>",
+      "author": "CELLVANY Team",
+      "date": "2024-11-20",
+      "image": "5_Sai_lam_thuong_gap_khi_cham_soc_da_me_bau.jpeg",
+      "category": "Chăm Sóc Da",
+      "tags": ["mẹ bầu", "skincare", "sai lầm"]
+    },
+    {
+      "id": 6,
+      "title": "Cách Massage Đầu Ti Cho Bé Mới Sinh",
+      "excerpt": "Massage đầu ti cho bé không chỉ giúp làm dịu mà còn tăng cường liên kết mẫu tử. Hướng dẫn chi tiết từ chuyên gia.",
+      "content": "<p>Massage đầu ti cho bé là hoạt động tuyệt vời giúp mẹ và bé gắn kết. Ngoài ra, nó còn giúp làm dịu khó chịu, giảm đầy hơi, thúc đẩy tiêu hóa và cải thiện giấc ngủ của bé.</p><h3>Thời Điểm Phù Hợp</h3><p>Massage sau khi tắm, khi bé đã no và không quá mệt. Tránh massage ngay sau khi bé ăn hoặc khi bé đang khóc.</p><h3>Kỹ Thuật Massage</h3><p>Sử dụng kem dưỡng làm dịu đầu ti của CELLVANY - công thức food-grade 100%, mẹ không cần lau rửa trước khi cho bé bú. Massage nhẹ nhàng theo hướng vòng tròn xung quanh đầu ti, sau đó chuyển đến ngực, bụng và chân tay.</p><h3>Lợi Ích</h3><p>Tăng cường liên kết mẫu tử, giảm đầy hơi và khó chịu, cải thiện giấc ngủ, kích thích sự phát triển cảm giác của bé.</p>",
+      "author": "CELLVANY Team",
+      "date": "2024-11-15",
+      "image": "cach_massage_dau_ti_cho_be_moi_sinh.jpeg",
+      "category": "Chăm Sóc Em Bé",
+      "tags": ["massage", "bé sơ sinh", "đầu ti"]
+    }
+  ]
+}

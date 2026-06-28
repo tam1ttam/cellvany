@@ -2,881 +2,882 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>CELLVANY - Sắc Đẹp Thuần Chay</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        /* Header */
-        header {
-            background: #fff;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0px;
-            text-align: center;
-            line-height: 1;
-        }
-
-        .logo img {
-            height: 60px;
-            width: auto;
-            object-fit: contain;
-            display: block;
-            margin-bottom: -5px;
-        }
-
-        .logo-text {
-            font-size: 16px;
-            font-weight: bold;
-            color: #27ae60;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #27ae60;
-        }
-
-        .header-icons {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .header-icons a,
-        .header-icons button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            color: #333;
-        }
-
-        .buy-now-btn {
-            background: #229954;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        /* Hero Section */
-        .hero {
-            background-image: url('asset/hero.png');
-            background-size: cover;
-            background-position: left center;
-            background-repeat: no-repeat;
-            min-height: 600px;
-            padding: 60px 20px;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-text {
-            grid-column: 1 / 2;
-            max-width: 480px;
-        }
-
-        .hero-text span {
-            display: block;
-            color: #27ae60;
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
-        }
-
-        .hero-text h1 {
-            font-size: 56px;
-            margin-bottom: 22px;
-            color: #1a1a1a;
-            line-height: 1.12;
-            font-weight: 800;
-        }
-
-        .hero-text p {
-            font-size: 15px;
-            color: #555;
-            margin-bottom: 35px;
-            line-height: 1.8;
-        }
-
-        .hero-btn {
-            display: inline-block;
-            background: #1a1a1a;
-            color: white;
-            padding: 14px 48px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            font-size: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .hero-btn:hover {
-            background: #27ae60;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(39, 174, 96, 0.4);
-        }
-
-        .hero-image {
-            display: none;
-        }
-
-        .hero-video {
-            position: absolute;
-            right: 15px;
-            top: 40%;
-            transform: translateY(-50%);
-            width: 220px;
-            z-index: 3;
-        }
-
-        .hero-video-card {
-            background: white;
-            padding: 18px 16px;
-            border-radius: 13px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .hero-video-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .hero-video-thumb {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            border-radius: 10px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #f5ede2 0%, #eee4d8 100%);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-video-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .video-btn {
-            position: absolute;
-            width: 48px;
-            height: 48px;
-            background: #27ae60;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            box-shadow: 0 5px 16px rgba(39, 174, 96, 0.3);
-        }
-
-        .video-btn:hover {
-            background: #229954;
-            transform: scale(1.1);
-            box-shadow: 0 8px 22px rgba(39, 174, 96, 0.5);
-        }
-
-        .hero-video-content p {
-            font-size: 11px;
-            color: #555;
-            line-height: 1.5;
-            font-weight: 500;
-        }
-
-        /* Danh Mục Section */
-        .categories {
-            padding: 60px 20px;
-            background: #fff;
-        }
-
-        .categories-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            color: #333;
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .category-card {
-            background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .category-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .category-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-
-        .category-card h3 {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        /* Products Section */
-        .products {
-            padding: 60px 20px;
-            background: #fafafa;
-        }
-
-        .products-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .product-card {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-image {
-            background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 14px;
-        }
-
-        .product-info {
-            padding: 15px;
-        }
-
-        .product-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
-
-        .product-đánh giá {
-            color: #ffc107;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        .product-giá {
-            font-size: 18px;
-            font-weight: bold;
-            color: #27ae60;
-        }
-
-        .product-button {
-            width: 100%;
-            margin-top: 10px;
-            padding: 10px;
-            background: #333;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        /* Promo Section */
-        .promo {
-            background: linear-gradient(135deg, #27ae60 0%, #27ae60 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            margin: 40px 20px;
-            border-radius: 10px;
-        }
-
-        .promo h2 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .promo p {
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-
-        .promo-btn {
-            display: inline-block;
-            background: white;
-            color: #27ae60;
-            padding: 12px 40px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 40px 20px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 20px;
-            color: #27ae60;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-        }
-
-        .footer-section a:hover {
-            color: #27ae60;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            width: 40px;
-            height: 40px;
-            background: #333;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            color: #999;
-        }
-
-        @media (max-width: 1024px) {
-            .product-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 15px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-container {
-                padding: 0 15px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .hero {
-                min-height: 400px;
-                padding: 30px 15px;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .hero-text {
-                max-width: 100%;
-                text-align: left;
-            }
-
-            .hero-text h1 {
-                font-size: 32px;
-                margin-bottom: 12px;
-            }
-
-            .hero-text p {
-                font-size: 13px;
-            }
-
-            .hero-btn {
-                padding: 10px 30px;
-                font-size: 13px;
-            }
-
-            .hero-video {
-                position: static;
-                transform: none;
-                width: 240px;
-                margin: 15px auto 0;
-            }
-
-            .category-grid,
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-            }
-
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                font-size: 13px;
-            }
-
-            .header-container {
-                padding: 0 10px;
-            }
-
-            .logo {
-                font-size: 18px;
-            }
-
-            .header-icons {
-                gap: 8px;
-            }
-
-            .hero {
-                min-height: 320px;
-                padding: 20px 10px;
-            }
-
-            .hero-text h1 {
-                font-size: 22px;
-                line-height: 1.2;
-                margin-bottom: 8px;
-            }
-
-            .hero-text p {
-                font-size: 12px;
-                margin-bottom: 15px;
-            }
-
-            .hero-btn {
-                padding: 10px 25px;
-                font-size: 12px;
-            }
-
-            .hero-video {
-                width: 140px;
-                margin: 10px auto 0;
-            }
-
-            .hero-video-card {
-                padding: 12px;
-            }
-
-            .product-grid,
-            .category-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-
-            .product-card {
-                padding: 8px;
-            }
-
-            .product-name {
-                font-size: 13px;
-            }
-
-            .product-price {
-                font-size: 15px;
-            }
-
-            .section-title {
-                font-size: 22px;
-                margin-bottom: 15px;
-            }
-
-            .category-icon {
-                font-size: 32px;
-            }
-
-            .category-card h3 {
-                font-size: 15px;
-            }
-
-            .footer-section h3 {
-                font-size: 15px;
-            }
-
-            .footer-section ul li {
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .hero-text h1 {
-                font-size: 18px;
-            }
-
-            .hero {
-                min-height: 280px;
-            }
-
-            .hero-video {
-                width: 120px;
-            }
-
-            .section-title {
-                font-size: 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="google-site-verification" content="D69Hm64dx3FUfxAwfk_glKLRBbkAQxPe0yB6vdUC3KU" />
+  <title>CELLVANY - Sắc Đẹp Thuần Chay</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background: #fff;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0px;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .logo img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      margin-bottom: -5px;
+    }
+
+    .logo-text {
+      font-size: 16px;
+      font-weight: bold;
+      color: #27ae60;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #27ae60;
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .header-icons a,
+    .header-icons button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .buy-now-btn {
+      background: #229954;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url('asset/hero.png');
+      background-size: cover;
+      background-position: left center;
+      background-repeat: no-repeat;
+      min-height: 600px;
+      padding: 60px 20px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text {
+      grid-column: 1 / 2;
+      max-width: 480px;
+    }
+
+    .hero-text span {
+      display: block;
+      color: #27ae60;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-text h1 {
+      font-size: 56px;
+      margin-bottom: 22px;
+      color: #1a1a1a;
+      line-height: 1.12;
+      font-weight: 800;
+    }
+
+    .hero-text p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 35px;
+      line-height: 1.8;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: #1a1a1a;
+      color: white;
+      padding: 14px 48px;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      font-size: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero-btn:hover {
+      background: #27ae60;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(39, 174, 96, 0.4);
+    }
+
+    .hero-image {
+      display: none;
+    }
+
+    .hero-video {
+      position: absolute;
+      right: 15px;
+      top: 40%;
+      transform: translateY(-50%);
+      width: 220px;
+      z-index: 3;
+    }
+
+    .hero-video-card {
+      background: white;
+      padding: 18px 16px;
+      border-radius: 13px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-video-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .hero-video-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 10px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #f5ede2 0%, #eee4d8 100%);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-btn {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      background: #27ae60;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 5px 16px rgba(39, 174, 96, 0.3);
+    }
+
+    .video-btn:hover {
+      background: #229954;
+      transform: scale(1.1);
+      box-shadow: 0 8px 22px rgba(39, 174, 96, 0.5);
+    }
+
+    .hero-video-content p {
+      font-size: 11px;
+      color: #555;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    /* Danh Mục Section */
+    .categories {
+      padding: 60px 20px;
+      background: #fff;
+    }
+
+    .categories-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      color: #333;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .category-card {
+      background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+      opacity: 0.92;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .category-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .category-card h3 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    /* Products Section */
+    .products {
+      padding: 60px 20px;
+      background: #fafafa;
+    }
+
+    .products-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-image {
+      background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 14px;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .product-đánh giá {
+      color: #ffc107;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .product-giá {
+      font-size: 18px;
+      font-weight: bold;
+      color: #27ae60;
+    }
+
+    .product-button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* Promo Section */
+    .promo {
+      background: linear-gradient(135deg, #27ae60 0%, #27ae60 100%);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      margin: 40px 20px;
+      border-radius: 10px;
+    }
+
+    .promo h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .promo p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      background: white;
+      color: #27ae60;
+      padding: 12px 40px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 20px;
+      color: #27ae60;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-section a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      color: #27ae60;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      background: #333;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      color: #999;
+    }
+
+    @media (max-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 0 15px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .hero {
+        min-height: 400px;
+        padding: 30px 15px;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .hero-text {
+        max-width: 100%;
+        text-align: left;
+      }
+
+      .hero-text h1 {
+        font-size: 32px;
+        margin-bottom: 12px;
+      }
+
+      .hero-text p {
+        font-size: 13px;
+      }
+
+      .hero-btn {
+        padding: 10px 30px;
+        font-size: 13px;
+      }
+
+      .hero-video {
+        position: static;
+        transform: none;
+        width: 240px;
+        margin: 15px auto 0;
+      }
+
+      .category-grid,
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 13px;
+      }
+
+      .header-container {
+        padding: 0 10px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .header-icons {
+        gap: 8px;
+      }
+
+      .hero {
+        min-height: 320px;
+        padding: 20px 10px;
+      }
+
+      .hero-text h1 {
+        font-size: 22px;
+        line-height: 1.2;
+        margin-bottom: 8px;
+      }
+
+      .hero-text p {
+        font-size: 12px;
+        margin-bottom: 15px;
+      }
+
+      .hero-btn {
+        padding: 10px 25px;
+        font-size: 12px;
+      }
+
+      .hero-video {
+        width: 140px;
+        margin: 10px auto 0;
+      }
+
+      .hero-video-card {
+        padding: 12px;
+      }
+
+      .product-grid,
+      .category-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .product-card {
+        padding: 8px;
+      }
+
+      .product-name {
+        font-size: 13px;
+      }
+
+      .product-price {
+        font-size: 15px;
+      }
+
+      .section-title {
+        font-size: 22px;
+        margin-bottom: 15px;
+      }
+
+      .category-icon {
+        font-size: 32px;
+      }
+
+      .category-card h3 {
+        font-size: 15px;
+      }
+
+      .footer-section h3 {
+        font-size: 15px;
+      }
+
+      .footer-section ul li {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero-text h1 {
+        font-size: 18px;
+      }
+
+      .hero {
+        min-height: 280px;
+      }
+
+      .hero-video {
+        width: 120px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <img src="asset/logo.png" alt="CELLVANY Logo">
-                <span class="logo-text">CELLVANY</span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Trang Chủ</a></li>
-                    <li><a href="about.html">Về Chúng Tôi</a></li>
-                    <li><a href="shop.html">Cửa Hàng</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Liên Hệ</a></li>
-                </ul>
-            </nav>
-            <div class="header-icons">
-                <button>🔍</button>
-                <button>👤</button>
-                <button>❤️</button>
-                <a href="giỏ hàng.html">🛒 0</a>
-                <button class="buy-now-btn">Mua Ngay</button>
-            </div>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="asset/logo.png" alt="CELLVANY Logo">
+        <span class="logo-text">CELLVANY</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Trang Chủ</a></li>
+          <li><a href="about.html">Về Chúng Tôi</a></li>
+          <li><a href="shop.html">Cửa Hàng</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Liên Hệ</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <button>🔍</button>
+        <button>👤</button>
+        <button>❤️</button>
+        <a href="giỏ hàng.html">🛒 0</a>
+        <button class="buy-now-btn">Mua Ngay</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="trang chủ">
+    <div class="hero-content">
+      <div class="hero-text">
+        <span>Sắc Đẹp Thuần Chay</span>
+        <h1>Làm Đẹp Tự Nhiên Cho Các Mẹ Bầu</h1>
+        <p>CELLVANY - Mỹ phẩm thuần chay, không thử nghiệm trên động vật, giúp da tỏa sáng tự nhiên, được phát
+          triển đặc biệt cho các mẹ bầu. An toàn cho bạn và bé yêu.</p>
+        <a href="shop.html" class="hero-btn">Khám Phá Bộ Sưu Tập →</a>
+      </div>
+      <div class="hero-video">
+        <div class="hero-video-card">
+          <div class="hero-video-thumb">
+            <video width="100%" height="100%" style="border-radius: 10px; object-fit: cover;" autoplay muted loop>
+              <source src="asset/video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="hero-video-content">
+            <p>Mỹ phẩm hữu cơ cao cấp cho các mẹ bầu - An toàn, đã kiểm chứng và được các mẹ yêu thích.</p>
+          </div>
         </div>
-    </header>
+      </div>
+    </div>
+  </section>
 
-    <!-- Hero Section -->
-    <section class="hero" id="trang chủ">
-        <div class="hero-content">
-            <div class="hero-text">
-                <span>Sắc Đẹp Thuần Chay</span>
-                <h1>Làm Đẹp Tự Nhiên Cho Các Mẹ Bầu</h1>
-                <p>CELLVANY - Mỹ phẩm thuần chay, không thử nghiệm trên động vật, giúp da tỏa sáng tự nhiên, được phát
-                    triển đặc biệt cho các mẹ bầu. An toàn cho bạn và bé yêu.</p>
-                <a href="shop.html" class="hero-btn">Khám Phá Bộ Sưu Tập →</a>
-            </div>
-            <div class="hero-video">
-                <div class="hero-video-card">
-                    <div class="hero-video-thumb">
-                        <video width="100%" height="100%" style="border-radius: 10px; object-fit: cover;" autoplay muted
-                            loop>
-                            <source src="asset/video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="hero-video-content">
-                        <p>Mỹ phẩm hữu cơ cao cấp cho các mẹ bầu - An toàn, đã kiểm chứng và được các mẹ yêu thích.</p>
-                    </div>
-                </div>
-            </div>
+  <!-- Danh Mục -->
+  <section class="categories">
+    <div class="categories-container">
+      <h2 class="section-title">Danh Mục Sản Phẩm</h2>
+      <div class="category-grid">
+        <div class="category-card">
+          <div class="category-icon">👶</div>
+          <h3>Sản Phẩm Cho Mẹ Bầu</h3>
         </div>
-    </section>
-
-    <!-- Danh Mục -->
-    <section class="categories">
-        <div class="categories-container">
-            <h2 class="section-title">Danh Mục Sản Phẩm</h2>
-            <div class="category-grid">
-                <div class="category-card">
-                    <div class="category-icon">👶</div>
-                    <h3>Sản Phẩm Cho Mẹ Bầu</h3>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">🤱</div>
-                    <h3>Sản Phẩm Cho Mẹ Bỉm Sữa</h3>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">✨</div>
-                    <h3>Chăm Sóc Da</h3>
-                </div>
-            </div>
+        <div class="category-card">
+          <div class="category-icon">🤱</div>
+          <h3>Sản Phẩm Cho Mẹ Bỉm Sữa</h3>
         </div>
-    </section>
-
-    <!-- Sản Phẩm Nổi Bật -->
-    <section class="products" id="cửa-hàng">
-        <div class="products-container">
-            <h2 class="section-title">Sản Phẩm Nổi Bật</h2>
-
-            <!-- MUA THEO GIAI ĐOẠN (HIGHLIGHTED) -->
-            <h2
-                style="font-size: 28px; font-weight: bold; color: #27ae60; margin: 50px 0 30px; text-align: center; background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%); padding: 20px; border-radius: 10px;">
-                MUA THEO GIAI ĐOẠN (KHUYÊN DÙNG)</h2>
-
-            <!-- CHĂM SÓC MẸ MANG BẦU -->
-            <div style="margin-bottom: 40px; padding-left: 10px; border-left: 4px solid #27ae60;">
-                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">🤰 CHĂM SÓC MẸ MANG BẦU</h3>
-                <div class="product-grid">
-                    <div class="product-card">
-                        <div class="product-image">Chăm Sóc Mẹ Mang Bầu</div>
-                        <div class="product-info">
-                            <div class="product-name">✨ Dầu Thoa Ngăn Ngừa Rạn Da Hữu Cơ</div>
-                            <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Đặc
-                                Trị Rạn Da</p>
-                            <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Dầu Argan ép lạnh
-                                và dầu tầm xuân. Từ tháng thứ 3 thai kỳ để ngăn chặn sự đứt gãy sợi collagen.</p>
-                            <div class="product-giá">420.000₫</div>
-                            <button class="product-button">Thêm Vào Giỏ</button>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">Chăm Sóc Mẹ Mang Bầu</div>
-                        <div class="product-info">
-                            <div class="product-name">✨ Kem Dưỡng Ẩm Ngăn Ngừa Sạm Nám Thai Kỳ</div>
-                            <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Ngăn
-                                Nám & Sạm</p>
-                            <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Chiết xuất Vitamin
-                                C tự nhiên và peptide dưỡng. Ngăn ngừa sạm nám thai kỳ, dưỡng ẩm sâu cho mẹ bầu.</p>
-                            <div class="product-giá">380.000₫</div>
-                            <button class="product-button">Thêm Vào Giỏ</button>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">Chăm Sóc Mẹ Mang Bầu</div>
-                        <div class="product-info">
-                            <div class="product-name">✨ Kem Chống Nắng Vật Lý Bảo Vệ Dịu Nhẹ SPF 50+</div>
-                            <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chống
-                                Nắng</p>
-                            <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Kẽm oxit tự nhiên
-                                (Zinc Oxide) và chiết xuất trà xanh. Bảo vệ an toàn khi mang bầu, không hóa chất độc
-                                hại.</p>
-                            <div class="product-giá">350.000₫</div>
-                            <button class="product-button">Thêm Vào Giỏ</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Promo Banner -->
-            <div class="promo">
-                <h2>Mua Theo Giai Đoạn - Tiết Kiệm Hơn</h2>
-                <p>Bộ sản phẩm chuyên biệt cho từng giai đoạn: mang bầu, bỉm sữa, và chăm sóc em bé</p>
-                <a href="products.html" class="promo-btn">Xem Đầy Đủ →</a>
-            </div>
-
-            <!-- Best Selling -->
-            <h2 class="section-title" style="margin-top: 60px;">Sản Phẩm Bán Chạy Nhất</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ Serum Cấp Ẩm & Dưỡng Sáng Mờ Thâm</div>
-                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
-                            Da</p>
-                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Vitamin B3 từ cám gạo
-                            và Hyaluronic Acid đa tầng. Khôi phục làn da rạng rỡ, mờ thâm quầng dưới mắt.</p>
-                        <div class="product-giá">450.000₫</div>
-                        <button class="product-button">Thêm Vào Giỏ</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ Kem Dưỡng Làm Dịu và Bảo Vệ Đầu Ti</div>
-                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
-                            Đặc Trị</p>
-                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Bơ cacao hữu cơ, sáp
-                            candelilla thực vật. Food-grade 100%, không cần lau rửa trước khi cho bé bú.</p>
-                        <div class="product-giá">200.000₫</div>
-                        <button class="product-button">Thêm Vào Giỏ</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ Dầu Gội Phục Hồi Thảo Mộc Thuần Chay</div>
-                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
-                            Tóc</p>
-                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Tinh chất bưởi năm
-                            roi, bồ kết tây, rễ đương quy. Giải quyết tận gốc nỗi lo rụng tóc sau sinh.</p>
-                        <div class="product-giá">320.000₫</div>
-                        <button class="product-button">Thêm Vào Giỏ</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">Chăm Sóc Em Bé</div>
-                    <div class="product-info">
-                        <div class="product-name">✨ Tắm Gội Toàn Thân 2-trong-1 Dịu Nhẹ cho Bé</div>
-                        <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Tắm Gội Em
-                            Bé</p>
-                        <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Chiết xuất bơ hữu cơ,
-                            protein lúa mạch. Dịu nhẹ với da non nớt của bé, không làm khô da.</p>
-                        <div class="product-giá">300.000₫</div>
-                        <button class="product-button">Thêm Vào Giỏ</button>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="products.html"
-                    style="display: inline-block; background: #27ae60; color: white; padding: 15px 40px; border-radius: 5px; text-decoration: none; font-weight: 600; font-size: 16px;">Xem
-                    Toàn Bộ Danh Mục →</a>
-            </div>
+        <div class="category-card">
+          <div class="category-icon">✨</div>
+          <h3>Chăm Sóc Da</h3>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>CELLVANY - Sắc Đẹp Thuần Chay Cho Mẹ Và Bé</h3>
-                <p style="margin-bottom: 20px;">Tải xuống ứng dụng di động của chúng tôi để nhận ưu đãi độc quyền và
-                    truy cập sớm vào các sản phẩm mới.</p>
-                <div class="social-icons">
-                    <a href="#">f</a>
-                    <a href="#">𝕏</a>
-                    <a href="#">in</a>
-                    <a href="#">📷</a>
-                </div>
+  <!-- Sản Phẩm Nổi Bật -->
+  <section class="products" id="cửa-hàng">
+    <div class="products-container">
+      <h2 class="section-title">Sản Phẩm Nổi Bật</h2>
+
+      <!-- MUA THEO GIAI ĐOẠN (HIGHLIGHTED) -->
+      <h2
+        style="font-size: 28px; font-weight: bold; color: #27ae60; margin: 50px 0 30px; text-align: center; background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%); padding: 20px; border-radius: 10px;">
+        MUA THEO GIAI ĐOẠN (KHUYÊN DÙNG)</h2>
+
+      <!-- CHĂM SÓC MẸ MANG BẦU -->
+      <div style="margin-bottom: 40px; padding-left: 10px; border-left: 4px solid #27ae60;">
+        <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">🤰 CHĂM SÓC MẸ MANG BẦU</h3>
+        <div class="product-grid">
+          <div class="product-card">
+            <div class="product-image">Chăm Sóc Mẹ Mang Bầu</div>
+            <div class="product-info">
+              <div class="product-name">✨ Dầu Thoa Ngăn Ngừa Rạn Da Hữu Cơ</div>
+              <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Đặc
+                Trị Rạn Da</p>
+              <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Dầu Argan ép lạnh
+                và dầu tầm xuân. Từ tháng thứ 3 thai kỳ để ngăn chặn sự đứt gãy sợi collagen.</p>
+              <div class="product-giá">420.000₫</div>
+              <button class="product-button">Thêm Vào Giỏ</button>
             </div>
-            <div class="footer-section">
-                <h3>CELLVANY</h3>
-                <ul>
-                    <li><a href="#">Trang Chủ</a></li>
-                    <li><a href="#">Về Chúng Tôi</a></li>
-                    <li><a href="#">Cửa Hàng</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Liên Hệ</a></li>
-                </ul>
+          </div>
+          <div class="product-card">
+            <div class="product-image">Chăm Sóc Mẹ Mang Bầu</div>
+            <div class="product-info">
+              <div class="product-name">✨ Kem Dưỡng Ẩm Ngăn Ngừa Sạm Nám Thai Kỳ</div>
+              <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Ngăn
+                Nám & Sạm</p>
+              <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Chiết xuất Vitamin
+                C tự nhiên và peptide dưỡng. Ngăn ngừa sạm nám thai kỳ, dưỡng ẩm sâu cho mẹ bầu.</p>
+              <div class="product-giá">380.000₫</div>
+              <button class="product-button">Thêm Vào Giỏ</button>
             </div>
-            <div class="footer-section">
-                <h3>Thông Tin Liên Hệ</h3>
-                <ul>
-                    <li>📍 CELLVANY Việt Nam - TP. Hồ Chí Minh</li>
-                    <li>📧 <a href="mailto:info@cellvany.vn">info@cellvany.vn</a></li>
-                    <li>📧 <a href="mailto:support@cellvany.vn">support@cellvany.vn</a></li>
-                </ul>
+          </div>
+          <div class="product-card">
+            <div class="product-image">Chăm Sóc Mẹ Mang Bầu</div>
+            <div class="product-info">
+              <div class="product-name">✨ Kem Chống Nắng Vật Lý Bảo Vệ Dịu Nhẹ SPF 50+</div>
+              <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chống
+                Nắng</p>
+              <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Kẽm oxit tự nhiên
+                (Zinc Oxide) và chiết xuất trà xanh. Bảo vệ an toàn khi mang bầu, không hóa chất độc
+                hại.</p>
+              <div class="product-giá">350.000₫</div>
+              <button class="product-button">Thêm Vào Giỏ</button>
             </div>
+          </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 CELLVANY. Bảo lưu mọi quyền. | <a href="#">Điều Khoản Dịch Vụ</a> | <a href="#">Chính Sách
-                    Bảo Mật</a></p>
+      </div>
+
+      <!-- Promo Banner -->
+      <div class="promo">
+        <h2>Mua Theo Giai Đoạn - Tiết Kiệm Hơn</h2>
+        <p>Bộ sản phẩm chuyên biệt cho từng giai đoạn: mang bầu, bỉm sữa, và chăm sóc em bé</p>
+        <a href="products.html" class="promo-btn">Xem Đầy Đủ →</a>
+      </div>
+
+      <!-- Best Selling -->
+      <h2 class="section-title" style="margin-top: 60px;">Sản Phẩm Bán Chạy Nhất</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
+          <div class="product-info">
+            <div class="product-name">✨ Serum Cấp Ẩm & Dưỡng Sáng Mờ Thâm</div>
+            <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+              Da</p>
+            <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Vitamin B3 từ cám gạo
+              và Hyaluronic Acid đa tầng. Khôi phục làn da rạng rỡ, mờ thâm quầng dưới mắt.</p>
+            <div class="product-giá">450.000₫</div>
+            <button class="product-button">Thêm Vào Giỏ</button>
+          </div>
         </div>
-    </footer>
+        <div class="product-card">
+          <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
+          <div class="product-info">
+            <div class="product-name">✨ Kem Dưỡng Làm Dịu và Bảo Vệ Đầu Ti</div>
+            <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+              Đặc Trị</p>
+            <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Bơ cacao hữu cơ, sáp
+              candelilla thực vật. Food-grade 100%, không cần lau rửa trước khi cho bé bú.</p>
+            <div class="product-giá">200.000₫</div>
+            <button class="product-button">Thêm Vào Giỏ</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">Chăm Sóc Mẹ Bỉm Sữa</div>
+          <div class="product-info">
+            <div class="product-name">✨ Dầu Gội Phục Hồi Thảo Mộc Thuần Chay</div>
+            <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Chăm Sóc
+              Tóc</p>
+            <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Tinh chất bưởi năm
+              roi, bồ kết tây, rễ đương quy. Giải quyết tận gốc nỗi lo rụng tóc sau sinh.</p>
+            <div class="product-giá">320.000₫</div>
+            <button class="product-button">Thêm Vào Giỏ</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">Chăm Sóc Em Bé</div>
+          <div class="product-info">
+            <div class="product-name">✨ Tắm Gội Toàn Thân 2-trong-1 Dịu Nhẹ cho Bé</div>
+            <p style="font-size: 11px; color: #27ae60; margin: 6px 0; text-transform: uppercase;">Tắm Gội Em
+              Bé</p>
+            <p style="font-size: 11px; color: #666; margin: 6px 0; line-height: 1.3;">Chiết xuất bơ hữu cơ,
+              protein lúa mạch. Dịu nhẹ với da non nớt của bé, không làm khô da.</p>
+            <div class="product-giá">300.000₫</div>
+            <button class="product-button">Thêm Vào Giỏ</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="products.html"
+          style="display: inline-block; background: #27ae60; color: white; padding: 15px 40px; border-radius: 5px; text-decoration: none; font-weight: 600; font-size: 16px;">Xem
+          Toàn Bộ Danh Mục →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>CELLVANY - Sắc Đẹp Thuần Chay Cho Mẹ Và Bé</h3>
+        <p style="margin-bottom: 20px;">Tải xuống ứng dụng di động của chúng tôi để nhận ưu đãi độc quyền và
+          truy cập sớm vào các sản phẩm mới.</p>
+        <div class="social-icons">
+          <a href="#">f</a>
+          <a href="#">𝕏</a>
+          <a href="#">in</a>
+          <a href="#">📷</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>CELLVANY</h3>
+        <ul>
+          <li><a href="#">Trang Chủ</a></li>
+          <li><a href="#">Về Chúng Tôi</a></li>
+          <li><a href="#">Cửa Hàng</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Liên Hệ</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Thông Tin Liên Hệ</h3>
+        <ul>
+          <li>📍 CELLVANY Việt Nam - TP. Hồ Chí Minh</li>
+          <li>📧 <a href="mailto:info@cellvany.vn">info@cellvany.vn</a></li>
+          <li>📧 <a href="mailto:support@cellvany.vn">support@cellvany.vn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 CELLVANY. Bảo lưu mọi quyền. | <a href="#">Điều Khoản Dịch Vụ</a> | <a href="#">Chính Sách
+          Bảo Mật</a></p>
+    </div>
+  </footer>
 </body>
 
 </html>

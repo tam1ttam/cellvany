@@ -1,0 +1,213 @@
+/* =========================================================
+   CELLVANY — Shared product-card styles & micro-animations
+   File này được asset/js/shared.js tự động nhúng vào MỌI
+   trang (qua injectStyles()), nên chỉ cần sửa 1 nơi là mọi
+   trang (shop, index, product, wishlist...) đều đồng bộ.
+   ========================================================= */
+
+/* ---- Product card: dùng flexbox để nút luôn nằm SÁT ĐÁY
+   card, không lệch nhau dù tên sản phẩm dài hay ngắn ---- */
+.cv-card {
+  font-size: 14px;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+  transition: transform .3s, box-shadow .3s;
+}
+
+.cv-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
+}
+
+.cv-card .product-image {
+  position: relative;
+  flex-shrink: 0;
+  height: 250px;
+  background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Cố định kích thước nhãn (Bestseller/New/...) để không bị
+   kế thừa font-size to từ ảnh chi tiết sản phẩm (product.html) */
+.cv-card .product-label {
+  position: absolute !important;
+  top: 10px;
+  left: 10px;
+  max-width: calc(100% - 20px);
+  background: #333;
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px !important;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cv-card .product-info {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  padding: 15px;
+}
+
+/* Giới hạn tên sản phẩm tối đa 2 dòng -> chiều cao đồng nhất */
+.cv-card .product-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 8px;
+  cursor: pointer;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: 40px;
+}
+
+.cv-card .product-đánh-giá {
+  color: #ffc107;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.cv-card .product-giá {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cv-card .giá-current {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* margin-top: auto -> luôn đẩy nút xuống đáy card */
+.cv-card .product-actions {
+  display: flex !important;
+  gap: 8px;
+  margin-top: auto !important;
+}
+
+.cv-card .product-actions button:first-child {
+  flex: 1;
+  padding: 8px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background .25s, transform .15s;
+}
+
+.cv-card .product-actions button:first-child:hover {
+  background: #27ae60;
+}
+
+.cv-card .wishlist-btn {
+  width: 38px;
+  flex: none !important;
+  padding: 8px;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all .25s;
+}
+
+.cv-card .wishlist-btn.active {
+  background: #e74c3c;
+  color: #fff;
+  border-color: #e74c3c;
+}
+
+/* ===================== Micro-animations =====================
+   Dùng cho: thêm vào giỏ, thêm/bỏ yêu thích, badge giỏ/yêu thích */
+@keyframes cvPop {
+  0% {
+    transform: scale(1)
+  }
+
+  35% {
+    transform: scale(1.35)
+  }
+
+  60% {
+    transform: scale(.9)
+  }
+
+  100% {
+    transform: scale(1)
+  }
+}
+
+@keyframes cvAddedRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(39, 174, 96, .55)
+  }
+
+  100% {
+    box-shadow: 0 0 0 14px rgba(39, 174, 96, 0)
+  }
+}
+
+@keyframes cvBadgeBump {
+  0% {
+    transform: scale(1)
+  }
+
+  30% {
+    transform: scale(1.6)
+  }
+
+  60% {
+    transform: scale(.85)
+  }
+
+  100% {
+    transform: scale(1)
+  }
+}
+
+@keyframes cvFadeOutCard {
+  to {
+    opacity: 0;
+    transform: scale(.85);
+  }
+}
+
+.cv-anim-added {
+  animation: cvAddedRing .55s ease-out;
+}
+
+.cv-pop {
+  animation: cvPop .4s ease;
+}
+
+.cv-bump {
+  animation: cvBadgeBump .4s ease;
+  display: inline-block;
+}
+
+.cv-removing {
+  animation: cvFadeOutCard .3s ease forwards;
+}
