@@ -5,29 +5,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Blog - CELLVANY | Kiến Thức Chăm Sóc Mẹ & Bé</title>
-<meta name="description" content="Blog Cellvany chia sẻ kiến thức chăm sóc tóc rụng sau sinh, da mẹ bầu, chăm sóc bé sơ sinh từ chuyên gia và mẹ bỉm sữa.">
-<meta name="keywords" content="blog mỹ phẩm thuần chay, chăm sóc tóc sau sinh, chăm sóc da mẹ bầu, chăm sóc bé sơ sinh, kiến thức mẹ và bé">
-<link rel="canonical" href="https://cellvany.vn/blog.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="description"
+    content="Blog Cellvany chia sẻ kiến thức chăm sóc tóc rụng sau sinh, da mẹ bầu, chăm sóc bé sơ sinh từ chuyên gia và mẹ bỉm sữa.">
+  <meta name="keywords"
+    content="blog mỹ phẩm thuần chay, chăm sóc tóc sau sinh, chăm sóc da mẹ bầu, chăm sóc bé sơ sinh, kiến thức mẹ và bé">
+  <link rel="canonical" href="https://cellvany.vn/blog.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://cellvany.vn/blog.html">
-<meta property="og:title" content="Blog - CELLVANY | Kiến Thức Chăm Sóc Mẹ & Bé">
-<meta property="og:description" content="Chia sẻ kiến thức chăm sóc tóc rụng sau sinh, da mẹ bầu, chăm sóc bé sơ sinh từ chuyên gia và mẹ bỉm sữa.">
-<meta property="og:image" content="https://cellvany.vn/asset/images/cellvany-blog-banner.webp">
-<meta property="og:locale" content="vi_VN">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cellvany.vn/blog.html">
+  <meta property="og:title" content="Blog - CELLVANY | Kiến Thức Chăm Sóc Mẹ & Bé">
+  <meta property="og:description"
+    content="Chia sẻ kiến thức chăm sóc tóc rụng sau sinh, da mẹ bầu, chăm sóc bé sơ sinh từ chuyên gia và mẹ bỉm sữa.">
+  <meta property="og:image" content="https://cellvany.vn/asset/images/cellvany-blog-banner.webp">
+  <meta property="og:locale" content="vi_VN">
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://cellvany.vn/blog.html">
-<meta name="twitter:title" content="Blog - CELLVANY | Kiến Thức Chăm Sóc Mẹ & Bé">
-<meta name="twitter:description" content="Chia sẻ kiến thức chăm sóc tóc rụng sau sinh, da mẹ bầu, chăm sóc bé sơ sinh từ chuyên gia và mẹ bỉm sữa.">
-<meta name="twitter:image" content="https://cellvany.vn/asset/images/cellvany-blog-banner.webp">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://cellvany.vn/blog.html">
+  <meta name="twitter:title" content="Blog - CELLVANY | Kiến Thức Chăm Sóc Mẹ & Bé">
+  <meta name="twitter:description"
+    content="Chia sẻ kiến thức chăm sóc tóc rụng sau sinh, da mẹ bầu, chăm sóc bé sơ sinh từ chuyên gia và mẹ bỉm sữa.">
+  <meta name="twitter:image" content="https://cellvany.vn/asset/images/cellvany-blog-banner.webp">
 
-<!-- JSON-LD: BreadcrumbList -->
-<script type="application/ld+json">
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -435,7 +439,7 @@
           return;
         }
         container.innerHTML = posts.map(post => `
-          <article class="blog-post cv-reveal" onclick="location.href='blog/' + ${post.slug} + '.html'">
+          <article class="blog-post" onclick="location.href='blog/${post.slug}.html'">
             ${blogImg(post.image, post.title)}
             <div class="blog-content">
               <h3>${post.title}</h3>
@@ -461,7 +465,7 @@
           }).join('');
 
         document.getElementById('recent-posts').innerHTML = allPosts.slice(0, 4).map(p => `
-          <div class="recent-post" onclick="location.href='blog/' + ${p.slug} + '.html'">
+         <div class="recent-post" onclick="location.href='blog/${p.slug}.html'">
             <h4>📅 ${new Date(p.date).toLocaleDateString('vi-VN')}</h4>
             <p>${p.title}</p>
           </div>

@@ -2,13 +2,10 @@ User-agent: *
 Allow: /
 Disallow: /asset/data/
 Disallow: /asset/img/
-Disallow: /Web/
 Disallow: /live-chat-widget/
-Disallow: /__MACOSX/
-Disallow: /*.json$
-Disallow: /wp-admin/
-Disallow: /wp-includes/
 Disallow: /admin/
-Disallow: /wp-login.php
+Disallow: /login/
+Disallow: /cart/
+Disallow: /thank-you.html
 
 Sitemap: https://cellvany.id.vn/sitemap.xml

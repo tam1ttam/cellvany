@@ -826,22 +826,30 @@ const CELLVANY = (() => {
     `;
   }
 
+  // function renderProductGrid(containerSelector = '.product-grid', items = null) {
+  //   const container = document.querySelector(containerSelector);
+  //   if (!container) return;
+  //   const data = items || products;
+  //   container.innerHTML = data.map(p => {
+  //     const html = productCardHTML(p);
+  //     // Wrap mỗi card trong cv-reveal
+  //     return html.replace('<div class="product-card cv-card"', '<div class="product-card cv-card cv-reveal"');
+  //   }).join('');
+  //   updateAllBadges();
+  //   // Trigger scroll reveal cho cards mới render
+  //   setTimeout(() => {
+  //     if (typeof revealObserverInstance !== 'undefined') {
+  //       document.querySelectorAll('.cv-reveal:not(.visible)').forEach(el => revealObserverInstance.observe(el));
+  //     }
+  //   }, 50);
+  // }
+
   function renderProductGrid(containerSelector = '.product-grid', items = null) {
     const container = document.querySelector(containerSelector);
     if (!container) return;
     const data = items || products;
-    container.innerHTML = data.map(p => {
-      const html = productCardHTML(p);
-      // Wrap mỗi card trong cv-reveal
-      return html.replace('<div class="product-card cv-card"', '<div class="product-card cv-card cv-reveal"');
-    }).join('');
+    container.innerHTML = data.map(p => productCardHTML(p)).join('');
     updateAllBadges();
-    // Trigger scroll reveal cho cards mới render
-    setTimeout(() => {
-      if (typeof revealObserverInstance !== 'undefined') {
-        document.querySelectorAll('.cv-reveal:not(.visible)').forEach(el => revealObserverInstance.observe(el));
-      }
-    }, 50);
   }
 
   // ─── Search toggle & global search ─────────────────────────────────
@@ -888,32 +896,32 @@ const CELLVANY = (() => {
 
     // ── Breadcrumb floating icons ──────────────────────────────────
     // fly1.png ~ fly5.png, lặp 2 lần để có đủ 10 vị trí
-    const bcImgs = [
-      'asset/img/fly1.png', 'asset/img/fly2.png', 'asset/img/fly3.png',
-      'asset/img/fly4.png', 'asset/img/fly5.png',
-      'asset/img/fly1.png', 'asset/img/fly2.png', 'asset/img/fly3.png',
-      'asset/img/fly4.png', 'asset/img/fly5.png',
-    ];
-    const bcPositions = [
-      { top: '10%', left: '3%' }, { top: '18%', left: '16%' },
-      { top: '8%', right: '3%' }, { top: '15%', right: '15%' },
-      { top: '58%', left: '2%' }, { top: '68%', left: '14%' },
-      { top: '60%', right: '2%' }, { top: '65%', right: '13%' },
-      { top: '38%', left: '1%' }, { top: '36%', right: '1%' },
-    ];
-    document.querySelectorAll('.breadcrumb').forEach(bc => {
-      if (bc.dataset.iconsAdded) return;
-      bc.dataset.iconsAdded = '1';
-      bcImgs.forEach((src, i) => {
-        const el = document.createElement('img');
-        el.className = 'cv-bc-icon';
-        el.src = src;
-        el.alt = '';
-        const pos = bcPositions[i] || { top: '50%', left: '50%' };
-        Object.assign(el.style, pos);
-        bc.insertBefore(el, bc.firstChild);
-      });
-    });
+    // const bcImgs = [
+    //   // 'asset/img/fly1.png', 'asset/img/fly2.png', 'asset/img/fly3.png',
+    //   // 'asset/img/fly4.png', 'asset/img/fly5.png',
+    //   // 'asset/img/fly1.png', 'asset/img/fly2.png', 'asset/img/fly3.png',
+    //   // 'asset/img/fly4.png', 'asset/img/fly5.png',
+    // ];
+    // const bcPositions = [
+    //   { top: '10%', left: '3%' }, { top: '18%', left: '16%' },
+    //   { top: '8%', right: '3%' }, { top: '15%', right: '15%' },
+    //   { top: '58%', left: '2%' }, { top: '68%', left: '14%' },
+    //   { top: '60%', right: '2%' }, { top: '65%', right: '13%' },
+    //   { top: '38%', left: '1%' }, { top: '36%', right: '1%' },
+    // ];
+    // document.querySelectorAll('.breadcrumb').forEach(bc => {
+    //   if (bc.dataset.iconsAdded) return;
+    //   bc.dataset.iconsAdded = '1';
+    //   bcImgs.forEach((src, i) => {
+    //     const el = document.createElement('img');
+    //     el.className = 'cv-bc-icon';
+    //     el.src = src;
+    //     el.alt = '';
+    //     const pos = bcPositions[i] || { top: '50%', left: '50%' };
+    //     Object.assign(el.style, pos);
+    //     bc.insertBefore(el, bc.firstChild);
+    //   });
+    // });
 
     // ── Scroll Reveal ──────────────────────────────────────────────
     revealObserverInstance = new IntersectionObserver((entries) => {

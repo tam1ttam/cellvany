@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const related = CELLVANY.blogs.filter(b => b.category === "Chăm Sóc Em Bé").slice(0, 3);
   if (related.length) {
     document.getElementById("related-grid").innerHTML = related.map(r => `
-      <a class="related-card" href="../blog/${r.slug}.html">
+      <a class="related-card" href="${r.slug}.html">
         <div class="blog-detail-image" style="height:150px;font-size:30px;margin-bottom:15px">📝</div>
         <h4>${r.title}</h4>
         <p>${new Date(r.date).toLocaleDateString("vi-VN")}</p>
