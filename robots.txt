@@ -1,8 +1,14 @@
 User-agent: *
 Allow: /
-Disallow: /cart.html
-Disallow: /checkout.html
-Disallow: /wishlist.html
+Disallow: /asset/data/
+Disallow: /asset/img/
+Disallow: /Web/
 Disallow: /live-chat-widget/
+Disallow: /__MACOSX/
+Disallow: /*.json$
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /admin/
+Disallow: /wp-login.php
 
-Sitemap: https://cellvany.vn/sitemap.xml
+Sitemap: https://cellvany.id.vn/sitemap.xml

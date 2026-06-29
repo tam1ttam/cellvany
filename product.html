@@ -318,7 +318,17 @@
             border-top: 1px solid #333;
             color: #999;
         }
-    </style>
+    
+@media (max-width: 480px) {
+  .product-detail { grid-template-columns: 1fr; }
+  .related-grid { grid-template-columns: 1fr; }
+  .product-detail .product-info h1 { font-size: 22px; }
+  .product-price { font-size: 22px; }
+  .breadcrumb h1 { font-size: 28px; }
+  .product-actions { flex-direction: column; }
+  .btn { width: 100%; text-align: center; }
+}
+</style>
 </head>
 
 <body> <!-- Header injected by shared.js -->

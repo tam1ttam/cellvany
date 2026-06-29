@@ -286,7 +286,14 @@
         grid-template-columns: 1fr;
       }
     }
-  </style>
+  
+@media (max-width: 480px) {
+  .checkout-container { padding: 15px; }
+  .form-group { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .order-summary { font-size: 14px; }
+}
+</style>
 </head>
 
 <body>

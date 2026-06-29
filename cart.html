@@ -53,7 +53,13 @@
       .cart-item { grid-template-columns: 60px 1fr; }
       .cart-item-actions { grid-column: 1 / -1; justify-content: flex-end; }
     }
-  </style>
+  
+@media (max-width: 768px) {
+  .cart-container { grid-template-columns: 1fr; }
+  .cart-items { overflow-x: auto; }
+  .cart-table { min-width: 500px; }
+}
+</style>
 </head>
 <body>
   <!-- Header injected by shared.js -->
