@@ -15,7 +15,10 @@
       "reviews": 12,
       "inStock": true,
       "badge": "Bestseller",
-      "image": "asset/img/dau_goi_phuc_hoi_thao_moc_thuan_chay.jpeg"
+      "image": "asset/img/dau_goi_phuc_hoi_thao_moc_thuan_chay.jpeg",
+      "metaDescription": "Dầu Gội Bưởi Năm Roi Cellvany: bưởi năm roi kháng khuẩn + đương quy kích thích mọc tóc. Không SLS, không paraben. An toàn khi cho con bú. Mua ngay.",
+      "h1": "Dầu Gội Phục Hồi Thảo Mộc Bưởi Năm Roi & Bồ Kết – Herbal Repair Shampoo Cellvany",
+      "h2": "Tại Sao Bưởi Năm Roi & Đương Quy Giúp Tóc Mẹ Sau Sinh Phục Hồi Từ Gốc?"
     },
     {
       "id": 2,
@@ -32,7 +35,10 @@
       "reviews": 8,
       "inStock": true,
       "badge": null,
-      "image": "asset/img/dau_xa_suon_muot_sinh_hoc.jpeg"
+      "image": "asset/img/dau_xa_suon_muot_sinh_hoc.jpeg",
+      "metaDescription": "Dầu Xả Suôn Mượt Sinh Học Cellvany: dầu dừa hữu cơ + bơ hạt mỡ nuôi dưỡng tóc bồng bềnh. Không silicon công nghiệp. An toàn khi cho con bú. Mua ngay.",
+      "h1": "Dầu Xả Suôn Mượt Sinh Học Thuần Chay – Thay Thế Silicon Cho Tóc Mẹ Sau Sinh",
+      "h2": "Dầu Dừa Hữu Cơ & Bơ Hạt Mỡ: Bộ Đôi Nuôi Dưỡng Tóc Suôn Mượt Tự Nhiên?"
     },
     {
       "id": 3,
@@ -49,7 +55,10 @@
       "reviews": 6,
       "inStock": true,
       "badge": "New",
-      "image": "asset/img/tinh_chat_tay_te_bao_chet_da_dau_tu_muoi_bien_bac_ha.jpeg"
+      "image": "asset/img/tinh_chat_tay_te_bao_chet_da_dau_tu_muoi_bien_bac_ha.jpeg",
+      "metaDescription": "Tinh Chất Tẩy Tế Bào Chết Da Đầu Cellvany: muối hồng Himalaya + tinh dầu bạc hà thông thoáng nang tóc. Không paraben. An toàn khi cho con bú. Mua ngay.",
+      "h1": "Tinh Chất Tẩy Tế Bào Chết Da Đầu Muối Biển & Bạc Hà – Giải Pháp Cho Da Đầu Bết Dầu Sau Sinh",
+      "h2": "Muối Hồng Himalaya & Tinh Dầu Bạc Hà: Thần Dược Thông Thoáng Da Đầu Nhanh Nhất?"
     },
     {
       "id": 4,
@@ -66,7 +75,10 @@
       "reviews": 15,
       "inStock": true,
       "badge": null,
-      "image": "asset/img/sua_rua_mat_tao_bot_diu_nhe.jpeg"
+      "image": "asset/img/sua_rua_mat_tao_bot_diu_nhe.jpeg",
+      "metaDescription": "Sữa Rửa Mặt Tạo Bọt Dịu Nhẹ Cellvany: hoa cúc xu + rau má làm sạch nhẹ, không khô căng. Không SLS, không paraben. An toàn khi cho con bú. Mua ngay.",
+      "h1": "Sữa Rửa Mặt Tạo Bọt Dịu Nhẹ – Làm Sạch Da Nhạy Cảm Mẹ Sau Sinh",
+      "h2": "Hoa Cúc Xu & Rau Má: Bộ Đôi Làm Sạch Nhẹ Nhàng Không Làm Khô Da?"
     },
     {
       "id": 5,
@@ -83,7 +95,10 @@
       "reviews": 20,
       "inStock": true,
       "badge": "Bestseller",
-      "image": "asset/img/serum_cap_am_duong_sang_mo_tham.jpeg"
+      "image": "asset/img/serum_cap_am_duong_sang_mo_tham.jpeg",
+      "metaDescription": "Serum Cấp Ẩm & Dưỡng Sáng Mờ Thâm Cellvany: HA đa tầng + Vitamin B3 cám gạo mờ thâm nám sau sinh. Không paraben. An toàn khi cho con bú. Mua ngay.",
+      "h1": "Serum Cấp Ẩm & Dưỡng Sáng Mờ Thâm – Phục Hồi Da Rạng Rỡ Sau Sinh",
+      "h2": "HA Đa Tầng + Vitamin B3 Cám Gạo: Bộ Đôi Làm Sáng Da & Mờ Thâm Nám Tự Nhiên?"
     },
     {
       "id": 6,
@@ -100,7 +115,10 @@
       "reviews": 10,
       "inStock": true,
       "badge": null,
-      "image": "asset/img/kem_duong_khoa_am_diu_da.jpeg"
+      "image": "asset/img/kem_duong_khoa_am_diu_da.jpeg",
+      "metaDescription": "Kem Dưỡng Khóa Ẩm Dịu Da Cellvany: Ceramide mầm yến mạch khóa ẩm suốt đêm. Không paraben, không hương liệu nhân tạo. An toàn khi cho con bú. Mua ngay.",
+      "h1": "Kem Dưỡng Khóa Ẩm Dịu Da Ceramide Mầm Yến Mạch – Bảo Vệ Da Mẹ Sau Sinh Suốt Đêm",
+      "h2": "Ceramide Từ Mầm Yến Mạch: Màng Lipid Thông Minh Khóa Chặt Dưỡng Chất?"
     },
     {
       "id": 7,
@@ -117,7 +135,10 @@
       "reviews": 9,
       "inStock": true,
       "badge": null,
-      "image": "asset/img/sua_tam_diu_nhe_cap_am.jpeg"
+      "image": "asset/img/sua_tam_diu_nhe_cap_am.jpeg",
+      "metaDescription": "Sữa Tắm Dịu Nhẹ Cấp Ẩm Cellvany: tinh dầu oải hương Pháp + gel nha đam cấp nước dịu nhẹ. Không xà phòng công nghiệp. An toàn khi cho con bú. Mua ngay.",
+      "h1": "Sữa Tắm Dịu Nhẹ Cấp Ẩm Tinh Dầu Oải Hương – Không Gian Spa Cho Mẹ Sau Sinh",
+      "h2": "Tinh Dầu Oải Hương Pháp & Gel Nha Đam: Bộ Đôi Cấp Ẩm & Xoa Dịu Thần Kinh?"
     },
     {
       "id": 8,
@@ -134,7 +155,10 @@
       "reviews": 7,
       "inStock": true,
       "badge": null,
-      "image": "asset/img/dau_tay_trang_hoa_tra.jpeg"
+      "image": "asset/img/dau_tay_trang_hoa_tra.jpeg",
+      "metaDescription": "Dầu Tẩy Trang Hoa Trà & Squalane Cellvany: dầu hoa trà Nhật Bản nhũ hóa nhẹ, không cần bông tẩy trang chà xát. Không paraben. An toàn khi cho con bú. Mua ngay.",
+      "h1": "Dầu Tẩy Trang Hoa Trà & Squalane Thực Vật – Làm Sạch Sâu Không Làm Tổn Thương Da",
+      "h2": "Dầu Hoa Trà Nhật Bản & Squalane Thực Vật: Bộ Đôi Tẩy Trang Dịu Nhẹ Cho Da Nhạy Cảm?"
     },
     {
       "id": 9,
@@ -151,7 +175,10 @@
       "reviews": 11,
       "inStock": true,
       "badge": null,
-      "image": "asset/img/xit_duong_chat_toner_mist_khoa_am_tinh_chat_hoa_hong_lo_hoi.jpeg"
+      "image": "asset/img/xit_duong_chat_toner_mist_khoa_am_tinh_chat_hoa_hong_lo_hoi.jpeg",
+      "metaDescription": "Xịt Dưỡng Chất Toner Mist Cellvany: nước cất hoa hồng hữu cơ + lô hội cân bằng pH chỉ 3 giây. Không hương liệu nhân tạo. An toàn khi cho con bú. Mua ngay.",
+      "h1": "Xịt Dưỡng Chất Toner Mist Khóa Ẩm Tinh Chất Hoa Hồng – Cấp Ẩm Tức Thì Cho Mẹ Bận Rộn",
+      "h2": "Nước Cất Hoa Hồng Hữu Cơ & Lô Hội: Bộ Đôi Làm Dịu & Cân Bằng Da Tức Thì?"
     },
     {
       "id": 10,
@@ -168,7 +195,10 @@
       "reviews": 18,
       "inStock": true,
       "badge": "Bestseller",
-      "image": "asset/img/kem_duong_lam_diu_va_bao_ve_dau_ti.jpeg"
+      "image": "asset/img/kem_duong_lam_diu_va_bao_ve_dau_ti.jpeg",
+      "metaDescription": "Kem Dưỡng Làm Dịu Đầu Ti Cellvany: bơ cacao hữu cơ + cúc xu làm dịu nứt cổ gà. Đạt chuẩn thực phẩm 100%. An toàn khi cho con bú. Mua ngay.",
+      "h1": "Kem Dưỡng Làm Dịu và Bảo Vệ Đầu Ti Thuần Chay – Giải Pháp Cho Nứt Cổ Gà Khi Cho Con Bú",
+      "h2": "Bơ Cacao Hữu Cơ & Chiết Xuất Cúc Xu: Công Thức Food-Grade Làm Dịu Tức Thì?"
     },
     {
       "id": 11,
@@ -185,7 +215,10 @@
       "reviews": 14,
       "inStock": true,
       "badge": null,
-      "image": "asset/img/kem_duong_the_lanh_tinh_cho_me_be.jpeg"
+      "image": "asset/img/kem_duong_the_lanh_tinh_cho_me_be.jpeg",
+      "metaDescription": "Kem Dưỡng Thể Lành Tính Cellvany: dầu hạnh nhân ngọt + Vitamin E xóa mờ rạn da, dưỡng ẩm toàn thân. Không hương liệu nhân tạo. An toàn cho mẹ & bé. Mua ngay.",
+      "h1": "Kem Dưỡng Thể Lành Tính Cho Mẹ & Bé – Dưỡng Ẩm Toàn Thân & Xóa Mờ Rạn Da",
+      "h2": "Dầu Hạnh Nhân Ngọt & Vitamin E Hướng Dương: Bộ Đôi Dưỡng Thể An Toàn Cho Cả Mẹ Và Bé?"
     },
     {
       "id": 12,
@@ -202,7 +235,10 @@
       "reviews": 22,
       "inStock": true,
       "badge": "Bestseller",
-      "image": "asset/img/dau_thoa_ngan_ngua_va_lam_mo_vet_ran_huu_co.jpeg"
+      "image": "asset/img/dau_thoa_ngan_ngua_va_lam_mo_vet_ran_huu_co.jpeg",
+      "metaDescription": "Dầu Thoa Ngăn Ngừa Rạn Da Hữu Cơ Cellvany: dầu Argan + dầu tầm xuân tăng cường độ đàn hồi từ tháng thứ 3. Không paraben. An toàn khi mang bầu. Mua ngay.",
+      "h1": "Dầu Thoa Ngăn Ngừa và Làm Mờ Vết Rạn Hữu Cơ – Bạn Đồng Hành Từ Tháng Thứ 3 Thai Kỳ",
+      "h2": "Dầu Argan Ép Lạnh & Dầu Tầm Xuân: Bộ Đôi Tăng Cường Độ Đàn Hồi Da Tối Đa?"
     },
     {
       "id": 13,
@@ -219,7 +255,10 @@
       "reviews": 16,
       "inStock": true,
       "badge": null,
-      "image": "asset/img/sua_tam_diu_nhe_cap_am.jpeg"
+      "image": "asset/img/sua_tam_diu_nhe_cap_am.jpeg",
+      "metaDescription": "Tắm Gội Toàn Thân 2-trong-1 Bé Cellvany: bơ hữu cơ + protein lúa mạch dịu nhẹ da non nớt. Không hương liệu nhân tạo. An toàn cho bé sơ sinh. Mua ngay.",
+      "h1": "Tắm Gội Toàn Thân 2-trong-1 Dịu Nhẹ Cho Bé Sơ Sinh – Nuôi Dưỡng Làn Da Non Nớt",
+      "h2": "Bơ Hữu Cơ & Protein Lúa Mạch: Bộ Đôi Bảo Vệ Lớp Màng Da Tự Nhiên Của Bé?"
     },
     {
       "id": 14,
@@ -236,7 +275,10 @@
       "reviews": 13,
       "inStock": true,
       "badge": null,
-      "image": "asset/img/kem_duong_lam_diu_va_bao_ve_dau_ti.jpeg"
+      "image": "asset/img/kem_duong_lam_diu_va_bao_ve_dau_ti.jpeg",
+      "metaDescription": "Kem Dưỡng Ẩm Làm Dịu Chàm Sữa & Hăm Tã Cellvany: súp lơ hoa vàng + oxit kẽm tự nhiên. Không corticoid. An toàn cho trẻ sơ sinh. Mua ngay.",
+      "h1": "Kem Dưỡng Ẩm Làm Dịu Chàm Sữa & Hăm Tã – Giải Pháp An Toàn Cho Da Bé Sơ Sinh",
+      "h2": "Chiết Xuất Súp Lơ Hoa Vàng & Oxit Kẽm Tự Nhiên: Bộ Đôi Kháng Viêm & Bảo Vệ Da Bé?"
     },
     {
       "id": 15,
@@ -253,7 +295,10 @@
       "reviews": 13,
       "inStock": true,
       "badge": null,
-      "image": "asset/img/kem_duong_lam_diu_va_bao_ve_dau_ti.jpeg"
+      "image": "asset/img/kem_duong_lam_diu_va_bao_ve_dau_ti.jpeg",
+      "metaDescription": "Dầu Gội Trị Rụng Tóc Sau Sinh Cellvany: thảo mộc thuần chay kích thích mọc tóc từ gốc. Không SLS, không paraben. An toàn khi cho con bú. Mua ngay.",
+      "h1": "Dầu Gội Trị Rụng Tóc Sau Sinh Thảo Mộc Thuần Chay – Phục Hồi Tóc Từ Gốc",
+      "h2": "Thảo Mộc Thuần Chay Kích Thích Mọc Tóc: Giải Pháp Cho Tóc Rụng Nhiều Sau Sinh?"
     }
   ],
   "categories": [

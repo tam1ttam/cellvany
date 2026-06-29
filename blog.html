@@ -435,7 +435,7 @@
           return;
         }
         container.innerHTML = posts.map(post => `
-          <article class="blog-post cv-reveal" onclick="location.href='blog_detail.html?id=${post.id}'">
+          <article class="blog-post cv-reveal" onclick="location.href='blog/' + ${post.slug} + '.html'">
             ${blogImg(post.image, post.title)}
             <div class="blog-content">
               <h3>${post.title}</h3>
@@ -445,7 +445,7 @@
                 <span>📂 ${post.category}</span>
               </div>
               <p class="blog-excerpt">${post.excerpt}</p>
-              <a href="blog_detail.html?id=${post.id}" class="view-details" onclick="event.stopPropagation()">Xem Chi Tiết →</a>
+              <a href="blog/${post.slug}.html" class="view-details" onclick="event.stopPropagation()">Xem Chi Tiết →</a>
             </div>
           </article>
         `).join('');
@@ -461,7 +461,7 @@
           }).join('');
 
         document.getElementById('recent-posts').innerHTML = allPosts.slice(0, 4).map(p => `
-          <div class="recent-post" onclick="location.href='blog_detail.html?id=${p.id}'">
+          <div class="recent-post" onclick="location.href='blog/' + ${p.slug} + '.html'">
             <h4>📅 ${new Date(p.date).toLocaleDateString('vi-VN')}</h4>
             <p>${p.title}</p>
           </div>

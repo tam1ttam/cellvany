@@ -1,12 +1,43 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="description"
-        content="Blog Cellvany chia sẻ kiến thức chăm sóc tóc rụng sau sinh, da mẹ bầu, chăm sóc bé sơ sinh từ chuyên gia và mẹ bỉm sữa.">
-    <title>Sản Phẩm - CELLVANY</title>
+       <title>Sản Phẩm - CELLVANY | Mỹ Phẩm Thuần Chay Cho Mẹ & Bé</title>
+<meta name="description" content="Khám phá bộ sưu tập mỹ phẩm thuần chay Cellvany: dầu gội bưởi năm roi, serum cám gạo, kem dưỡng... an toàn cho mẹ bầu và bé sơ sinh.">
+<meta name="keywords" content="mỹ phẩm thuần chay, dầu gội bưởi năm roi, serum cám gạo, chăm sóc da sau sinh, chăm sóc tóc sau sinh">
+<link rel="canonical" href="https://cellvany.vn/product.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Open Graph / Facebook (được set động theo sản phẩm) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cellvany.vn/product.html">
+<meta property="og:title" content="Sản Phẩm - CELLVANY | Mỹ Phẩm Thuần Chay Cho Mẹ & Bé">
+<meta property="og:description" content="Khám phá mỹ phẩm thuần chay Cellvany an toàn cho mẹ bầu và bé sơ sinh.">
+<meta property="og:image" content="https://cellvany.vn/asset/images/cellvany-product-default.webp">
+<meta property="og:locale" content="vi_VN">
+
+<!-- Twitter (được set động theo sản phẩm) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://cellvany.vn/product.html">
+<meta name="twitter:title" content="Sản Phẩm - CELLVANY | Mỹ Phẩm Thuần Chay Cho Mẹ & Bé">
+<meta name="twitter:description" content="Khám phá mỹ phẩm thuần chay Cellvany an toàn cho mẹ bầu và bé sơ sinh.">
+<meta name="twitter:image" content="https://cellvany.vn/asset/images/cellvany-product-default.webp">
+
+<!-- JSON-LD: BreadcrumbList (được set động) -->
+<script type="application/ld+json" id="breadcrumb-json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Trang chủ", "item": "https://cellvany.vn/" },
+    { "@type": "ListItem", "position": 2, "name": "Cửa hàng", "item": "https://cellvany.vn/shop.html" },
+    { "@type": "ListItem", "position": 3, "name": "Sản phẩm", "item": "https://cellvany.vn/product.html" }
+  ]
+}
+</script>
     <style>
         * {
             margin: 0;
@@ -312,15 +343,47 @@
                 const inWish = CELLVANY.isWishlisted(p.id);
                 const stars = '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating));
                 document.getElementById('breadcrumb-name').textContent = p.name;
+
+// Set động meta SEO theo từng sản phẩm
+const desc = p.metaDescription || (p.description || '').slice(0, 160);
+document.title = p.name + ' | Cellvany';
+const md = document.querySelector('meta[name="description"]');
+if (md) md.setAttribute('content', desc);
+document.querySelector('meta[name="keywords"]')?.setAttribute('content', p.category + ', ' + p.categoryEn + ', Cellvany, mỹ phẩm thuần chay');
+document.querySelector('link[rel="canonical"]')?.setAttribute('href', 'https://cellvany.vn/product.html?id=' + p.id);
+const ogTitle = document.querySelector('meta[property="og:title"]');
+if (ogTitle) ogTitle.setAttribute('content', p.name);
+const ogDesc = document.querySelector('meta[property="og:description"]');
+if (ogDesc) ogDesc.setAttribute('content', desc);
+if (p.image) {
+document.querySelector('meta[property="og:image"]')?.setAttribute('content', 'https://cellvany.vn/' + p.image);
+document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', 'https://cellvany.vn/' + p.image);
+}
+document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', p.name);
+document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', desc);
+const bcJson = document.getElementById('breadcrumb-json');
+if (bcJson) {
+bcJson.textContent = JSON.stringify({
+"@context": "https://schema.org",
+"@type": "BreadcrumbList",
+"itemListElement": [
+{ "@type": "ListItem", "position": 1, "name": "Trang chủ", "item": "https://cellvany.vn/" },
+{ "@type": "ListItem", "position": 2, "name": "Cửa hàng", "item": "https://cellvany.vn/shop.html" },
+{ "@type": "ListItem", "position": 3, "name": p.name, "item": "https://cellvany.vn/product.html?id=" + p.id }
+]
+});
+}
+
                 document.getElementById('product-detail').innerHTML = `
           <div class="product-detail">
             <div class="product-image">${p.image ? `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="font-size:40px;display:none;position:absolute">🧴</span>` : '🧴'}</div>
             <div class="product-info">
               <div class="product-category">${p.category}${p.stage ? ' · ' + p.stage : ''}</div>
-              <h1>${p.name}</h1>
+              <h1>${p.h1 || p.name}</h1>
               <div class="product-rating">${stars} <span>(${p.reviews} đánh giá · ${p.rating}/5)</span></div>
               <div class="product-price">${p.priceDisplay}</div>
               <p class="product-desc">${p.description}</p>
+${p.h2 ? `<h2 style="font-size:20px;color:#27ae60;margin:15px 0">${p.h2}</h2>` : ``}
               <div class="product-ingredients">
                 <h3>Thành Phần</h3>
                 <p>${p.ingredients}</p>
