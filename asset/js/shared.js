@@ -666,15 +666,7 @@ const CELLVANY = (() => {
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </button>
           <!-- User / Auth -->
-          <div style="display:flex;align-items:center;gap:6px">
-            <img data-user-avatar src="${user ? user.avatar : ''}" alt="avatar"
-                 style="width:32px;height:32px;border-radius:50%;cursor:pointer;border:2px solid #27ae60;display:${user ? '' : 'none'}"
-                 onerror="this.style.display='none'">
-            <button class="cv-login-btn" data-login-btn onclick="CELLVANY.showAuthModal()"
-                    style="display:${user ? 'none' : ''}">Đăng Nhập</button>
-            <button class="cv-login-btn" data-logout-btn onclick="CELLVANY.logout()"
-                    style="display:${user ? '' : 'none'};color:#e74c3c;border-color:#e74c3c">Đăng Xuất</button>
-          </div>
+          
           <!-- Wishlist -->
           <button class="cv-icon-btn" onclick="location.href='wishlist.html'" title="Yêu thích">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -713,10 +705,7 @@ const CELLVANY = (() => {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
             <span data-cart-count style="position:absolute;top:-4px;right:-4px;background:#e74c3c;color:#fff;font-size:9px;padding:1px 4px;border-radius:8px;border:1.5px solid #fff">0</span>
           </button>
-          <button class="cv-login-btn" data-login-btn onclick="CELLVANY.showAuthModal()"
-                  style="display:${user ? 'none' : ''}">Đăng Nhập</button>
-          <button class="cv-login-btn" data-logout-btn onclick="CELLVANY.logout()"
-                  style="display:${user ? '' : 'none'};color:#e74c3c;border-color:#e74c3c">Đăng Xuất</button>
+          
           <button class="buy-now-btn" onclick="location.href='shop.html'">Mua Ngay</button>
         </div>
       </div>
@@ -731,18 +720,7 @@ const CELLVANY = (() => {
       </div>
 
       <!-- Auth modal -->
-      <div id="cellvany-auth-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center">
-        <div style="background:#fff;border-radius:12px;padding:30px;max-width:360px;width:90%;text-align:center">
-          <h3 style="margin-bottom:20px">Đăng Nhập</h3>
-          <button onclick="CELLVANY.loginWith('google')" style="display:flex;align-items:center;gap:10px;width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer;margin-bottom:10px;font-size:14px">
-            <img src="https://ui-avatars.com/api/?name=G&background=4285F4&color=fff" style="width:24px;height:24px;border-radius:50%"> Đăng nhập với Google
-          </button>
-          <button onclick="CELLVANY.loginWith('facebook')" style="display:flex;align-items:center;gap:10px;width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer;font-size:14px">
-            <img src="https://ui-avatars.com/api/?name=f&background=1877F2&color=fff" style="width:24px;height:24px;border-radius:50%"> Đăng nhập với Facebook
-          </button>
-          <button onclick="document.getElementById('cellvany-auth-modal').style.display='none'" style="margin-top:15px;background:none;border:none;color:#999;cursor:pointer;font-size:13px">Đóng</button>
-        </div>
-      </div>
+      
     `;
     document.body.prepend(header);
   }
@@ -890,9 +868,7 @@ const CELLVANY = (() => {
       if (e.key === 'Enter' && document.activeElement?.id === 'global-search') doGlobalSearch();
     });
 
-    document.getElementById('cellvany-auth-modal')?.addEventListener('click', e => {
-      if (e.target.id === 'cellvany-auth-modal') e.target.style.display = 'none';
-    });
+
 
     // ── Breadcrumb floating icons ──────────────────────────────────
     // fly1.png ~ fly5.png, lặp 2 lần để có đủ 10 vị trí

@@ -372,6 +372,7 @@
       }
     }
   </style>
+  <link rel="icon" type="image/png" href="asset/logo.png">
 </head>
 
 <body>
@@ -439,20 +440,20 @@
           return;
         }
         container.innerHTML = posts.map(post => `
-          <article class="blog-post" onclick="location.href='blog/${post.slug}.html'">
-            ${blogImg(post.image, post.title)}
-            <div class="blog-content">
-              <h3>${post.title}</h3>
-              <div class="blog-meta">
-                <span>👤 ${post.author}</span>
-                <span>📅 ${new Date(post.date).toLocaleDateString('vi-VN')}</span>
-                <span>📂 ${post.category}</span>
-              </div>
-              <p class="blog-excerpt">${post.excerpt}</p>
-              <a href="blog/${post.slug}.html" class="view-details" onclick="event.stopPropagation()">Xem Chi Tiết →</a>
-            </div>
-          </article>
-        `).join('');
+  <article class="blog-post" onclick="location.href='blog_detail.html?id=${post.id}'">
+    ${blogImg(post.image, post.title)}
+    <div class="blog-content">
+      <h3>${post.title}</h3>
+      <div class="blog-meta">
+        <span>👤 ${post.author}</span>
+        <span>📅 ${new Date(post.date).toLocaleDateString('vi-VN')}</span>
+        <span>📂 ${post.category}</span>
+      </div>
+      <p class="blog-excerpt">${post.excerpt}</p>
+      <a href="blog_detail.html?id=${post.id}" class="view-details" onclick="event.stopPropagation()">Xem Chi Tiết →</a>
+    </div>
+  </article>
+`).join('');
       }
 
       function renderSidebar(posts) {
@@ -465,11 +466,11 @@
           }).join('');
 
         document.getElementById('recent-posts').innerHTML = allPosts.slice(0, 4).map(p => `
-         <div class="recent-post" onclick="location.href='blog/${p.slug}.html'">
-            <h4>📅 ${new Date(p.date).toLocaleDateString('vi-VN')}</h4>
-            <p>${p.title}</p>
-          </div>
-        `).join('');
+  <div class="recent-post" onclick="location.href='blog_detail.html?id=${p.id}'">
+    <h4>📅 ${new Date(p.date).toLocaleDateString('vi-VN')}</h4>
+    <p>${p.title}</p>
+  </div>
+`).join('');
 
         const allTags = allPosts.flatMap(p => p.tags || []);
         const uniqueTags = [...new Set(allTags)].slice(0, 10);

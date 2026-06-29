@@ -84,7 +84,7 @@ document.getElementById('blog-detail-container').innerHTML = `
 
 content = content.replace(old_js, new_js)
 
-# Add Article Schema JSON-LD before </head>
+# Add Article Schema JSON-LD before <link rel="icon" type="image/png" href="asset/logo.png"> </head>
 schema_block = """ <script type="application/ld+json" id="article-schema">
  {
  "@context": "https://schema.org",
@@ -110,8 +110,8 @@ schema_block = """ <script type="application/ld+json" id="article-schema">
  </script>"""
 
 content = content.replace(
-    '</head>',
-    schema_block + '\n</head>'
+    '<link rel="icon" type="image/png" href="asset/logo.png"> </head>',
+    schema_block + '\n<link rel="icon" type="image/png" href="asset/logo.png"> </head>'
 )
 
 with open('C:/Users/Tam/Downloads/cellvany/blog_detail.html', 'w', encoding='utf-8') as f:

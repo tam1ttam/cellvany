@@ -1,46 +1,209 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Danh Sách Yêu Thích - CELLVANY</title>
-<meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://cellvany.vn/wishlist.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://cellvany.vn/wishlist.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #fff; }
-    header { background: #fff; padding: 15px 0; box-shadow: 0 2px 5px rgba(0,0,0,.1); position: sticky; top: 0; z-index: 100; }
-    .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-    .logo { display: flex; flex-direction: column; align-items: center; gap: 0; text-align: center; }
-    .logo img { height: 60px; width: auto; object-fit: contain; display: block; margin-bottom: -5px; }
-    .logo-text { font-size: 16px; font-weight: bold; color: #27ae60; }
-    nav ul { list-style: none; display: flex; gap: 30px; }
-    nav a { text-decoration: none; color: #333; }
-    .header-icons { display: flex; gap: 20px; align-items: center; }
-    .header-icons button { background: none; border: none; cursor: pointer; font-size: 16px; }
-    .buy-now-btn { background: #229954; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: 600; }
-    .breadcrumb { background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%); padding: 40px 20px; text-align: center; }
-    .breadcrumb h1 { font-size: 40px; margin-bottom: 15px; }
-    .breadcrumb-nav { color: #999; }
-    .breadcrumb-nav a { color: #27ae60; text-decoration: none; }
-    .wishlist-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-    .wishlist-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .empty-wishlist { text-align: center; padding: 80px 20px; }
-    .empty-wishlist .icon { font-size: 60px; margin-bottom: 20px; }
-    .empty-wishlist h2 { margin-bottom: 10px; }
-    .empty-wishlist p { color: #999; margin-bottom: 20px; }
-    .empty-wishlist a { display: inline-block; background: #27ae60; color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: 600; }
-    footer { background: #1a1a1a; color: white; padding: 40px 20px; }
-    .footer-content { max-width: 1200px; margin: 0 auto; }
-    .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
-    .footer-bottom { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #333; color: #999; }
-    @media (max-width: 1024px) { .wishlist-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 768px) { .wishlist-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px) { .wishlist-grid { grid-template-columns: 1fr; } }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+
+    header {
+      background: #fff;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      text-align: center;
+    }
+
+    .logo img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      margin-bottom: -5px;
+    }
+
+    .logo-text {
+      font-size: 16px;
+      font-weight: bold;
+      color: #27ae60;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .header-icons button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .buy-now-btn {
+      background: #229954;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .breadcrumb {
+      background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .breadcrumb h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .breadcrumb-nav {
+      color: #999;
+    }
+
+    .breadcrumb-nav a {
+      color: #27ae60;
+      text-decoration: none;
+    }
+
+    .wishlist-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .wishlist-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .empty-wishlist {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .empty-wishlist .icon {
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+
+    .empty-wishlist h2 {
+      margin-bottom: 10px;
+    }
+
+    .empty-wishlist p {
+      color: #999;
+      margin-bottom: 20px;
+    }
+
+    .empty-wishlist a {
+      display: inline-block;
+      background: #27ae60;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      color: #999;
+    }
+
+    @media (max-width: 1024px) {
+      .wishlist-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .wishlist-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .wishlist-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
+  <link rel="icon" type="image/png" href="asset/logo.png">
 </head>
+
 <body>
   <!-- Header injected by shared.js -->
   <section class="breadcrumb">
@@ -76,4 +239,5 @@
     document.addEventListener('DOMContentLoaded', WISHLIST_PAGE.init);
   </script>
 </body>
+
 </html>
