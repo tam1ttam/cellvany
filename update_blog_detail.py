@@ -91,7 +91,7 @@ schema_block = """ <script type="application/ld+json" id="article-schema">
  "@type": "Article",
  "headline": "${post.title}",
  "description": "${post.metaDescription || post.title}",
- "image": "https://cellvany.vn/asset/img/${post.image}",
+ "image": "https://cellvany.id.vn/asset/img/${post.image}",
  "datePublished": "${post.date}",
  "dateModified": "${post.dateModified || post.date}",
  "author": {
@@ -103,7 +103,7 @@ schema_block = """ <script type="application/ld+json" id="article-schema">
  "name": "CELLVANY",
  "logo": {
  "@type": "ImageObject",
- "url": "https://cellvany.vn/asset/images/cellvany-logo.webp"
+ "url": "https://cellvany.id.vn/asset/logo.png"
  }
  }
  }

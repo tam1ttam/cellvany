@@ -2,9 +2,9 @@
 // Handles: cart, wishlist, search, auth, header/footer, product rendering
 
 const CELLVANY = (() => {
-  const DATA_URL = 'asset/data/data.json';
-  const VLOG_URL = 'asset/data/vlog.json';
-  const WISHLIST_URL = 'asset/data/wishlist.json';
+  const DATA_URL = '/asset/data/data.json';
+  const VLOG_URL = '/asset/data/vlog.json';
+  const WISHLIST_URL = '/asset/data/wishlist.json';
   const LS_CART = 'cellvany_cart';
   const LS_WISHLIST = 'cellvany_wishlist';
   const LS_USER = 'cellvany_user';
@@ -290,14 +290,7 @@ const CELLVANY = (() => {
 
 /* Các icon bay xung quanh — inject bằng JS */
 .cv-bc-icon {
-  position: absolute;
-  width: clamp(40px, 5vw, 72px);
-  height: clamp(40px, 5vw, 72px);
-  opacity: 0.7;
-  pointer-events: none;
-  z-index: 0;
-  object-fit: contain;
-  mix-blend-mode: multiply;
+  display: none !important;
 }
 .cv-bc-icon:nth-child(1)  { animation: cvFloat1 5.5s ease-in-out infinite; }
 .cv-bc-icon:nth-child(2)  { animation: cvFloat2 6.2s ease-in-out infinite; animation-delay:-.8s; }
@@ -652,17 +645,17 @@ const CELLVANY = (() => {
     header.id = 'cellvany-header';
     header.innerHTML = `
       <div class="header-container">
-        <div class="logo" onclick="location.href='index.html'">
-          <img src="asset/logo.png" alt="CELLVANY Logo" onerror="this.style.display='none'">
+        <a class="logo" href="/index.html" aria-label="Cellvany - Trang chủ" style="text-decoration:none">
+          <img src="/asset/logo.png" alt="CELLVANY Logo" onerror="this.style.display='none'">
           <span class="logo-text">CELLVANY</span>
-        </div>
+        </a>
         <nav>
           <ul>
-            <li><a href="index.html">Trang Chủ</a></li>
-            <li><a href="about.html">Về Chúng Tôi</a></li>
-            <li><a href="shop.html">Cửa Hàng</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Liên Hệ</a></li>
+            <li><a href="/index.html">Trang Chủ</a></li>
+            <li><a href="/about.html">Về Chúng Tôi</a></li>
+            <li><a href="/shop.html">Cửa Hàng</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/contact.html">Liên Hệ</a></li>
           </ul>
         </nav>
         <div class="header-icons">
@@ -673,16 +666,16 @@ const CELLVANY = (() => {
           <!-- User / Auth -->
           
           <!-- Wishlist -->
-          <button class="cv-icon-btn" onclick="location.href='wishlist.html'" title="Yêu thích">
+          <button class="cv-icon-btn" onclick="location.href='/wishlist.html'" title="Yêu thích">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             <span class="cv-badge" data-wishlist-count>0</span>
           </button>
           <!-- Cart -->
-          <button class="cv-icon-btn" onclick="location.href='cart.html'" title="Giỏ hàng">
+          <button class="cv-icon-btn" onclick="location.href='/cart.html'" title="Giỏ hàng">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
             <span class="cv-badge" data-cart-count>0</span>
           </button>
-          <button class="buy-now-btn" onclick="location.href='shop.html'">Mua Ngay</button>
+          <button class="buy-now-btn" onclick="location.href='/shop.html'">Mua Ngay</button>
         </div>
 
         <!-- Hamburger (mobile only) -->
@@ -693,25 +686,25 @@ const CELLVANY = (() => {
 
       <!-- Mobile drawer -->
       <div id="cv-mobile-nav">
-        <a href="index.html">Trang Chủ</a>
-        <a href="about.html">Về Chúng Tôi</a>
-        <a href="shop.html">Cửa Hàng</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Liên Hệ</a>
+        <a href="/index.html">Trang Chủ</a>
+        <a href="/about.html">Về Chúng Tôi</a>
+        <a href="/shop.html">Cửa Hàng</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/contact.html">Liên Hệ</a>
         <div class="mobile-icons">
           <button onclick="CELLVANY.toggleSearch()" title="Tìm kiếm" style="position:relative">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </button>
-          <button onclick="location.href='wishlist.html'" style="position:relative">
+          <button onclick="location.href='/wishlist.html'" style="position:relative">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             <span data-wishlist-count style="position:absolute;top:-4px;right:-4px;background:#e74c3c;color:#fff;font-size:9px;padding:1px 4px;border-radius:8px;border:1.5px solid #fff">0</span>
           </button>
-          <button onclick="location.href='cart.html'" style="position:relative">
+          <button onclick="location.href='/cart.html'" style="position:relative">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
             <span data-cart-count style="position:absolute;top:-4px;right:-4px;background:#e74c3c;color:#fff;font-size:9px;padding:1px 4px;border-radius:8px;border:1.5px solid #fff">0</span>
           </button>
           
-          <button class="buy-now-btn" onclick="location.href='shop.html'">Mua Ngay</button>
+          <button class="buy-now-btn" onclick="location.href='/shop.html'">Mua Ngay</button>
         </div>
       </div>
 
@@ -749,11 +742,11 @@ const CELLVANY = (() => {
           <div>
             <h4 style="color:#fff;margin-bottom:15px;font-size:16px">Liên Kết</h4>
             <p style="color:#999;font-size:14px;line-height:1.8">
-              <a href="index.html" style="color:#27ae60;text-decoration:none">Trang Chủ</a><br>
-              <a href="about.html" style="color:#27ae60;text-decoration:none">Về Chúng Tôi</a><br>
-              <a href="shop.html" style="color:#27ae60;text-decoration:none">Cửa Hàng</a><br>
-              <a href="blog.html" style="color:#27ae60;text-decoration:none">Blog</a><br>
-              <a href="contact.html" style="color:#27ae60;text-decoration:none">Liên Hệ</a>
+              <a href="/index.html" style="color:#27ae60;text-decoration:none">Trang Chủ</a><br>
+              <a href="/about.html" style="color:#27ae60;text-decoration:none">Về Chúng Tôi</a><br>
+              <a href="/shop.html" style="color:#27ae60;text-decoration:none">Cửa Hàng</a><br>
+              <a href="/blog.html" style="color:#27ae60;text-decoration:none">Blog</a><br>
+              <a href="/contact.html" style="color:#27ae60;text-decoration:none">Liên Hệ</a>
             </p>
           </div>
           <div>
@@ -783,12 +776,12 @@ const CELLVANY = (() => {
     const stars = '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating));
     return `
       <div class="product-card cv-card" data-product-id="${p.id}">
-        <div class="product-image" onclick="location.href='${p.blogUrl || `product.html?id=${p.id}`}'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" role="link" tabindex="0" aria-label="${p.blogUrl ? 'Đọc bài viết liên quan đến ' : 'Xem sản phẩm '}${p.name}">
+        <a class="product-image" href="${p.seoUrl || `/product.html?id=${p.id}`}" aria-label="Xem sản phẩm ${p.name}" style="text-decoration:none;color:inherit">
           <span class="product-label" ${p.badge ? `style="background:${p.badge === 'New' ? '#27ae60' : '#333'}"` : ''}>${p.badge || p.category}</span>
-          ${p.image ? `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="font-size:40px;display:none;position:absolute">🧴</span>` : '<span style="font-size:40px">🧴</span>'}
-        </div>
+          ${p.image ? `<img src="${p.image.startsWith('/') ? p.image : '/' + p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="font-size:40px;display:none;position:absolute">🧴</span>` : '<span style="font-size:40px">🧴</span>'}
+        </a>
         <div class="product-info">
-          <div class="product-name" onclick="location.href='product.html?id=${p.id}'">${p.name}</div>
+          <a class="product-name" href="${p.seoUrl || `/product.html?id=${p.id}`}" style="display:block;text-decoration:none;color:inherit">${p.name}</a>
           <div class="product-đánh-giá">${stars} <span style="color:#999;font-size:11px">(${p.reviews})</span></div>
           <div class="product-giá">
             <span class="giá-current">${p.priceDisplay}</span>
@@ -845,7 +838,7 @@ const CELLVANY = (() => {
   }
   function doGlobalSearch() {
     const q = document.getElementById('global-search')?.value || '';
-    if (q) location.href = `shop.html?search=${encodeURIComponent(q)}`;
+    if (q) location.href = `/shop.html?search=${encodeURIComponent(q)}`;
   }
 
   function toggleMobileNav() {
@@ -875,34 +868,8 @@ const CELLVANY = (() => {
 
 
 
-    // ── Breadcrumb floating icons ──────────────────────────────────
-    // fly1.png ~ fly5.png, lặp 2 lần để có đủ 10 vị trí
-    // const bcImgs = [
-    //   // 'asset/img/fly1.png', 'asset/img/fly2.png', 'asset/img/fly3.png',
-    //   // 'asset/img/fly4.png', 'asset/img/fly5.png',
-    //   // 'asset/img/fly1.png', 'asset/img/fly2.png', 'asset/img/fly3.png',
-    //   // 'asset/img/fly4.png', 'asset/img/fly5.png',
-    // ];
-    // const bcPositions = [
-    //   { top: '10%', left: '3%' }, { top: '18%', left: '16%' },
-    //   { top: '8%', right: '3%' }, { top: '15%', right: '15%' },
-    //   { top: '58%', left: '2%' }, { top: '68%', left: '14%' },
-    //   { top: '60%', right: '2%' }, { top: '65%', right: '13%' },
-    //   { top: '38%', left: '1%' }, { top: '36%', right: '1%' },
-    // ];
-    // document.querySelectorAll('.breadcrumb').forEach(bc => {
-    //   if (bc.dataset.iconsAdded) return;
-    //   bc.dataset.iconsAdded = '1';
-    //   bcImgs.forEach((src, i) => {
-    //     const el = document.createElement('img');
-    //     el.className = 'cv-bc-icon';
-    //     el.src = src;
-    //     el.alt = '';
-    //     const pos = bcPositions[i] || { top: '50%', left: '50%' };
-    //     Object.assign(el.style, pos);
-    //     bc.insertBefore(el, bc.firstChild);
-    //   });
-    // });
+    // Xóa các icon trang trí còn sót lại nếu trang được mở từ bản cache cũ.
+    document.querySelectorAll('.cv-bc-icon').forEach(el => el.remove());
 
     // ── Scroll Reveal ──────────────────────────────────────────────
     revealObserverInstance = new IntersectionObserver((entries) => {

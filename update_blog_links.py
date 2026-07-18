@@ -118,12 +118,12 @@ new_script = '''document.addEventListener('DOMContentLoaded', async () => {
     "headline": title,
     "description": metaDesc,
     "author": { "@type": "Organization", "name": "CELLVANY" },
-    "publisher": { "@type": "Organization", "name": "CELLVANY", "logo": { "@type": "ImageObject", "url": "https://cellvany.vn/asset/images/cellvany-logo.webp" } },
+    "publisher": { "@type": "Organization", "name": "CELLVANY", "logo": { "@type": "ImageObject", "url": "https://cellvany.id.vn/asset/logo.png" } },
     "datePublished": post.date || new Date().toISOString().split('T')[0],
     "dateModified": post.date || new Date().toISOString().split('T')[0],
-    "mainEntityOfPage": "https://cellvany.vn/blog/" + (post.slug || '') + ".html"
+    "mainEntityOfPage": "https://cellvany.id.vn/blog/" + (post.slug || '') + ".html"
   };
-  if (post.image) schema.image = 'https://cellvany.vn/asset/img/' + post.image;
+  if (post.image) schema.image = 'https://cellvany.id.vn/asset/img/' + post.image;
   const existingSchema = document.querySelector('script[type="application/ld+json"]');
   if (existingSchema && !existingSchema.textContent.includes('Article')) {
     existingSchema.setAttribute('type', 'application/ld+json');

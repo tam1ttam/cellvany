@@ -16,11 +16,15 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
+            set -e
             cd /root/cellvany
-            git pull origin static
+            git fetch origin static
+            git checkout static
+            git pull --ff-only origin static
             rsync -avz --delete \
               --exclude='.git' \
               --exclude='.github' \
+              --exclude='.claude' \
               --exclude='__MACOSX' \
               --exclude='*.py' \
               --exclude='*.md' \

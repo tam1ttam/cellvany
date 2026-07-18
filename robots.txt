@@ -1,10 +1,8 @@
 User-agent: *
 Allow: /
-Disallow: /asset/data/
 Disallow: /live-chat-widget/
 Disallow: /admin/
 Disallow: /login/
-Disallow: /cart/
 Disallow: /thank-you.html
 
 Sitemap: https://cellvany.id.vn/sitemap.xml

@@ -1,2 +1,6 @@
 # Ghi chú triển khai riêng trên máy cá nhân
 note.txt
+
+# Dữ liệu làm việc cục bộ
+.claude/
+__pycache__/
