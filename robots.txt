@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /asset/data/
-Disallow: /asset/img/
 Disallow: /live-chat-widget/
 Disallow: /admin/
 Disallow: /login/

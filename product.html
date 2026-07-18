@@ -417,11 +417,7 @@
               <div class="product-rating">${stars} <span>(${p.reviews} đánh giá · ${p.rating}/5)</span></div>
               <div class="product-price">${p.priceDisplay}</div>
               <p class="product-desc">${p.description}</p>
-${p.h2 ? `<h2 style="font-size:20px;color:#27ae60;margin:15px 0">${p.h2}</h2>` : ``}
-              <div class="product-ingredients">
-                <h3>Thành Phần</h3>
-                <p>${p.ingredients}</p>
-              </div>
+${p.h2 ? `<h2 style="font-size:20px;color:#27ae60;margin:15px 0">${p.blogUrl ? `<a href="${p.blogUrl}" style="color:inherit;text-decoration:none">${p.h2} →</a>` : p.h2}</h2>` : ``}
               <div class="product-actions">
                 <button class="btn btn-primary" onclick="CELLVANY.handleAddToCart(${p.id}, this)">🛒 Thêm Vào Giỏ</button>
                 <button class="btn btn-wishlist ${inWish ? 'active' : ''}" onclick="CELLVANY.handleWishlistClick(${p.id}, this)">${inWish ? '❤️' : '🤍'} Yêu Thích</button>

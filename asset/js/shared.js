@@ -469,7 +469,12 @@ const CELLVANY = (() => {
       fetch(VLOG_URL).then(r => r.json()).catch(() => ({ blogs: [] }))
     ]);
     products = pRes.products || [];
-    blogs = vRes.blogs || [];
+    // Chuẩn hóa cách diễn đạt cũ trong dữ liệu blog trước khi hiển thị.
+    blogs = (vRes.blogs || []).map(blog => {
+      const normalized = JSON.stringify(blog)
+        .replace(/ph\u1ee5c h\u1ed3i/gi, 'chăm sóc');
+      return JSON.parse(normalized);
+    });
     return { products, blogs, categories: pRes.categories || [], stages: pRes.stages || [] };
   }
 
@@ -778,7 +783,7 @@ const CELLVANY = (() => {
     const stars = '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating));
     return `
       <div class="product-card cv-card" data-product-id="${p.id}">
-        <div class="product-image" onclick="location.href='product.html?id=${p.id}'">
+        <div class="product-image" onclick="location.href='${p.blogUrl || `product.html?id=${p.id}`}'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" role="link" tabindex="0" aria-label="${p.blogUrl ? 'Đọc bài viết liên quan đến ' : 'Xem sản phẩm '}${p.name}">
           <span class="product-label" ${p.badge ? `style="background:${p.badge === 'New' ? '#27ae60' : '#333'}"` : ''}>${p.badge || p.category}</span>
           ${p.image ? `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="font-size:40px;display:none;position:absolute">🧴</span>` : '<span style="font-size:40px">🧴</span>'}
         </div>
