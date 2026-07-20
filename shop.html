@@ -153,28 +153,30 @@
     .shop-container {
       max-width: 1200px;
       margin: 40px auto;
-      display: grid;
-      grid-template-columns: 250px 1fr;
-      gap: 40px;
       padding: 0 20px;
     }
 
     .sidebar {
-      background: #fafafa;
-      padding: 20px;
-      border-radius: 8px;
-      height: fit-content;
-      position: sticky;
-      top: 100px;
+      display: grid;
+      grid-template-columns: minmax(220px, 1.15fr) minmax(300px, 1.8fr) minmax(300px, 1.8fr) minmax(170px, .8fr);
+      gap: 18px;
+      align-items: start;
+      background: #f7fbf8;
+      padding: 22px;
+      border: 1px solid #e1eee6;
+      border-radius: 14px;
+      margin-bottom: 26px;
+      box-shadow: 0 8px 24px rgba(31, 111, 72, .06);
     }
 
     .sidebar-section {
-      margin-bottom: 30px;
+      margin: 0;
+      min-width: 0;
     }
 
     .sidebar-section h3 {
       font-size: 16px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       font-weight: 600;
       color: #333;
     }
@@ -184,31 +186,52 @@
       padding: 10px;
       border: 1px solid #ddd;
       border-radius: 5px;
-      margin-bottom: 10px;
+      margin: 0;
       font-size: 14px;
     }
 
     .filter-list {
       list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 0;
+      margin: 0;
     }
 
     .filter-list li {
-      padding: 8px 0;
-      border-bottom: 1px solid #eee;
+      padding: 0;
+      border: 0;
     }
 
     .filter-list input {
-      margin-right: 8px;
-      cursor: pointer;
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
     }
 
     .filter-list label {
       cursor: pointer;
-      font-size: 14px;
+      display: block;
+      padding: 7px 11px;
+      font-size: 13px;
+      line-height: 1.25;
+      color: #4d5d54;
+      background: #fff;
+      border: 1px solid #dce8e0;
+      border-radius: 999px;
+      transition: .2s ease;
     }
 
     .filter-list label:hover {
       color: #27ae60;
+      border-color: #9dceb2;
+    }
+
+    .filter-list label:has(input:checked) {
+      color: #fff;
+      background: #238b57;
+      border-color: #238b57;
     }
 
     .active-filter {
@@ -343,7 +366,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 30px;
+      margin-bottom: 18px;
       flex-wrap: wrap;
       gap: 10px;
     }
@@ -425,6 +448,10 @@
     }
 
     @media (max-width: 1024px) {
+      .sidebar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .product-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -432,11 +459,13 @@
 
     @media (max-width: 768px) {
       .shop-container {
-        grid-template-columns: 1fr;
+        margin-top: 26px;
       }
 
       .sidebar {
-        position: static;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 18px;
       }
 
       .product-grid {
@@ -475,8 +504,8 @@
 
   <!-- Shop Content -->
   <div class="shop-container">
-    <!-- Sidebar Filters -->
-    <aside class="sidebar">
+    <!-- Horizontal product search and filters -->
+    <div class="sidebar" role="search" aria-label="Tra cứu và lọc sản phẩm">
       <div class="sidebar-section">
         <h3>Tìm Sản Phẩm</h3>
         <input type="text" id="shop-search" placeholder="Tìm kiếm sản phẩm..." oninput="SHOP.render()">
@@ -505,7 +534,7 @@
           <option value="name">Tên A → Z</option>
         </select>
       </div>
-    </aside>
+    </div>
 
     <!-- Products -->
     <section>
@@ -519,7 +548,7 @@
 
   <!-- Footer injected by shared.js -->
 
-  <script src="asset/js/shared.js?v=20260718"></script>
+  <script src="asset/js/shared.js?v=20260720"></script>
   <script>
     const SHOP = (() => {
       const PER_PAGE = 9;

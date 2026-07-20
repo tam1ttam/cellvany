@@ -876,7 +876,7 @@ const CELLVANY = (() => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
+          revealObserverInstance.unobserve(entry.target);
         }
       });
     }, { threshold: 0.12 });
